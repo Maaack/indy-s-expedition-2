@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://blat6y3xgu67s"]
+
+[ext_resource type="Script" uid="uid://da7xp1mprk4ai" path="res://scenes/stacked_sprites/stacked_sprite_2d.gd" id="1_hmunc"]
+
+[node name="StackedSprite2D" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+script = ExtResource("1_hmunc")
+
+[connection signal="texture_changed" from="." to="." method="_on_texture_changed"]

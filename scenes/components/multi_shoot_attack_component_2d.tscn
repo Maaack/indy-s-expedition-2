@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b51f8avbiqu7m"]
+
+[ext_resource type="PackedScene" uid="uid://dhs85i4jdcmj3" path="res://scenes/components/shoot_attack_component_2d.tscn" id="1_uxpix"]
+[ext_resource type="Script" uid="uid://c5frrid6nrkdx" path="res://scenes/components/multi_shoot_attack_component_2d.gd" id="2_kb0n0"]
+
+[node name="MultiShootAttackComponent2D" instance=ExtResource("1_uxpix")]
+script = ExtResource("2_kb0n0")
+projectile_count = 1
+spread_degrees = 0.0
+use_own_rotation = false

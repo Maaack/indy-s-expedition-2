@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8titloulmi72"]
+
+[ext_resource type="PackedScene" uid="uid://b5rbf5m7gucjo" path="res://scenes/components/attack_component_2d.tscn" id="1_w81mo"]
+[ext_resource type="Texture2D" path="res://Assets/Sourced/Icons/plain-circle.svg" id="2_je0gv"]
+[ext_resource type="Script" uid="uid://cvfqpmqanmwl6" path="res://scenes/components/stomp_attack_component_2d.gd" id="2_ovcl5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rih2w"]
+radius = 150.0
+
+[sub_resource type="Animation" id="Animation_2jyam"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TelegraphingSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackingSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox2D:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_o4vis"]
+resource_name = "StompAttack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TelegraphingSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackingSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox2D:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64m5o"]
+_data = {
+&"RESET": SubResource("Animation_2jyam"),
+&"StompAttack": SubResource("Animation_o4vis")
+}
+
+[node name="StompAttackComponent2D" instance=ExtResource("1_w81mo")]
+script = ExtResource("2_ovcl5")
+
+[node name="Hitbox2D" parent="." index="0"]
+monitorable = false
+
+[node name="CollisionShape2D" parent="Hitbox2D" index="0"]
+shape = SubResource("CircleShape2D_rih2w")
+
+[node name="TelegraphingSprite2D" type="Sprite2D" parent="." index="1"]
+visible = false
+modulate = Color(0.854902, 0.862745, 0.921569, 1)
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("2_je0gv")
+
+[node name="AttackingSprite2D" type="Sprite2D" parent="." index="2"]
+visible = false
+modulate = Color(0.803922, 0.623529, 0.513726, 1)
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("2_je0gv")
+
+[node name="AttackAnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_64m5o")
+}
+
+[editable path="Hitbox2D"]

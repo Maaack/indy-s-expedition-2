@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfm0qjo8jt58g"]
+
+[ext_resource type="Script" uid="uid://tfgmhpqaoc2n" path="res://scenes/components/hurt_animation_component.gd" id="1_fx37s"]
+
+[node name="HurtAnimationComponent" type="AnimationPlayer"]
+script = ExtResource("1_fx37s")

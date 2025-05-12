@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhs85i4jdcmj3"]
+
+[ext_resource type="Script" uid="uid://dreq25i23row8" path="res://scenes/components/shoot_attack_component_2d.gd" id="1_5wjhf"]
+
+[node name="ShootAttackComponent2D" type="Node2D"]
+script = ExtResource("1_5wjhf")
+team = 1
+
+[node name="Marker2D" type="Marker2D" parent="."]

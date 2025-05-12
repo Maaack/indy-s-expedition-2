@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqg0k0eixh03n"]
+
+[ext_resource type="Script" uid="uid://cy1p8ek0mhq10" path="res://scenes/base_level/boss_spawn_controller.gd" id="1_tkguq"]
+
+[node name="BossSpawnController" type="Node"]
+script = ExtResource("1_tkguq")
+
+[node name="NextBossDelayTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="NextBossDelayTimer" to="." method="_on_next_boss_delay_timer_timeout"]

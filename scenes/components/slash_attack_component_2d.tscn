@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqm3xh1xl6nam"]
+
+[ext_resource type="PackedScene" uid="uid://b5rbf5m7gucjo" path="res://scenes/components/attack_component_2d.tscn" id="1_crvj1"]
+[ext_resource type="Script" uid="uid://cjj0jvb70ge5c" path="res://scenes/components/slash_attack_component_2d.gd" id="2_4sbj4"]
+[ext_resource type="Texture2D" path="res://Assets/Sourced/Icons/quick-slash.svg" id="3_61yo6"]
+
+[sub_resource type="Animation" id="Animation_2jyam"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TelegraphingSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackingSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox2D:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_o4vis"]
+resource_name = "SlashAttack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TelegraphingSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackingSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox2D:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64m5o"]
+_data = {
+&"RESET": SubResource("Animation_2jyam"),
+&"SlashAttack": SubResource("Animation_o4vis")
+}
+
+[node name="SlashAttackComponent2D" instance=ExtResource("1_crvj1")]
+script = ExtResource("2_4sbj4")
+
+[node name="Hitbox2D" parent="." index="0"]
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox2D" index="1"]
+polygon = PackedVector2Array(20, -16, 135, -95, 155, -50, 160, 0, 155, 50, 135, 95, 20, 16, 28, 0)
+
+[node name="TelegraphingSprite2D" type="Sprite2D" parent="." index="1"]
+visible = false
+modulate = Color(0.854902, 0.862745, 0.921569, 1)
+position = Vector2(58.6, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_61yo6")
+
+[node name="AttackingSprite2D" type="Sprite2D" parent="." index="2"]
+visible = false
+modulate = Color(0.803922, 0.623529, 0.513726, 1)
+position = Vector2(58.6, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_61yo6")
+
+[node name="AttackAnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_64m5o")
+}
+
+[editable path="Hitbox2D"]

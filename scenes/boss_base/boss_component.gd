@@ -1,0 +1,2 @@
+class_name BossComponent
+extends ComponentBase

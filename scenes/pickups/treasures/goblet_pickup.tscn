@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://833vx8dfxs4u"]
+
+[ext_resource type="PackedScene" uid="uid://bgiujpubd1qar" path="res://scenes/pickups/pickup.tscn" id="1_kln2f"]
+[ext_resource type="PackedScene" uid="uid://blat6y3xgu67s" path="res://scenes/stacked_sprites/stacked_sprite_2d.tscn" id="2_ljbk5"]
+
+[node name="GobletPickup" instance=ExtResource("1_kln2f")]
+
+[node name="Sprite2D" parent="." index="1"]
+visible = false
+
+[node name="StackedSprite2D" parent="." index="2" instance=ExtResource("2_ljbk5")]

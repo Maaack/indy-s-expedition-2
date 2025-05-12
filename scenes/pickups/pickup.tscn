@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgiujpubd1qar"]
+
+[ext_resource type="Script" uid="uid://bo0sro37uaxf1" path="res://scenes/pickups/pickup.gd" id="1_a6xto"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkirr"]
+radius = 5.0
+
+[node name="Pickup" type="CharacterBody2D"]
+editor_description = "Pickup item, this characterbody node should only collide with walls and go through enemies and player (the PickedUpArea will detect when the player touched it)"
+collision_layer = 32
+motion_mode = 1
+script = ExtResource("1_a6xto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wkirr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkfn6xmy1qsm"]
+
+[ext_resource type="Script" uid="uid://co1b2ycg58n25" path="res://Scenes/PlayerCharacter/PickupCollector/PickupCollector.gd" id="1_1icwb"]
+
+[node name="PickupCollector" type="Node2D"]
+script = ExtResource("1_1icwb")
+
+[node name="PullArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PullArea2D"]
+
+[node name="CollectArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea2D"]
+
+[connection signal="body_entered" from="PullArea2D" to="." method="_on_pull_area_2d_body_entered"]
+[connection signal="body_exited" from="PullArea2D" to="." method="_on_pull_area_2d_body_exited"]
+[connection signal="body_entered" from="CollectArea2D" to="." method="_on_collect_area_2d_body_entered"]

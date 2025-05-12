@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://45bedc1kr5nb"]
+
+[ext_resource type="Script" uid="uid://cp6dgkrfv4b4x" path="res://scenes/components/attack_delay_component.gd" id="1_56u3n"]
+
+[node name="AttackDelayComponent" type="Timer"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource("1_56u3n")

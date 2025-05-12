@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://wbpr4ogebkpj"]
+
+[ext_resource type="Script" uid="uid://clb67wyouxoku" path="res://scenes/components/armor_component.gd" id="1_ouokr"]
+
+[node name="ArmorComponent" type="Area2D"]
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_ouokr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
