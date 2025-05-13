@@ -23,9 +23,6 @@ position = Vector2(672, 456)
 [node name="GobletPickup6" parent="CollectibleContainer" index="5" instance=ExtResource("2_hmmbt")]
 position = Vector2(80, 448)
 
-[node name="PlayerSpawnPoint" parent="." index="6"]
-position = Vector2(416, 576)
-
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." index="11"]
 volume_db = -9.0
 autoplay = true
