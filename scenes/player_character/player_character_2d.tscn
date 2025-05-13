@@ -18,7 +18,7 @@
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmxm4"]
-radius = 80.0
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p512y"]
 
@@ -1172,7 +1172,7 @@ position = Vector2(0, -2)
 texture = ExtResource("4_l5ol2")
 hframes = 9
 show_sprites = true
-sprite_rotation_offset = -1.56959
+sprite_rotation_offset = -1.5708
 
 [node name="HeadSprite2D" type="Sprite2D" parent="."]
 z_index = 1

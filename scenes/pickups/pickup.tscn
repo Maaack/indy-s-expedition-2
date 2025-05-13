@@ -7,6 +7,7 @@ radius = 5.0
 
 [node name="Pickup" type="CharacterBody2D"]
 editor_description = "Pickup item, this characterbody node should only collide with walls and go through enemies and player (the PickedUpArea will detect when the player touched it)"
+texture_filter = 1
 collision_layer = 32
 motion_mode = 1
 script = ExtResource("1_a6xto")

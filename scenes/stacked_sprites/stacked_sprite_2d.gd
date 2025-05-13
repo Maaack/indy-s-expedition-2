@@ -5,9 +5,9 @@ extends Sprite2D
 @export var show_sprites : bool = false : set = set_show_sprites
 @export var y_separation : float = 1.0
 @export var y_offset : float = 0.0
-@export_range(-PI, PI) var sprite_rotation_offset : float = 0 : set = set_sprite_rotation_offset
 
-var sprite_rotation : float = 0 : set = set_sprite_rotation
+@export_range(-180, 180, 0.01, "radians_as_degrees") var sprite_rotation : float = 0 : set = set_sprite_rotation
+@export_range(-180, 180, 0.01, "radians_as_degrees") var sprite_rotation_offset : float = 0
 
 func set_show_sprites(_show_sprites):
 	show_sprites = _show_sprites
@@ -20,12 +20,8 @@ func _update_sprite_rotations():
 	for sprite in get_children():
 		sprite.rotation = sprite_rotation + sprite_rotation_offset
 
-func set_sprite_rotation(new_rotation):
-	sprite_rotation = new_rotation
-	_update_sprite_rotations()
-
-func set_sprite_rotation_offset(new_rotation_offset):
-	sprite_rotation_offset = new_rotation_offset
+func set_sprite_rotation(value):
+	sprite_rotation = value
 	_update_sprite_rotations()
 
 func clear_sprites():
