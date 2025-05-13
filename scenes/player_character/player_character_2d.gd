@@ -62,6 +62,7 @@ func move_state(delta):
 		animate_run()
 	else:
 		velocity = velocity.move_toward(target_speed, friction * delta)
+	if target_speed.is_zero_approx():
 		animate_idle()
 	move_and_slide()
 	velocity = get_real_velocity()
