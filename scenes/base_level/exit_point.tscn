@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbuhf6ck8ejxb"]
+
+[ext_resource type="Script" uid="uid://ctkqo5fypb1fg" path="res://scenes/base_level/exit_point.gd" id="1_uwoce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8rcs"]
+radius = 30.0
+
+[node name="ExitPoint" type="Node2D"]
+script = ExtResource("1_uwoce")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_g8rcs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

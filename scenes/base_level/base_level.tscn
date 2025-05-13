@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://itheimf3fono"]
+[gd_scene load_steps=14 format=4 uid="uid://itheimf3fono"]
 
 [ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_bygya"]
 [ext_resource type="PackedScene" uid="uid://hji8le5si4gx" path="res://scenes/player_character/player_character_2d.tscn" id="4_kicwd"]
 [ext_resource type="Script" uid="uid://boq4n7lyt83w4" path="res://scenes/base_level/a_star_grid_server.gd" id="4_kwar3"]
+[ext_resource type="PackedScene" uid="uid://cbuhf6ck8ejxb" path="res://scenes/base_level/exit_point.tscn" id="5_0wob2"]
 [ext_resource type="Texture2D" uid="uid://c4378hu5cv62p" path="res://assets/sprite/navigation_point.png" id="5_rw8pa"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7iw4p"]
@@ -78,13 +79,6 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAfAAcAAAAAAAEAAAAgAAcAAAAAAAEAAAAhAAcAAAAAAAEAAAAiAAcAAAAAAAEAAAAjAAcAAAAAAAEAAAAkAAcAAAAAAAEAAAAlAAcAAAAAAAEAAAAmAAcAAAAAAAEAAAAnAAcAAAAAAAEAAAAoAAcAAAAAAAEAAAApAAcAAAAAAAEAAAAqAAcAAAAAAAEAAAArAAcAAAAAAAEAAAAsAAcAAAAAAAEAAAAtAAcAAAAAAAEAAAAuAAcAAAAAAAEAAAAvAAcAAAAAAAEAAAAwAAcAAAAAAAEAAAAxAAcAAAAAAAEAAAAyAAcAAAAAAAEAAAAzAAcAAAAAAAEAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAEAAAACAAAAAAAAAAEAAAADAAAAAAAAAAEAAAAEAAAAAAAAAAEAAAAFAAAAAAAAAAEAAAAGAAAAAAAAAAEAAAAHAAAAAAAAAAEAAAAIAAAAAAAAAAEAAAAJAAAAAAAAAAEAAAAKAAAAAAAAAAEAAAALAAAAAAAAAAEAAAAMAAAAAAAAAAEAAAANAAAAAAAAAAEAAAAOAAAAAAAAAAEAAAAPAAAAAAAAAAEAAAAQAAAAAAAAAAEAAAARAAAAAAAAAAEAAAASAAAAAAAAAAEAAAATAAAAAAAAAAEAAAAUAAAAAAAAAAEAAAAVAAAAAAAAAAEAAAAeAAcAAAAAAAEAAAAdAAcAAAAAAAEAAAAcAAcAAAAAAAEAAAAbAAcAAAAAAAEAAAAaAAcAAAAAAAEAAAAZAAcAAAAAAAEAAAAYAAcAAAAAAAEAAAAXAAcAAAAAAAEAAAAWAAcAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_bjwgp")
 
-[node name="RubbishContainer" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="SpawnerContainer" type="Node2D" parent="."]
-
-[node name="InteractablesContainer" type="Node2D" parent="."]
-
 [node name="CharacterContainer" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -92,9 +86,6 @@ y_sort_enabled = true
 position = Vector2(183, 175)
 
 [node name="CollectibleContainer" type="Node2D" parent="."]
-
-[node name="ProjectileContainer" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="Roof" type="TileMapLayer" parent="." groups=["walls"]]
 light_mask = 2
@@ -125,3 +116,6 @@ bus = &"SFX"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="ExitPoint" parent="." instance=ExtResource("5_0wob2")]
+position = Vector2(1643, 264)

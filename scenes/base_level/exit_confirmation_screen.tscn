@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://rv0h8s1dp5nx"]
+
+[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_wwc5a"]
+[ext_resource type="Script" uid="uid://bba3qwhuakegl" path="res://scenes/base_level/exit_confirmation_screen.gd" id="2_b8dbm"]
+
+[node name="ExitConfirmationScreen" instance=ExtResource("1_wwc5a")]
+process_mode = 3
+script = ExtResource("2_b8dbm")
+pauses_game = true
+
+[node name="MenuPanelContainer" parent="." index="1"]
+offset_left = -179.5
+offset_top = -95.0
+offset_right = 179.5
+offset_bottom = 95.0
+
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+text = "Really Exit?"
+
+[node name="DescriptionMargin" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="1"]
+visible = true
+
+[node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
+text = "[center]Are you sure you want to leave?[/center]"
+fit_content = true
+
+[node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
+size_flags_horizontal = 1
+theme_override_constants/separation = 64
+vertical = false
+
+[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+text = "No"
+
+[node name="YesButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
+layout_mode = 2
+text = "Yes"
+
+[connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/YesButton" to="." method="_on_yes_button_pressed"]
