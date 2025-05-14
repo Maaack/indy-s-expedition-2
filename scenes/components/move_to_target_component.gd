@@ -57,9 +57,9 @@ func _queue_move_sound():
 	if move_sound_player_2d != null and $SoundDelayTimer.is_stopped():
 		$SoundDelayTimer.start(move_sound_repeat_delay)
 
-func _move_to_target(target : Vector2, speed : float):
+func _move_to_target(target : Vector2, speed : float, delta : float):
 	var current_direction = target.normalized()
-	character_2D.velocity = current_direction * speed
+	character_2D.velocity = character_2D.velocity.move_toward(current_direction * speed, friction * delta)
 	if direction != current_direction:
 		direction = current_direction
 
@@ -68,7 +68,7 @@ func _process_movement(target : Vector2, speed : float, delta : float):
 		character_2D.velocity = character_2D.velocity.move_toward(Vector2.ZERO, friction * delta)
 		$SoundDelayTimer.stop()
 	else:
-		_move_to_target(target, speed * delta)
+		_move_to_target(target, speed, delta)
 		_queue_move_sound()
 	character_2D.move_and_slide()
 

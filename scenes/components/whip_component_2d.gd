@@ -9,6 +9,8 @@ extends AttackComponent2D
 @export var action_name : StringName
 @export var whip_pull_force : float = 100
 @export var whip_speed : float = 8.0
+@export var whip_stun_duration : float = 0.5
+@export var whip_knockback_force : float = 200.0
 
 var attached_global_point : Vector2
 var is_attached : bool
@@ -48,7 +50,8 @@ func whip_to_object(target_position : Vector2, object : Object) -> void:
 			if object.is_in_group(group_name):
 				animate_whip_attack(target_position)
 				if object is Hurtbox2D:
-					object.stun(1.0)
+					object.stun(whip_stun_duration)
+					object.knockback(target_position, whip_knockback_force)
 
 func animate_whip_attack(target_position : Vector2):
 	var whip_vector := target_position - global_position
