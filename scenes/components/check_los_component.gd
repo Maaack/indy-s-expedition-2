@@ -21,6 +21,7 @@ var _update_los : bool = true
 func _get_target_intersect_ray():
 	var target_node = get_tree().get_first_node_in_group(target_group_name)
 	var space_state = get_world_2d().direct_space_state
+	if target_node == null : return
 	var query = PhysicsRayQueryParameters2D.create(global_position, target_node.get_node("CollisionShape2D").global_position, collision_mask)
 	return space_state.intersect_ray(query)
 
@@ -29,6 +30,7 @@ func _result_is_los_to_target(result : Dictionary):
 
 func _update_los_to_target():
 	var result = _get_target_intersect_ray()
+	if result == null : return
 	has_los = _result_is_los_to_target(result)
 	if has_los:
 		los_position = result.position - global_position

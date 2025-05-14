@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://d1k1ukpydy8ge" path="res://scenes/components/hitbox_2d.gd" id="1_ty3d3"]
 
 [node name="Hitbox2D" type="Area2D"]
-collision_layer = 8
+position = Vector2(0, 2)
+collision_layer = 2
 collision_mask = 0
-monitoring = false
+monitorable = false
 script = ExtResource("1_ty3d3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

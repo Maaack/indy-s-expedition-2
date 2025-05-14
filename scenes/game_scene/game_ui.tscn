@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rddnwt4tkwm5"]
+[gd_scene load_steps=15 format=3 uid="uid://rddnwt4tkwm5"]
 
 [ext_resource type="Script" uid="uid://dvt6ilb1qkbjh" path="res://scenes/game_scene/game_ui.gd" id="1_8qp3c"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="1_onvsj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dtunxe7ar60tw" path="res://scenes/overlaid_menus/level_lost_menu.tscn" id="9_i7m4m"]
 [ext_resource type="PackedScene" uid="uid://cu5m2ttoqfqf" path="res://scenes/overlaid_menus/level_won_menu.tscn" id="10_rkfhe"]
 [ext_resource type="PackedScene" uid="uid://3l3ir8fl822c" path="res://scenes/game_scene/score_ui.tscn" id="13_7aihr"]
+[ext_resource type="PackedScene" uid="uid://dhtsd642kb644" path="res://scenes/game_scene/health_ui.tscn" id="14_3re04"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -42,6 +43,7 @@ bus = &"Master"
 visible = false
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,6 +57,7 @@ handle_input_locally = false
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 size = Vector2i(1280, 720)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 script = ExtResource("6_ascoc")
 
@@ -89,3 +92,11 @@ offset_right = -30.0
 offset_bottom = 72.0
 grow_horizontal = 0
 mouse_filter = 2
+
+[node name="HealthUI" parent="Control" instance=ExtResource("14_3re04")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 70.0
+offset_bottom = 71.0

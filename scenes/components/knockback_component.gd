@@ -3,7 +3,6 @@ extends ComponentBase
 
 @export var character_2D : CharacterBody2D
 
-func knockback(direction : Vector2, force : float) -> void:
-	print(force)
-	var knockback_direction := character_2D.global_position - direction
+func knockback(knockback_position : Vector2, force : float) -> void:
+	var knockback_direction := character_2D.global_position - knockback_position
 	character_2D.velocity += knockback_direction.normalized() * force

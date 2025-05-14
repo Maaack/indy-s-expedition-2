@@ -1,7 +1,6 @@
 class_name PlayerCharacter2D
 extends CharacterBody2D
 
-signal health_changed(health : float, max_health : float)
 signal died
 
 @export var update_component_directions : Array[ComponentBase2D]
@@ -82,8 +81,9 @@ func _physics_process(delta):
 
 func _input(event : InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var current_window = get_window()
-		var mouse_position = event.position - Vector2(current_window.content_scale_size / 2)
+		var current_window := get_window()
+		var window_size := current_window.content_scale_size
+		var mouse_position = event.position - Vector2(window_size / 2)
 		face_direction(mouse_position)
 
 func start_death():
@@ -106,8 +106,9 @@ func initialize():
 		if child is ComponentBase2D:
 			child.initialize()
 
-func _on_health_component_health_changed(new_value):
-	health_changed.emit(new_value, $HealthComponent.max_health)
+
+func _on_health_component_health_changed(new_value : float, delta : float):
+	ProjectEvents.player_health_changed.emit(new_value, delta)
 
 func _on_health_component_died():
 	died.emit()

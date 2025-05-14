@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://sdh8mqtt3dff"]
+
+[ext_resource type="Script" uid="uid://dwpk1et027x6e" path="res://scenes/components/detector_box_2d.gd" id="1_cdpbd"]
+
+[node name="DetectorBox2D" type="Area2D"]
+script = ExtResource("1_cdpbd")
+_type = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, -6, 48, -35, 54, -18, 56, 0, 54, 18, 48, 35, 6, 6, 8, 0)

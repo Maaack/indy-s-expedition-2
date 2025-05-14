@@ -6,6 +6,12 @@ signal direction_changed(new_direction)
 signal slide_collision_detected(colliding_object)
 
 @export var character_2D : CharacterBody2D
+@export var check_los_component : CheckLOSComponent2D :
+	set(value):
+		check_los_component = value
+		if not check_los_component.los_updated.is_connected(_on_los_updated):
+			check_los_component.los_updated.connect(_on_los_updated)
+
 @export var move_target : Vector2 = Vector2.ZERO :
 	set(value):
 		move_target = value
@@ -28,6 +34,8 @@ signal slide_collision_detected(colliding_object)
 @export var move_sound_repeat_delay : float = 2.0
 @export var move_sound_player_2d : AudioStreamPlayer2D
 
+func _on_los_updated(new_position : Vector2):
+	move_target = new_position
 
 func _can_update():
 	return not stopped and enabled

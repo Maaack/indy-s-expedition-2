@@ -14,10 +14,10 @@ func _get_final_damage(incoming_damage : float):
 		final_damage = min(_max_damage, final_damage)
 	return final_damage
 
-func knockback(direction : Vector2, force : float):
+func knockback(knockback_position : Vector2, force : float):
 	for component in _components:
 		if component.has_method(&"knockback"):
-			component.knockback(direction, force)
+			component.knockback(knockback_position, force)
 
 func stun(duration : float):
 	for component in _components:

@@ -19,12 +19,12 @@ const DEATH_ANIMATION : StringName = &"DEATH"
 var last_health : float = 0.0
 
 func _on_hurt():
-	if not has_animation(DEATH_ANIMATION):
-		push_warning("no death animation defined")
+	if not has_animation(HURT_ANIMATION):
+		push_warning("no hurt animation defined")
 		return
 	play(HURT_ANIMATION)
 
-func _on_health_changed(new_health : float) -> void:
+func _on_health_changed(new_health : float, delta : float) -> void:
 	if new_health < last_health:
 		_on_hurt()
 	last_health = new_health

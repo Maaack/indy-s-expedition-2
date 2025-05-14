@@ -1,6 +1,12 @@
 class_name TurnToTargetComponent
 extends ComponentBase
 
+@export var check_los_component : CheckLOSComponent2D :
+	set(value):
+		check_los_component = value
+		if not check_los_component.los_updated.is_connected(_on_los_updated):
+			check_los_component.los_updated.connect(_on_los_updated)
+
 @export var rotation_target : Vector2 : 
 	set(value):
 		rotation_target = value
@@ -18,6 +24,9 @@ extends ComponentBase
 
 var _rotation_speed_radians : float
 var rotation_angle : float
+
+func _on_los_updated(new_position : Vector2):
+	rotation_target = new_position
 
 func _can_update():
 	return not locked and enabled
