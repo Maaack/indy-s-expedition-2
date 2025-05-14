@@ -100,8 +100,12 @@ func _connect_all_enemy_signals():
 	for child in character_container.get_children():
 		_attach_enemy_signals(child)
 
+func _on_treasure_picked_up(add_score : int, treasure_position : Vector2) -> void:
+	spawn_floating_text(treasure_position, "+%d" % add_score)
+
 func _ready():
 	_connect_all_enemy_signals()
+	ProjectEvents.treasure_picked_up.connect(_on_treasure_picked_up)
 	
 func _on_player_character_new_weapon(weapon_name):
 	emit_signal("player_new_weapon", weapon_name)

@@ -10,5 +10,5 @@ func _ready():
 	stacked_sprite.sprite_rotation_offset = randf_range(-180, 180)
 
 func _process_pickup():
-	ProjectEvents.treasure_picked_up.emit(score)
+	ProjectEvents.treasure_picked_up.emit(score, global_position)
 	super._process_pickup()

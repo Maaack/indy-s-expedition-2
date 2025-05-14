@@ -23,7 +23,7 @@ func _on_player_exiting():
 	if instance.has_signal(&"exit_confirmed"):
 		instance.connect(&"exit_confirmed", func() -> void: $LevelListManager._on_level_won())
 
-func _on_treasure_picked_up(add_score : int) -> void:
+func _on_treasure_picked_up(add_score : int, _treasure_position : Vector2) -> void:
 	score += add_score
 
 func _on_player_health_changed(new_health : float, delta : float) -> void:
