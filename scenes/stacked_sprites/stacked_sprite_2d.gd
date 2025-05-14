@@ -18,7 +18,8 @@ func set_show_sprites(_show_sprites):
 
 func _update_sprite_rotations():
 	for sprite in get_children():
-		sprite.rotation = sprite_rotation + sprite_rotation_offset
+		if sprite is Sprite2D:
+			sprite.rotation = sprite_rotation + sprite_rotation_offset
 
 func set_sprite_rotation(value):
 	sprite_rotation = value

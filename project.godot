@@ -75,6 +75,14 @@ jump={
 
 locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
 
+[layer_names]
+
+2d_physics/layer_1="walls"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemies"
+2d_physics/layer_5="whip"
+2d_physics/layer_6="pickups"
+
 [maaacks_game_template]
 
 disable_update_check=false

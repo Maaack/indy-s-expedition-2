@@ -76,6 +76,7 @@ func _process_impacts():
 	for i in range(character_2D.get_slide_collision_count()):
 		var collider = character_2D.get_slide_collision(i).get_collider()
 		slide_collision_detected.emit(collider)
+	character_2D.velocity = character_2D.get_real_velocity()
 
 func _get_navigation_point():
 	if next_navigation_points.is_empty():

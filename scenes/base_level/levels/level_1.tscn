@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn7q1l746ebsu"]
+[gd_scene load_steps=4 format=3 uid="uid://cn7q1l746ebsu"]
 
 [ext_resource type="PackedScene" uid="uid://itheimf3fono" path="res://scenes/base_level/base_level.tscn" id="1_t1ahf"]
+[ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="2_3pwgp"]
 [ext_resource type="PackedScene" uid="uid://833vx8dfxs4u" path="res://scenes/pickups/treasures/goblet_pickup.tscn" id="2_hmmbt"]
 
 [node name="Level1" instance=ExtResource("1_t1ahf")]
+
+[node name="Enemy" parent="CharacterContainer" index="1" instance=ExtResource("2_3pwgp")]
+position = Vector2(512, 184)
 
 [node name="GobletPickup" parent="CollectibleContainer" index="0" instance=ExtResource("2_hmmbt")]
 position = Vector2(491, 114)

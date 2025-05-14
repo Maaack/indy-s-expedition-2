@@ -1149,7 +1149,7 @@ random_volume_offset_db = 2.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_mtwph"]
 radius = 5.5
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("update_component_directions") groups=["host", "parasite", "player"]]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("update_component_directions") groups=["player"]]
 texture_filter = 1
 collision_layer = 3
 motion_mode = 1
