@@ -47,6 +47,8 @@ func whip_to_object(target_position : Vector2, object : Object) -> void:
 		for group_name in hurtable_groups:
 			if object.is_in_group(group_name):
 				animate_whip_attack(target_position)
+				if object is Hurtbox2D:
+					object.stun(1.0)
 
 func animate_whip_attack(target_position : Vector2):
 	var whip_vector := target_position - global_position

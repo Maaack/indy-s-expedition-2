@@ -1228,9 +1228,8 @@ volume_db = -4.0
 repeat_delay = 0.3
 metadata/_edit_lock_ = true
 
-[node name="Hurtbox2D" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("31_kq22h")]
+[node name="Hurtbox2D" parent="." instance=ExtResource("31_kq22h")]
 collision_mask = 8
-_health_component = NodePath("../HealthComponent")
 _max_damage = 2.0
 
 [node name="CollisionShape2D" parent="Hurtbox2D" index="0"]
