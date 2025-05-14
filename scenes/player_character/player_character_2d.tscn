@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bknhvu85kax1u" path="res://scenes/player_character/shakey_camera_2d.gd" id="8_6dwpe"]
 [ext_resource type="PackedScene" uid="uid://bkfn6xmy1qsm" path="res://scenes/player_character/PickupCollector/PickupCollector.tscn" id="10_c2xun"]
 [ext_resource type="PackedScene" uid="uid://33tu2t66ifbo" path="res://scenes/StreamRepeater/StreamRepeater2D.tscn" id="11_y7scl"]
-[ext_resource type="PackedScene" uid="uid://jh7wd7y46a4k" path="res://scenes/components/whip_comopnent_2d.tscn" id="12_b8xpk"]
+[ext_resource type="PackedScene" uid="uid://jh7wd7y46a4k" path="res://scenes/components/whip_component_2d.tscn" id="12_b8xpk"]
 [ext_resource type="Script" uid="uid://trp5ykn3kx17" path="res://scenes/player_character/jump_component.gd" id="13_ay7hg"]
 [ext_resource type="PackedScene" uid="uid://d4nlssgtrlsfn" path="res://scenes/components/hurtbox_2d.tscn" id="31_kq22h"]
 [ext_resource type="PackedScene" uid="uid://plht4mnshaea" path="res://scenes/components/health_component.tscn" id="32_1qtai"]
