@@ -5,6 +5,7 @@ extends Node2D
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var timer : Timer = $Timer
 @onready var collision_shape_2d : CollisionShape2D = $StaticBody2D/CollisionShape2D
+@onready var original_time : float = timer.wait_time
 
 enum Direction{
 	NORTH,
@@ -31,7 +32,9 @@ enum Direction{
 		if changed and is_inside_tree():
 			if enabled:
 				var custom_start = float(rhythm)
-				timer.start(custom_start)
+				timer.start(original_time - custom_start)
+				if is_zero_approx(custom_start):
+					fire_arrows()
 			else:
 				timer.stop()
 
@@ -67,3 +70,4 @@ func fire_arrows():
 
 func _on_timer_timeout():
 	fire_arrows()
+	timer.start(original_time)

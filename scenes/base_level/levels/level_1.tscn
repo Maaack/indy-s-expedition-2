@@ -1,81 +1,333 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn7q1l746ebsu"]
+[gd_scene load_steps=8 format=4 uid="uid://cn7q1l746ebsu"]
 
 [ext_resource type="PackedScene" uid="uid://itheimf3fono" path="res://scenes/base_level/base_level.tscn" id="1_t1ahf"]
 [ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="2_3pwgp"]
-[ext_resource type="PackedScene" uid="uid://833vx8dfxs4u" path="res://scenes/pickups/treasures/goblet_pickup.tscn" id="2_hmmbt"]
 [ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="3_3pwgp"]
 [ext_resource type="PackedScene" uid="uid://ce8y6a67nkf5f" path="res://scenes/traps/arrow_trap.tscn" id="3_cx10h"]
+[ext_resource type="PackedScene" uid="uid://cvaa3j28dgqug" path="res://scenes/pickups/treasures/man_statue_pickup.tscn" id="5_kgkaf"]
 [ext_resource type="PackedScene" uid="uid://c8slfvdysjgbm" path="res://scenes/base_level/tutorials/tutorial_1.tscn" id="6_7jge3"]
 [ext_resource type="PackedScene" uid="uid://dgo1riwg60u7p" path="res://scenes/base_level/tutorials/tutorial_2.tscn" id="7_kgkaf"]
 
 [node name="Level1" instance=ExtResource("1_t1ahf")]
 
-[node name="SpikeTrap" parent="Floor" index="0" instance=ExtResource("3_3pwgp")]
-position = Vector2(376, 200.018)
-scale = Vector2(1, 1.00512)
+[node name="FloorCover" parent="." index="1"]
+tile_map_data = PackedByteArray("AAADAA8AAAAEABEAAAADABAAAAAEABMAAAAEAA8AAAAGABIAAAAEABAAAAAGABMAAAAFAA8AAAAGABIAAAAFABAAAAAGABMAAAAGAA8AAAAGABIAAAAGABAAAAAGABMAAAAHAA8AAAAGABIAAAAHABAAAAAGABMAAAAIAA8AAAAGABIAAAAIABAAAAAGABMAAAAJAA8AAAAGABIAAAAJABAAAAAGABMAAAAKAA8AAAAFABEAAAAKABAAAAAFABMAAAANAA0AAAABABEAAAANAA4AAAABABIAAAANAA8AAAABABIAAAANABAAAAABABIAAAANABEAAAABABIAAAANABIAAAABABMAAAAOAA0AAAADABIAAAAOAA4AAAADABEAAAAOAA8AAAADABEAAAAOABAAAAADABEAAAAOABEAAAADABEAAAAOABIAAAADABMAAAAPAAMAAAAEABEAAAAPAAQAAAAEABIAAAAPAAUAAAAEABIAAAAPAAYAAAAEABIAAAAPAAcAAAAEABIAAAAPAAgAAAAEABIAAAAPAAkAAAAEABIAAAAPAAoAAAAEABMAAAAPAA0AAAADABIAAAAPAA4AAAADABEAAAAPAA8AAAADABEAAAAPABAAAAADABEAAAAPABEAAAADABEAAAAPABIAAAADABMAAAAPABUAAAAEABEAAAAPABYAAAAEABIAAAAPABcAAAAEABIAAAAPABgAAAAEABIAAAAPABkAAAAEABIAAAAPABoAAAAEABIAAAAPABsAAAAEABIAAAAPABwAAAAEABMAAAAQAAMAAAAFABEAAAAQAAQAAAAFABIAAAAQAAUAAAAFABIAAAAQAAYAAAAFABIAAAAQAAcAAAAFABIAAAAQAAgAAAAFABIAAAAQAAkAAAAFABIAAAAQAAoAAAAFABMAAAAQAA0AAAADABIAAAAQAA4AAAADABEAAAAQAA8AAAADABEAAAAQABAAAAADABEAAAAQABEAAAADABEAAAAQABIAAAADABMAAAAQABUAAAAFABEAAAAQABYAAAAFABIAAAAQABcAAAAFABIAAAAQABgAAAAFABIAAAAQABkAAAAFABIAAAAQABoAAAAFABIAAAAQABsAAAAFABIAAAAQABwAAAAFABMAAAARAA0AAAADABIAAAARAA4AAAADABEAAAARAA8AAAADABEAAAARABAAAAADABEAAAARABEAAAADABEAAAARABIAAAADABMAAAASAA0AAAACABEAAAASAA4AAAACABIAAAASAA8AAAACABIAAAASABAAAAACABIAAAASABEAAAACABIAAAASABIAAAACABMAAAAVAA8AAAAEABEAAAAVABAAAAAEABMAAAAWAA8AAAAGABIAAAAWABAAAAAGABMAAAAXAA8AAAAGABIAAAAXABAAAAAGABMAAAAYAA8AAAAGABIAAAAYABAAAAAGABMAAAAZAA8AAAAGABIAAAAZABAAAAAGABMAAAAaAA8AAAAGABIAAAAaABAAAAAGABMAAAAbAA8AAAAGABIAAAAbABAAAAAGABMAAAAcAA8AAAAFABEAAAAcABAAAAAFABMAAAA=")
 
-[node name="SpikeTrap2" parent="Floor" index="1" instance=ExtResource("3_3pwgp")]
-position = Vector2(392, 200.018)
-scale = Vector2(1, 1.00512)
+[node name="Walls" parent="." index="2"]
+z_as_relative = false
+y_sort_enabled = true
 
-[node name="SpikeTrap3" parent="Floor" index="2" instance=ExtResource("3_3pwgp")]
-position = Vector2(392, 216.1)
-scale = Vector2(1, 1.00512)
+[node name="SpikeTrap" parent="Walls" index="0" instance=ExtResource("3_3pwgp")]
+position = Vector2(216, 312)
+scale = Vector2(1, 1)
 
-[node name="SpikeTrap4" parent="Floor" index="3" instance=ExtResource("3_3pwgp")]
-position = Vector2(376, 216.1)
-scale = Vector2(1, 1.00512)
+[node name="SpikeTrap2" parent="Walls" index="1" instance=ExtResource("3_3pwgp")]
+position = Vector2(232, 312)
+scale = Vector2(1, 1)
 
-[node name="SpikeTrap5" parent="Floor" index="4" instance=ExtResource("3_3pwgp")]
-position = Vector2(424, 216.1)
-scale = Vector2(1, 1.00512)
+[node name="SpikeTrap3" parent="Walls" index="2" instance=ExtResource("3_3pwgp")]
+position = Vector2(232, 328)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap4" parent="Walls" index="3" instance=ExtResource("3_3pwgp")]
+position = Vector2(216, 328)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap9" parent="Walls" index="4" instance=ExtResource("3_3pwgp")]
+position = Vector2(248, 312)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap10" parent="Walls" index="5" instance=ExtResource("3_3pwgp")]
+position = Vector2(264, 312)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap11" parent="Walls" index="6" instance=ExtResource("3_3pwgp")]
+position = Vector2(264, 328)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap12" parent="Walls" index="7" instance=ExtResource("3_3pwgp")]
+position = Vector2(248, 328)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap13" parent="Walls" index="8" instance=ExtResource("3_3pwgp")]
+position = Vector2(280, 312)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap14" parent="Walls" index="9" instance=ExtResource("3_3pwgp")]
+position = Vector2(296, 312)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap15" parent="Walls" index="10" instance=ExtResource("3_3pwgp")]
+position = Vector2(296, 328)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap16" parent="Walls" index="11" instance=ExtResource("3_3pwgp")]
+position = Vector2(280, 328)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap17" parent="Walls" index="12" instance=ExtResource("3_3pwgp")]
+position = Vector2(216, 184)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap18" parent="Walls" index="13" instance=ExtResource("3_3pwgp")]
+position = Vector2(232, 184)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap19" parent="Walls" index="14" instance=ExtResource("3_3pwgp")]
+position = Vector2(232, 200)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap20" parent="Walls" index="15" instance=ExtResource("3_3pwgp")]
+position = Vector2(216, 200)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap21" parent="Walls" index="16" instance=ExtResource("3_3pwgp")]
+position = Vector2(248, 184)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap22" parent="Walls" index="17" instance=ExtResource("3_3pwgp")]
+position = Vector2(264, 184)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap23" parent="Walls" index="18" instance=ExtResource("3_3pwgp")]
+position = Vector2(264, 200)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap24" parent="Walls" index="19" instance=ExtResource("3_3pwgp")]
+position = Vector2(248, 200)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap25" parent="Walls" index="20" instance=ExtResource("3_3pwgp")]
+position = Vector2(280, 184)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap26" parent="Walls" index="21" instance=ExtResource("3_3pwgp")]
+position = Vector2(296, 184)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap27" parent="Walls" index="22" instance=ExtResource("3_3pwgp")]
+position = Vector2(296, 200)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap28" parent="Walls" index="23" instance=ExtResource("3_3pwgp")]
+position = Vector2(280, 200)
+scale = Vector2(1, 1)
+
+[node name="SpikeTrap5" parent="Walls" index="24" instance=ExtResource("3_3pwgp")]
+position = Vector2(312, 232)
+scale = Vector2(1, 1)
 rhythm = 2
 
-[node name="SpikeTrap6" parent="Floor" index="5" instance=ExtResource("3_3pwgp")]
-position = Vector2(424, 200.018)
-scale = Vector2(1, 1.00512)
+[node name="SpikeTrap6" parent="Walls" index="25" instance=ExtResource("3_3pwgp")]
+position = Vector2(312, 216)
+scale = Vector2(1, 1)
 rhythm = 2
 
-[node name="SpikeTrap7" parent="Floor" index="6" instance=ExtResource("3_3pwgp")]
-position = Vector2(440, 200.018)
-scale = Vector2(1, 1.00512)
+[node name="SpikeTrap7" parent="Walls" index="26" instance=ExtResource("3_3pwgp")]
+position = Vector2(328, 216)
+scale = Vector2(1, 1)
 rhythm = 2
 
-[node name="SpikeTrap8" parent="Floor" index="7" instance=ExtResource("3_3pwgp")]
-position = Vector2(440, 216.1)
-scale = Vector2(1, 1.00512)
+[node name="SpikeTrap8" parent="Walls" index="27" instance=ExtResource("3_3pwgp")]
+position = Vector2(328, 232)
+scale = Vector2(1, 1)
 rhythm = 2
 
-[node name="ArrowTrap" parent="Floor" index="8" instance=ExtResource("3_cx10h")]
-position = Vector2(329, 97.4964)
+[node name="SpikeTrap29" parent="Walls" index="28" instance=ExtResource("3_3pwgp")]
+position = Vector2(312, 264)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap30" parent="Walls" index="29" instance=ExtResource("3_3pwgp")]
+position = Vector2(312, 248)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap31" parent="Walls" index="30" instance=ExtResource("3_3pwgp")]
+position = Vector2(328, 248)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap32" parent="Walls" index="31" instance=ExtResource("3_3pwgp")]
+position = Vector2(328, 264)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap33" parent="Walls" index="32" instance=ExtResource("3_3pwgp")]
+position = Vector2(312, 296)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap34" parent="Walls" index="33" instance=ExtResource("3_3pwgp")]
+position = Vector2(312, 280)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap35" parent="Walls" index="34" instance=ExtResource("3_3pwgp")]
+position = Vector2(328, 280)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap36" parent="Walls" index="35" instance=ExtResource("3_3pwgp")]
+position = Vector2(328, 296)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap37" parent="Walls" index="36" instance=ExtResource("3_3pwgp")]
+position = Vector2(184, 232)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap38" parent="Walls" index="37" instance=ExtResource("3_3pwgp")]
+position = Vector2(184, 216)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap39" parent="Walls" index="38" instance=ExtResource("3_3pwgp")]
+position = Vector2(200, 216)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap40" parent="Walls" index="39" instance=ExtResource("3_3pwgp")]
+position = Vector2(200, 232)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap41" parent="Walls" index="40" instance=ExtResource("3_3pwgp")]
+position = Vector2(184, 264)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap42" parent="Walls" index="41" instance=ExtResource("3_3pwgp")]
+position = Vector2(184, 248)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap43" parent="Walls" index="42" instance=ExtResource("3_3pwgp")]
+position = Vector2(200, 248)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap44" parent="Walls" index="43" instance=ExtResource("3_3pwgp")]
+position = Vector2(200, 264)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap45" parent="Walls" index="44" instance=ExtResource("3_3pwgp")]
+position = Vector2(184, 296)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap46" parent="Walls" index="45" instance=ExtResource("3_3pwgp")]
+position = Vector2(184, 280)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap47" parent="Walls" index="46" instance=ExtResource("3_3pwgp")]
+position = Vector2(200, 280)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="SpikeTrap48" parent="Walls" index="47" instance=ExtResource("3_3pwgp")]
+position = Vector2(200, 296)
+scale = Vector2(1, 1)
+rhythm = 2
+
+[node name="ArrowTrap" parent="Walls" index="48" instance=ExtResource("3_cx10h")]
+position = Vector2(312, 200)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([2, 1])
+
+[node name="ArrowTrap2" parent="Walls" index="49" instance=ExtResource("3_cx10h")]
+position = Vector2(328, 200)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([3, 1])
+
+[node name="ArrowTrap3" parent="Walls" index="50" instance=ExtResource("3_cx10h")]
+position = Vector2(328, 184)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([3, 0])
+
+[node name="ArrowTrap4" parent="Walls" index="51" instance=ExtResource("3_cx10h")]
+position = Vector2(312, 184)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([2, 0])
+
+[node name="ArrowTrap5" parent="Walls" index="52" instance=ExtResource("3_cx10h")]
+position = Vector2(312, 328)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([2, 1])
+
+[node name="ArrowTrap6" parent="Walls" index="53" instance=ExtResource("3_cx10h")]
+position = Vector2(328, 328)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([3, 1])
+
+[node name="ArrowTrap7" parent="Walls" index="54" instance=ExtResource("3_cx10h")]
+position = Vector2(328, 312)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([3, 0])
+
+[node name="ArrowTrap8" parent="Walls" index="55" instance=ExtResource("3_cx10h")]
+position = Vector2(312, 312)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([2, 0])
+
+[node name="ArrowTrap9" parent="Walls" index="56" instance=ExtResource("3_cx10h")]
+position = Vector2(184, 328)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([2, 1])
+
+[node name="ArrowTrap10" parent="Walls" index="57" instance=ExtResource("3_cx10h")]
+position = Vector2(200, 328)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([3, 1])
+
+[node name="ArrowTrap11" parent="Walls" index="58" instance=ExtResource("3_cx10h")]
+position = Vector2(200, 312)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([3, 0])
+
+[node name="ArrowTrap12" parent="Walls" index="59" instance=ExtResource("3_cx10h")]
+position = Vector2(184, 312)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([2, 0])
+
+[node name="ArrowTrap13" parent="Walls" index="60" instance=ExtResource("3_cx10h")]
+position = Vector2(184, 200)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([2, 1])
+
+[node name="ArrowTrap14" parent="Walls" index="61" instance=ExtResource("3_cx10h")]
+position = Vector2(200, 200)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([3, 1])
+
+[node name="ArrowTrap15" parent="Walls" index="62" instance=ExtResource("3_cx10h")]
+position = Vector2(200, 184)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([3, 0])
+
+[node name="ArrowTrap16" parent="Walls" index="63" instance=ExtResource("3_cx10h")]
+position = Vector2(184, 184)
+scale = Vector2(1, 0.994909)
+directions = Array[int]([2, 0])
 
 [node name="Enemy" parent="CharacterContainer" index="1" instance=ExtResource("2_3pwgp")]
-position = Vector2(512, 184)
+position = Vector2(266, 10)
 
-[node name="GobletPickup" parent="CharacterContainer" index="2" instance=ExtResource("2_hmmbt")]
-position = Vector2(491, 114)
-
-[node name="GobletPickup2" parent="CharacterContainer" index="3" instance=ExtResource("2_hmmbt")]
-position = Vector2(552, 240)
-
-[node name="GobletPickup3" parent="CharacterContainer" index="4" instance=ExtResource("2_hmmbt")]
-position = Vector2(56, 72)
-
-[node name="GobletPickup4" parent="CharacterContainer" index="5" instance=ExtResource("2_hmmbt")]
-position = Vector2(648, 93)
-
-[node name="GobletPickup5" parent="CharacterContainer" index="6" instance=ExtResource("2_hmmbt")]
-position = Vector2(672, 456)
-
-[node name="GobletPickup6" parent="CharacterContainer" index="7" instance=ExtResource("2_hmmbt")]
-position = Vector2(80, 448)
+[node name="ManStatue" parent="CharacterContainer" index="2" instance=ExtResource("5_kgkaf")]
+position = Vector2(256, 255)
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
 volume_db = -9.0
 autoplay = true
 
-[node name="TutorialManager" parent="." index="11"]
+[node name="ExitPoint" parent="." index="11"]
+position = Vector2(256, 608)
+
+[node name="TutorialManager" parent="." index="12"]
 tutorial_scenes = Array[PackedScene]([ExtResource("6_7jge3")])
 
-[node name="StealingTutorialManager" parent="." index="12"]
+[node name="StealingTutorialManager" parent="." index="13"]
 tutorial_scenes = Array[PackedScene]([ExtResource("7_kgkaf")])

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvaa3j28dgqug"]
+
+[ext_resource type="PackedScene" uid="uid://g2p3metym1v8" path="res://scenes/pickups/treasure.tscn" id="1_otfar"]
+[ext_resource type="Texture2D" uid="uid://ck5ihbdtk8ah3" path="res://assets/sprite/man_statue_15.png" id="2_awkkp"]
+
+[node name="ManStatue" instance=ExtResource("1_otfar")]
+
+[node name="StackedSprite2D" parent="." index="2"]
+texture = ExtResource("2_awkkp")
+hframes = 15
+sprite_rotation_offset = 142.256
