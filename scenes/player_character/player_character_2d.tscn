@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://hji8le5si4gx"]
+[gd_scene load_steps=43 format=3 uid="uid://hji8le5si4gx"]
 
 [ext_resource type="Script" uid="uid://dt8im3k7qjimv" path="res://scenes/player_character/player_character_2d.gd" id="1_2rm0r"]
 [ext_resource type="Texture2D" uid="uid://shxuutqc8hci" path="res://assets/images/0x72_dungeon_tileset/0x72_DungeonTilesetII_v1.7.png" id="7_m06sm"]
 [ext_resource type="Script" uid="uid://bknhvu85kax1u" path="res://scenes/player_character/shakey_camera_2d.gd" id="8_6dwpe"]
 [ext_resource type="PackedScene" uid="uid://bkfn6xmy1qsm" path="res://scenes/player_character/PickupCollector/PickupCollector.tscn" id="10_c2xun"]
 [ext_resource type="PackedScene" uid="uid://33tu2t66ifbo" path="res://scenes/StreamRepeater/StreamRepeater2D.tscn" id="11_y7scl"]
+[ext_resource type="Texture2D" uid="uid://bqsnw80ynouar" path="res://assets/sprite/dust_particle.png" id="12_ay7hg"]
 [ext_resource type="PackedScene" uid="uid://jh7wd7y46a4k" path="res://scenes/components/whip_component_2d.tscn" id="12_b8xpk"]
 [ext_resource type="Script" uid="uid://trp5ykn3kx17" path="res://scenes/player_character/jump_component.gd" id="13_ay7hg"]
 [ext_resource type="Script" uid="uid://cjxiqd1jrd2d8" path="res://scenes/components/knockback_component.gd" id="13_vw8up"]
@@ -14,6 +15,37 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ox0bi"]
 radius = 8.0
+
+[sub_resource type="Curve" id="Curve_b8xpk"]
+_data = [Vector2(0, 0.752571), 0.0, -0.0581454, 0, 0, Vector2(0.497217, 0.749727), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ay7hg"]
+curve = SubResource("Curve_b8xpk")
+
+[sub_resource type="Curve" id="Curve_ay7hg"]
+_data = [Vector2(0, 0.2634), 0.0, 0.0, 0, 0, Vector2(0.998145, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hpsva"]
+curve = SubResource("Curve_ay7hg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hpsva"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(-1, 0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 24.0
+angular_velocity_min = 120.0
+angular_velocity_max = 240.0
+gravity = Vector3(0, 0, 0)
+damping_min = 8.0
+damping_max = 16.0
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_hpsva")
+alpha_curve = SubResource("CurveTexture_ay7hg")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhrmu"]
 atlas = ExtResource("7_m06sm")
@@ -194,6 +226,15 @@ ground_friction = 1500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ox0bi")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = ExtResource("12_ay7hg")
+lifetime = 2.0
+explosiveness = 0.5
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_hpsva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)

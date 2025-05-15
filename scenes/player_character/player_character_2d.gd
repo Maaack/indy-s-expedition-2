@@ -29,6 +29,12 @@ func face_direction(new_direction : Vector2):
 	var facing_angle = facing_direction.angle()
 	for component_2d in update_component_directions:
 		component_2d.rotation = facing_angle
+	if facing_direction.x > 0:
+		$Sprite2D.scale.x = 1.0
+		$GPUParticles2D.scale.x = 1.0
+	else:
+		$Sprite2D.scale.x = -1.0
+		$GPUParticles2D.scale.x = -1.0
 
 func get_input_vector() -> Vector2:
 	var input_vector = Vector2.ZERO
@@ -48,6 +54,12 @@ func animate_idle():
 	$WalkingStreamRepeater2D.stop_loop()
 	animation_state.travel("IDLE")
 
+func animate_sliding():
+	$GPUParticles2D.emitting = true
+
+func animate_not_sliding():
+	$GPUParticles2D.emitting = false
+
 func move_state(delta):
 	var input_vector := get_input_vector()
 	var target_speed = input_vector * max_ground_speed
@@ -63,6 +75,10 @@ func move_state(delta):
 		animate_run()
 	else:
 		velocity = velocity.move_toward(target_speed, friction * delta)
+	if target_speed.length_squared() * 1.5 < velocity.length_squared() and is_on_ground:
+		animate_sliding()
+	else:
+		animate_not_sliding()
 	if target_speed.is_zero_approx():
 		animate_idle()
 	move_and_slide()
