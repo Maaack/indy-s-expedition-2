@@ -75,7 +75,7 @@ func move_state(delta):
 		animate_run()
 	else:
 		velocity = velocity.move_toward(target_speed, friction * delta)
-	if target_speed.length_squared() * 1.5 < velocity.length_squared() and is_on_ground:
+	if target_speed.length_squared() * 1.25 < velocity.length_squared() and is_on_ground:
 		animate_sliding()
 	else:
 		animate_not_sliding()
