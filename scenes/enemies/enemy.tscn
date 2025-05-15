@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bo3gyn2hhkcl2"]
+[gd_scene load_steps=15 format=3 uid="uid://bo3gyn2hhkcl2"]
 
 [ext_resource type="Texture2D" uid="uid://shxuutqc8hci" path="res://assets/images/0x72_dungeon_tileset/0x72_DungeonTilesetII_v1.7.png" id="1_6xk8f"]
 [ext_resource type="Script" uid="uid://cegkubj0dbhla" path="res://scenes/enemies/enemy.gd" id="1_8e3ao"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://buixr527vc782" path="res://scenes/components/stun_component.tscn" id="7_n7575"]
 [ext_resource type="Script" uid="uid://cjxiqd1jrd2d8" path="res://scenes/components/knockback_component.gd" id="8_n7575"]
 [ext_resource type="PackedScene" uid="uid://dqm3xh1xl6nam" path="res://scenes/components/slash_attack_component_2d.tscn" id="10_tihwb"]
+[ext_resource type="Script" uid="uid://ckiv8yl8geo13" path="res://scenes/components/treasure_trigger_component.gd" id="11_tihwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykcao"]
 radius = 6.0
@@ -41,11 +42,13 @@ character_2D = NodePath("..")
 check_los_component = NodePath("../CheckLOSComponent")
 movement_speed = 100
 friction = 800.0
+enabled = false
 
 [node name="TurnToTargetComponent" parent="." node_paths=PackedStringArray("check_los_component", "target_nodes", "rotation_reference") instance=ExtResource("5_p7w77")]
 check_los_component = NodePath("../CheckLOSComponent")
 target_nodes = [NodePath("../DetectorBox2D"), NodePath("../SlashAttackComponent2D")]
 rotation_reference = NodePath("../Pivot")
+enabled = false
 
 [node name="CheckLOSComponent" parent="." instance=ExtResource("5_n7575")]
 target_group_name = &"player"
@@ -57,6 +60,7 @@ collision_mask = 2
 
 [node name="SlashAttackComponent2D" parent="." node_paths=PackedStringArray("detector_2d") instance=ExtResource("10_tihwb")]
 detector_2d = NodePath("../DetectorBox2D")
+enabled = false
 
 [node name="Hurtbox2D" parent="." node_paths=PackedStringArray("_components") groups=["enemy"] instance=ExtResource("6_qch6t")]
 collision_layer = 16
@@ -72,5 +76,10 @@ move_to_target_component = NodePath("../MoveToTargetComponent")
 [node name="KnockbackComponent" type="Node" parent="." node_paths=PackedStringArray("character_2D")]
 script = ExtResource("8_n7575")
 character_2D = NodePath("..")
+
+[node name="TreasureTriggerComponent" type="Node" parent="." node_paths=PackedStringArray("target_components", "target_components_2d")]
+script = ExtResource("11_tihwb")
+target_components = [NodePath("../MoveToTargetComponent"), NodePath("../TurnToTargetComponent")]
+target_components_2d = [NodePath("../SlashAttackComponent2D")]
 
 [editable path="Hurtbox2D"]
