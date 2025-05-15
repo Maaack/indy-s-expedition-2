@@ -20,7 +20,8 @@ texture = ExtResource("1_jk4ig")
 region_enabled = true
 region_rect = Rect2(80, 84, 16, 32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["walls"]]
+collision_layer = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -3)

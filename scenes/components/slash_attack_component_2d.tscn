@@ -86,7 +86,7 @@ monitorable = true
 knockback_force = 300.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox2D" index="1"]
-polygon = PackedVector2Array(6, -6, 48, -35, 54, -18, 56, 0, 54, 18, 48, 35, 6, 6, 8, 0)
+polygon = PackedVector2Array(6, -6, 32, -24, 35, -12, 36, 0, 35, 12, 32, 24, 6, 6, 8, 0)
 
 [node name="TelegraphingSprite2D" type="Sprite2D" parent="." index="1"]
 visible = false
