@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm8d3psvij0ev"]
+
+[ext_resource type="PackedScene" uid="uid://cdyvc730gxbqk" path="res://scenes/projectiles/projectile_base.tscn" id="1_iyfe7"]
+[ext_resource type="Texture2D" uid="uid://shxuutqc8hci" path="res://assets/images/0x72_dungeon_tileset/0x72_DungeonTilesetII_v1.7.png" id="2_m2i7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl28u"]
+size = Vector2(2, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36eux"]
+size = Vector2(6, 10)
+
+[node name="Arrow" instance=ExtResource("1_iyfe7")]
+texture_filter = 1
+collision_mask = 7
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_nl28u")
+
+[node name="Hitbox2D" parent="." index="1"]
+collision_mask = 6
+knockback_force = 50.0
+
+[node name="CollisionShape2D" parent="Hitbox2D" index="0"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_36eux")
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_m2i7i")
+region_enabled = true
+region_rect = Rect2(324, 201, 7, 22)
+
+[editable path="Hitbox2D"]

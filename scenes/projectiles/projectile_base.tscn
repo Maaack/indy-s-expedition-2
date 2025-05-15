@@ -1,48 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdyvc730gxbqk"]
+[gd_scene load_steps=5 format=3 uid="uid://cdyvc730gxbqk"]
 
 [ext_resource type="Script" uid="uid://ce6wvpkwqj11i" path="res://scenes/projectiles/projectile_base.gd" id="1_5gmwr"]
 [ext_resource type="PackedScene" uid="uid://f5074dr7dxvs" path="res://scenes/components/hitbox_2d.tscn" id="1_d8863"]
-[ext_resource type="Texture2D" path="res://Assets/Sourced/Icons/plain-circle.svg" id="3_dldcm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iupiv"]
+radius = 2.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tcpxr"]
-
-[sub_resource type="Animation" id="Animation_mumw7"]
-resource_name = "Active"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageSprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0.05, 0.05), Vector2(0.045, 0.045), Vector2(0.05, 0.05)]
-}
-
-[sub_resource type="Animation" id="Animation_j7jcu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageSprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0.05, 0.05)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_13i22"]
-_data = {
-&"Active": SubResource("Animation_mumw7"),
-&"RESET": SubResource("Animation_j7jcu")
-}
+radius = 5.0
 
 [node name="ProjectileBase" type="CharacterBody2D"]
 collision_layer = 0
@@ -50,22 +15,22 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_5gmwr")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iupiv")
+disabled = true
+
 [node name="Hitbox2D" parent="." instance=ExtResource("1_d8863")]
-collision_layer = 8
-collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hitbox2D" index="0"]
 shape = SubResource("CircleShape2D_tcpxr")
 
-[node name="DamageSprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.803922, 0.623529, 0.513726, 1)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_dldcm")
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_13i22")
-}
-autoplay = "Active"
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Hitbox2D"]

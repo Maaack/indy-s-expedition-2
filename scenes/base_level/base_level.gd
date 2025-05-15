@@ -20,7 +20,6 @@ enum ChildSceneType{
 }
 
 @onready var character_container = $CharacterContainer
-@onready var collectible_container = $CollectibleContainer
 @onready var text_container = $TextContainer
 var pc_node : CharacterBody2D
 var pc_monster_node : CharacterBody2D
@@ -106,19 +105,15 @@ func _on_treasure_picked_up(add_score : int, treasure_position : Vector2) -> voi
 func _ready():
 	_connect_all_enemy_signals()
 	ProjectEvents.treasure_picked_up.connect(_on_treasure_picked_up)
+	ProjectEvents.queue_spawn.connect(instantiate_scene_type)
 	
 func _on_player_character_new_weapon(weapon_name):
 	emit_signal("player_new_weapon", weapon_name)
 
-func instantiate_scene_type(packed_scene : PackedScene, scene_type : ChildSceneType = ChildSceneType.PROJECTILE, scene_data : Dictionary = {}) -> void:
-	match(scene_type):
-		ChildSceneType.PROJECTILE:
-			if not scene_data.has(&"position"):
-				push_warning("projectile data must contain position")
-				return
-			if not scene_data.has(&"velocity"):
-				push_warning("projectile data must contain velocity")
-				return
-			if not scene_data.has(&"team"):
-				push_warning("projectile data must contain team")
-				return
+func instantiate_scene_type(packed_scene : PackedScene, scene_data : Dictionary = {}) -> void:
+	var scene_instance = packed_scene.instantiate()
+	for key in scene_data:
+		var value = scene_data[key]
+		if scene_instance.has_method("set_%s" % key):
+			scene_instance.call("set_%s" % key, value)
+	character_container.call_deferred("add_child", scene_instance)

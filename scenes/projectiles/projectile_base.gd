@@ -1,8 +1,15 @@
 class_name ProjectileBase
 extends CharacterBody2D
 
-@export var team : Constants.Teams # legacy variable
-var shot_data # legacy variable
+@onready var collision_shape_2d : CollisionShape2D = $CollisionShape2D
+@onready var hitbox_2d : Hitbox2D = $Hitbox2D
+
 
 func _physics_process(delta):
-	move_and_slide()
+	var collided := move_and_slide()
+	if collided:
+		hitbox_2d.hit()
+		queue_free()
+
+func _on_timer_timeout():
+	collision_shape_2d.disabled = false

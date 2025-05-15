@@ -186,8 +186,6 @@ y_sort_enabled = true
 [node name="PlayerCharacter" parent="CharacterContainer" instance=ExtResource("4_kicwd")]
 position = Vector2(183, 175)
 
-[node name="CollectibleContainer" type="Node2D" parent="."]
-
 [node name="Roof" type="TileMapLayer" parent="." groups=["walls"]]
 light_mask = 2
 texture_filter = 1
@@ -196,9 +194,6 @@ tile_map_data = PackedByteArray("AAAfAP//BAAJAAIAAAAfAP7/BAAJAAIAAAAfAP3/BAAJAAI
 tile_set = SubResource("TileSet_bjwgp")
 
 [node name="TextContainer" type="Node2D" parent="."]
-
-[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(64, 75)
 
 [node name="AStarGridServer" type="Node2D" parent="." node_paths=PackedStringArray("exclude_tilemaps")]
 script = ExtResource("4_kwar3")

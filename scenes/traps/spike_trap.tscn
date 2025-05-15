@@ -88,6 +88,7 @@ _data = {
 script = ExtResource("1_xnbrc")
 
 [node name="Hitbox2D" parent="." instance=ExtResource("1_rkm60")]
+collision_mask = 6
 knockback_force = 400.0
 
 [node name="CollisionShape2D" parent="Hitbox2D" index="0"]

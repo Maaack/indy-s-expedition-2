@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce8y6a67nkf5f"]
+
+[ext_resource type="Script" uid="uid://bayxhh7wq1p3m" path="res://scenes/traps/arrow_trap.gd" id="1_3l0u4"]
+[ext_resource type="Texture2D" uid="uid://shxuutqc8hci" path="res://assets/images/0x72_dungeon_tileset/0x72_DungeonTilesetII_v1.7.png" id="1_jk4ig"]
+[ext_resource type="PackedScene" uid="uid://dm8d3psvij0ev" path="res://scenes/projectiles/arrow.tscn" id="2_gfvr7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l0u4"]
+size = Vector2(16, 16)
+
+[node name="ArrowTrap" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_3l0u4")
+arrow_scene = ExtResource("2_gfvr7")
+spawn_velocity = 200.0
+directions = Array[int]([0, 1])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("1_jk4ig")
+region_enabled = true
+region_rect = Rect2(80, 84, 16, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_3l0u4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
