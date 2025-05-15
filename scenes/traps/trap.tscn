@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://eclitk58cf8g"]
+
+[ext_resource type="PackedScene" uid="uid://f5074dr7dxvs" path="res://scenes/components/hitbox_2d.tscn" id="1_h7chl"]
+[ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="2_36n0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7chl"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nasrv"]
+atlas = ExtResource("2_36n0e")
+region = Rect2(0, 48, 64, 16)
+
+[node name="Trap" type="Node2D"]
+
+[node name="Hitbox2D" parent="." instance=ExtResource("1_h7chl")]
+
+[node name="CollisionShape2D" parent="Hitbox2D" index="0"]
+shape = SubResource("RectangleShape2D_h7chl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nasrv")
+hframes = 4
+
+[editable path="Hitbox2D"]

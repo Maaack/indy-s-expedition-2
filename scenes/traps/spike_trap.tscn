@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk434t73ojd35"]
+
+[ext_resource type="PackedScene" uid="uid://f5074dr7dxvs" path="res://scenes/components/hitbox_2d.tscn" id="1_rkm60"]
+[ext_resource type="Script" uid="uid://uo70ltbvvvuv" path="res://scenes/traps/spike_trap.gd" id="1_xnbrc"]
+[ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="2_xnbrc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7chl"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nasrv"]
+atlas = ExtResource("2_xnbrc")
+region = Rect2(0, 48, 64, 16)
+
+[sub_resource type="Animation" id="Animation_1tx6n"]
+resource_name = "ACTIVE"
+length = 4.00001
+loop_mode = 1
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.4375, 0.5, 0.875, 1, 1.125),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 2, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.875),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hit"
+}, {
+"args": [],
+"method": &"hit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rkm60"]
+resource_name = "NORMAL"
+length = 0.0333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xnbrc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqars"]
+_data = {
+&"ACTIVE": SubResource("Animation_1tx6n"),
+&"NORMAL": SubResource("Animation_rkm60"),
+&"RESET": SubResource("Animation_xnbrc")
+}
+
+[node name="SpikeTrap" type="Node2D"]
+script = ExtResource("1_xnbrc")
+
+[node name="Hitbox2D" parent="." instance=ExtResource("1_rkm60")]
+knockback_force = 400.0
+
+[node name="CollisionShape2D" parent="Hitbox2D" index="0"]
+shape = SubResource("RectangleShape2D_h7chl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nasrv")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dqars")
+}
+
+[editable path="Hitbox2D"]
