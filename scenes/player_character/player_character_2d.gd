@@ -20,15 +20,13 @@ signal died
 var facing_direction : Vector2
 var can_take_damage : bool = true
 var is_on_ground : bool = true
+var is_running : bool = false
 
 var external_force : Vector2 = Vector2.ZERO
 
 func face_direction(new_direction : Vector2):
 	facing_direction = new_direction.normalized()
 	var facing_angle = facing_direction.angle()
-	animation_tree.set("parameters/Idle/blend_position", facing_direction)
-	animation_tree.set("parameters/Running/blend_position", facing_direction)
-	$BodyStackedSprite2D.sprite_rotation = facing_angle
 	for component_2d in update_component_directions:
 		component_2d.rotation = facing_angle
 
@@ -39,12 +37,16 @@ func get_input_vector() -> Vector2:
 	return input_vector.normalized()
 
 func animate_run():
+	if is_running: return
+	is_running = true
 	$WalkingStreamRepeater2D.play_loop()
-	animation_state.travel("Running")
+	animation_state.travel("RUN")
 
 func animate_idle():
+	if not is_running: return
+	is_running = false
 	$WalkingStreamRepeater2D.stop_loop()
-	animation_state.travel("Idle")
+	animation_state.travel("IDLE")
 
 func move_state(delta):
 	var input_vector := get_input_vector()
@@ -66,16 +68,6 @@ func move_state(delta):
 	move_and_slide()
 	velocity = get_real_velocity()
 
-func swap_arm_to_front():
-	if $ArmSprite2D.get_index() > $CharacterSprite2D.get_index():
-		return
-	move_child($ArmSprite2D, $CharacterSprite2D.get_index())
-
-func swap_arm_to_back():
-	if $ArmSprite2D.get_index() < $CharacterSprite2D.get_index():
-		return
-	move_child($CharacterSprite2D, $ArmSprite2D.get_index())
-
 func _physics_process(delta):
 	move_state(delta)
 
@@ -88,9 +80,6 @@ func _input(event : InputEvent) -> void:
 
 func start_death():
 	died.emit()
-
-func _on_damage_animation_player_animation_finished(_anim_name):
-	can_take_damage = true
 
 func _ready():
 	await get_tree().create_timer(0.05).timeout
@@ -105,7 +94,6 @@ func initialize():
 			child.initialize()
 		if child is ComponentBase2D:
 			child.initialize()
-
 
 func _on_health_component_health_changed(new_value : float, delta : float):
 	ProjectEvents.player_health_changed.emit(new_value, delta)
