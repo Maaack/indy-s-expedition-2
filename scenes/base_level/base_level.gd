@@ -9,22 +9,16 @@ signal player_died
 signal player_teleported(player_node, new_position)
 signal monster_mode_activation_changed(activated : bool)
 
-enum ChildSceneType{
-	NONE = -1,
-	PROJECTILE,
-	COLLECTIBLE,
-	CHARACTER,
-	INTERACTABLE,
-	SPAWNER,
-	RUBBISH,
-}
-
 @onready var character_container = $CharacterContainer
 @onready var text_container = $TextContainer
+@onready var stealing_tutorial_manager = $StealingTutorialManager
+
+
 var pc_node : CharacterBody2D
 var pc_monster_node : CharacterBody2D
 var enemy_host_node : CharacterBody2D
 var floating_text_scene = preload("res://scenes/floating_text/floating_text_2d.tscn")
+var stolen_artifacts : int = 0
 
 func add_player(player : PlayerCharacter2D):
 	pc_node = player
@@ -100,6 +94,9 @@ func _connect_all_enemy_signals():
 		_attach_enemy_signals(child)
 
 func _on_treasure_picked_up(add_score : int, treasure_position : Vector2) -> void:
+	if stolen_artifacts == 0:
+		stealing_tutorial_manager.open_tutorials()
+	stolen_artifacts += 1
 	spawn_floating_text(treasure_position, "+%d" % add_score)
 
 func _ready():

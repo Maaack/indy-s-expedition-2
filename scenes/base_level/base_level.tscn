@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://itheimf3fono"]
+[gd_scene load_steps=13 format=4 uid="uid://itheimf3fono"]
 
 [ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_bygya"]
 [ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="2_8o1ni"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://boq4n7lyt83w4" path="res://scenes/base_level/a_star_grid_server.gd" id="4_kwar3"]
 [ext_resource type="PackedScene" uid="uid://cbuhf6ck8ejxb" path="res://scenes/base_level/exit_point.tscn" id="5_0wob2"]
 [ext_resource type="Texture2D" uid="uid://c4378hu5cv62p" path="res://assets/sprite/navigation_point.png" id="5_rw8pa"]
+[ext_resource type="Script" uid="uid://3j3oc0tled2p" path="res://scenes/game_scene/tutorial_manager.gd" id="8_5yg0m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v60iv"]
 texture = ExtResource("2_8o1ni")
@@ -216,3 +217,12 @@ color = Color(0, 0, 0, 1)
 
 [node name="ExitPoint" parent="." instance=ExtResource("5_0wob2")]
 position = Vector2(1643, 264)
+
+[node name="TutorialManager" type="Node" parent="."]
+script = ExtResource("8_5yg0m")
+open_delay = 0.1
+auto_open = true
+
+[node name="StealingTutorialManager" type="Node" parent="."]
+script = ExtResource("8_5yg0m")
+open_delay = 0.1

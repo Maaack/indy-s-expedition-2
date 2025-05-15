@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgo1riwg60u7p"]
+
+[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_uhdob"]
+
+[node name="Tutorial1" instance=ExtResource("1_uhdob")]
+process_mode = 3
+pauses_game = true
+
+[node name="MenuPanelContainer" parent="." index="1"]
+offset_left = -206.0
+offset_top = -75.0
+offset_right = 215.0
+offset_bottom = 76.0
+
+[node name="BoxContainer" parent="MenuPanelContainer/MarginContainer" index="0"]
+theme_override_constants/separation = 16
+
+[node name="TitleMargin" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="0"]
+visible = false
+
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+text = ""
+
+[node name="DescriptionMargin" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="1"]
+visible = true
+
+[node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
+text = "[center]Uh oh, spaghetti-oh!
+It's a lot of traps!
+Who could have possibly seen this coming?
+Better get out of there!
+[/center]"
+fit_content = true
