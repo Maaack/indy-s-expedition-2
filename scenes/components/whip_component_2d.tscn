@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://jh7wd7y46a4k"]
+[gd_scene load_steps=3 format=3 uid="uid://jh7wd7y46a4k"]
 
 [ext_resource type="Script" uid="uid://ccegeftotnrnp" path="res://scenes/components/whip_component_2d.gd" id="1_i6rdb"]
+[ext_resource type="Texture2D" uid="uid://bjy3xdic831n" path="res://assets/sprite/whip_dark_horizontal.png" id="2_8y04i"]
 
 [node name="WhipComponent2D" type="Node2D"]
 script = ExtResource("1_i6rdb")
@@ -13,4 +14,9 @@ collision_mask = 16
 collide_with_areas = true
 
 [node name="Line2D" type="Line2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
 points = PackedVector2Array(0, 0, 0, 0)
+width = 4.0
+texture = ExtResource("2_8y04i")
+texture_mode = 1
