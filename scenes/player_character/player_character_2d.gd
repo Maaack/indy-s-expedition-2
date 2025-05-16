@@ -12,7 +12,7 @@ signal died
 @export var ground_friction : float = 600
 @export var air_friction : float = 50
 
-
+@onready var health_component : HealthComponent = $HealthComponent
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var animation_tree = $CharacterAnimationTree
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
@@ -102,7 +102,8 @@ func _ready():
 	initialize()
 
 func _on_pickup_collector_pickup_collected(pickup):
-	pass
+	if pickup is Heart:
+		health_component.heal(pickup.health)
 
 func initialize():
 	for child in get_children():
