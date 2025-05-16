@@ -15,6 +15,7 @@ extends AttackComponent2D
 var attached_global_point : Vector2
 var is_attached : bool
 var _tween_target : Vector2
+var is_attacking : bool = false
 
 func move_whip_tip(target_position : Vector2) -> void:
 	line.set_point_position(1, target_position)
@@ -34,6 +35,7 @@ func attach_whip_to_point(target_position : Vector2) -> void:
 	line.show()
 	var tween := tween_whip_to_global_point(target_position, 1.0/whip_speed)
 	await tween.finished
+	if not is_attacking : return
 	attached_global_point = target_position
 	is_attached = true
 
@@ -62,15 +64,22 @@ func animate_whip_attack(target_position : Vector2):
 	tween.tween_method(move_whip_tip, final_point, Vector2.ZERO, 0.5/whip_speed)
 
 func attack():
+	is_attacking = true
 	if ray_cast.is_colliding():
 		whip_to_object(ray_cast.get_collision_point(), ray_cast.get_collider())
+	else:
+		animate_whip_attack(ray_cast.target_position.rotated(ray_cast.global_rotation) + global_position)
+
+func stop_attack():
+	is_attacking = false
+	detach_whip()
 
 func _input(event):
 	if action_name:
 		if event.is_action_pressed(action_name):
 			attack()
 		elif event.is_action_released(action_name):
-			detach_whip()
+			stop_attack()
 
 func get_attach_vector() -> Vector2:
 	return attached_global_point - global_position
