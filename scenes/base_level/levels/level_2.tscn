@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://7qr7lo3pbbms"]
+[gd_scene load_steps=22 format=4 uid="uid://7qr7lo3pbbms"]
 
 [ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_xoeed"]
 [ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="2_ejuk3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bvhpdoddfuumf" path="res://scenes/base_level/rooms/treasure_room_rings.tscn" id="13_2o7ev"]
 [ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="13_d8y8b"]
 [ext_resource type="PackedScene" uid="uid://cpn5rnx1vao33" path="res://scenes/base_level/rooms/treasure_room_mask.tscn" id="14_poe6o"]
+[ext_resource type="PackedScene" uid="uid://cqb0bkbyxec1w" path="res://scenes/base_level/rooms/heart_room.tscn" id="15_2o7ev"]
 [ext_resource type="PackedScene" uid="uid://cs1ghsvd8m1x7" path="res://scenes/base_level/rooms/treasure_room_man_statue.tscn" id="15_g8w5c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rn38"]
@@ -654,15 +655,16 @@ visible = false
 [node name="DraftableMap" parent="." instance=ExtResource("12_jafsa")]
 visible = false
 treasure_rooms = Array[PackedScene]([ExtResource("13_2o7ev"), ExtResource("14_poe6o"), ExtResource("15_g8w5c")])
+heart_rooms = Array[PackedScene]([ExtResource("15_2o7ev")])
 
 [node name="DraftableLayer" parent="DraftableMap" index="0"]
 tile_map_data = PackedByteArray("AAAAAAAAAAADAAQAAAABAAAAAAADAAQAAAACAAAAAAADAAQAAAA=")
 
 [node name="TreasureLayer" parent="DraftableMap" index="1"]
-tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAACAAAAAAABAAAAAAABAAAAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAA=")
 
 [node name="HealthLayer" parent="DraftableMap" index="2"]
-tile_map_data = PackedByteArray()
+tile_map_data = PackedByteArray("AAACAAAAAAAAAAIAAAA=")
 
 [node name="DraftPoint" parent="." instance=ExtResource("13_d8y8b")]
 position = Vector2(-352, 0)
