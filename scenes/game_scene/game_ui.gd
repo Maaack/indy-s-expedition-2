@@ -37,11 +37,12 @@ func _on_treasure_picked_up(add_score : int, _treasure_position : Vector2) -> vo
 func _on_player_health_changed(new_health : float, delta : float) -> void:
 	health = new_health
 
-func _on_level_drafting_room(current_tile : Vector2i, direction : Vector2i, game_map : GameMap, draftable_map : DraftableMap) -> void:
-	game_map.current_tile = current_tile
+func _on_level_drafting_room(current_tile : Vector2i, direction : Vector2i, draftable_map : DraftableMap) -> void:
+	current_game_map.current_tile = current_tile
 	var drafting_tile := current_tile + direction
+	if not current_game_map.is_draftable_tile(drafting_tile): return
 	get_tree().paused = true
-	drafting_view.draft(current_tile, direction, draftable_map)
+	drafting_view.draft(current_tile, current_game_map.get_current_map_tile(), direction, draftable_map)
 	animation_player.play("OPEN_DRAFTING", -1, 2.0)
 	await animation_player.animation_finished
 	drafting_view.enable()
@@ -49,6 +50,7 @@ func _on_level_drafting_room(current_tile : Vector2i, direction : Vector2i, game
 func _on_drafting_view_room_option_drafted(room_data):
 	animation_player.play("CLOSE_DRAFTING", -1, 2.0)
 	get_tree().paused = false
+	current_game_map.draft_room(room_data)
 	ProjectEvents.room_drafted.emit(room_data)
 
 func _on_player_moved(player_global_position : Vector2):

@@ -23,7 +23,7 @@ var is_on_ground : bool = true
 var is_running : bool = false
 
 var external_force : Vector2 = Vector2.ZERO
-var move_tick_distance_squared : float = 256
+var move_tick_distance_squared : float = 1
 var move_distance_squared : float
 
 func face_direction(new_direction : Vector2):
@@ -88,7 +88,7 @@ func move_state(delta):
 		animate_idle()
 	move_and_slide()
 	velocity = get_real_velocity()
-	move_distance_squared += velocity.length_squared()
+	move_distance_squared += (velocity * delta).length_squared() * delta
 	if move_distance_squared > move_tick_distance_squared:
 		move_distance_squared = 0
 		move_tick()

@@ -3,7 +3,7 @@ extends Node
 
 signal player_exiting
 signal player_drafting_room(current_tile : Vector2i, direction : Vector2i)
-signal level_drafting_room(current_tile : Vector2i, direction : Vector2i, game_map : GameMap, draftable_map : DraftableMap)
+signal level_drafting_room(current_tile : Vector2i, direction : Vector2i, draftable_map : DraftableMap)
 signal player_health_changed(health : float, delta : float)
 signal player_max_health_changed(max_health : float, delta : float)
 signal player_moved(player_global_position : Vector2)

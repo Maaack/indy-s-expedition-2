@@ -46,7 +46,7 @@ func draft_room(room_data : RoomData) -> void:
 func _on_room_option_pressed(selected_option : RoomDraftOption) -> void:
 	draft_room(selected_option.room_data)
 
-func draft(from_room : Vector2i, direction : Vector2i, in_draftable_map : DraftableMap) -> void:
+func draft(map_coord : Vector2i, map_tile_coord : Vector2i, direction : Vector2i, in_draftable_map : DraftableMap) -> void:
 	draftable_map = in_draftable_map
 	drafting_options.clear()
 	var draftable_rooms := draftable_map.get_draftable_rooms()
@@ -56,6 +56,7 @@ func draft(from_room : Vector2i, direction : Vector2i, in_draftable_map : Drafta
 		if next_room == null: break
 		var next_room_door := next_room.get_random_door()
 		next_room.rotation = Vector2(next_room_door).angle_to(-direction)
-		next_room.map_tile_coord = from_room + direction
+		next_room.map_coord = map_coord + direction
+		next_room.map_tile_coord = map_tile_coord + direction
 		drafting_options.append(next_room)
 	_refresh_drafting_options()

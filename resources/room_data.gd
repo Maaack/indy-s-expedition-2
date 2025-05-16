@@ -3,6 +3,7 @@ extends Resource
 
 @export var atlas_coord : Vector2i
 @export var draft_tile_coord : Vector2i
+@export var map_coord : Vector2i
 @export var map_tile_coord : Vector2i
 @export var door_up : bool
 @export var door_down : bool

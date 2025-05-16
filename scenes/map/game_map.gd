@@ -52,17 +52,18 @@ func _room_has_door(room_data : RoomData, direction : Vector2i) -> bool:
 	var doors := room_data.get_rotated_doors()
 	return direction in doors
 
-func have_match_doors(direction : Vector2i, starting_point : Vector2i = get_current_map_tile()) -> bool:
-	var destination_tile := starting_point + direction
-	var current_room_data := drafted_layer.get_drafted_tile(starting_point)
+func have_match_doors(direction : Vector2i, starting_point : Vector2i) -> bool:
+	var starting_tile := starting_point + tile_offset
+	var destination_tile := starting_tile + direction
+	var current_room_data := drafted_layer.get_drafted_tile(starting_tile)
 	var destination_room_data := drafted_layer.get_drafted_tile(destination_tile)
 	var _current_has_door := _room_has_door(current_room_data, direction)
 	var _destination_has_door := destination_room_data == null or _room_has_door(destination_room_data, -direction)
-	return _room_has_door(current_room_data, direction) and _destination_has_door
+	return _current_has_door and _destination_has_door
 
 func has_door_from_current_tile(tile : Vector2i) -> bool:
-	var direction := tile - get_current_map_tile()
-	return have_match_doors(direction, get_current_map_tile())
+	var direction := tile - get_current_tile()
+	return have_match_doors(direction, get_current_tile())
 
 func is_navigable_tile(tile : Vector2i) -> bool:
 	if not has_door_from_current_tile(tile): return false
@@ -75,8 +76,9 @@ func is_outer_tile(tile : Vector2i) -> bool:
 	return room_tile_layer.is_outer_tile(tile)
 
 func is_draftable_tile(tile : Vector2i) -> bool:
+	var map_tile = tile + tile_offset
 	if not has_door_from_current_tile(tile): return false
-	return room_tile_layer.is_draftable_tile(tile)
+	return room_tile_layer.is_draftable_tile(map_tile)
 
 func get_navigable_tiles() -> Array[Vector2i]:
 	var neighboring_tiles := get_neighboring_tiles()
@@ -89,12 +91,13 @@ func get_draftable_tiles() -> Array[Vector2i]:
 	return neighboring_tiles.filter(is_draftable_tile)
 
 func draft_room(room_data : RoomData) -> void:
-	room_tile_layer.draft_tile(room_data.map_tile_coord, Vector2i.ONE)
-	drafted_layer.draft_room(room_data)
+	var draft_room_map_tile = room_data.map_tile_coord
+	room_tile_layer.draft_tile(draft_room_map_tile, Vector2i.ONE)
+	drafted_layer.draft_room(room_data, tile_offset)
 	if room_data.inventory.has(Constants.HEART):
-		heart_layer.set_cell(room_data.map_tile_coord, 0, Vector2i(0, 3))
+		heart_layer.set_cell(draft_room_map_tile, 0, Vector2i(0, 2))
 	if room_data.inventory.has(Constants.TREASURE):
-		treasure_layer.set_cell(room_data.map_tile_coord, 0, Vector2i(1, 0))
+		treasure_layer.set_cell(draft_room_map_tile, 0, Vector2i(1, 0))
 
 func has_item(item_name : StringName) -> bool:
 	if current_room == null: return false

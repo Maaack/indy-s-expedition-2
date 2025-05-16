@@ -8,7 +8,7 @@ var drafted_tile_map : Dictionary[Vector2i, RoomData]
 var _draft_queue : Array[RoomData]
 var _drafting_room : bool = false
 
-func draft_room(room_data : RoomData) -> void:
+func draft_room(room_data : RoomData, tile_offset : Vector2i) -> void:
 	_draft_queue.append(room_data)
 	drafted_tile_map[room_data.map_tile_coord] = room_data
 
