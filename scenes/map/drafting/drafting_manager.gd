@@ -53,6 +53,7 @@ func draft(from_room : Vector2i, direction : Vector2i, in_draftable_map : Drafta
 	draftable_rooms.shuffle()
 	for iter in range(draft_option_count):
 		var next_room : RoomData = draftable_rooms.pop_back()
+		if next_room == null: break
 		var next_room_door := next_room.get_random_door()
 		next_room.rotation = Vector2(next_room_door).angle_to(-direction)
 		next_room.map_tile_coord = from_room + direction
