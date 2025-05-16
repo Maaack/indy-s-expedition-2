@@ -104,4 +104,7 @@ func add_room(room_data : RoomData) -> void:
 	if scene_instance is Room2D:
 		room_container.call_deferred("add_child", scene_instance)
 		scene_instance.position = Constants.ROOM_SIZE * room_data.map_tile_coord
+		await scene_instance.ready
 		scene_instance.room_data = room_data
+		for object in scene_instance.character_container.get_children():
+			object.reparent(character_container)

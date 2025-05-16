@@ -742,6 +742,7 @@ tile_map_data = PackedByteArray("AADo//3/BAAJAAIAAADo//7/BAAJAAIAAADo////BAAJAAI
 tile_set = SubResource("TileSet_5jvtw")
 
 [node name="CharacterContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="Enemy" parent="CharacterContainer" instance=ExtResource("6_lv5io")]

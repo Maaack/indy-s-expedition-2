@@ -6,6 +6,7 @@ extends Node2D
 @onready var walls_south : TileMapLayer = $WallsSouth
 @onready var walls_east : TileMapLayer = $WallsEast
 @onready var walls_west : TileMapLayer = $WallsWest
+@onready var character_container : Node2D = %CharacterContainer
 
 @onready var all_walls : Array[TileMapLayer] = [walls_north, walls_south, walls_east, walls_west]
 
