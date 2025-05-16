@@ -7,18 +7,11 @@ extends Node2D
 @onready var collision_shape_2d : CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var original_time : float = timer.wait_time
 
-enum Direction{
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST
-}
-
 @export var arrow_scene : PackedScene
 @export var spawn_offset : float = 4.0
 @export var spawn_velocity : float = 100.0
 @export_enum("FIRST", "SECOND", "THIRD", "FOURTH") var rhythm : int
-@export var directions : Array[Direction]
+@export var directions : Array[Constants.Direction]
 @export var physically_visible : bool = true :
 	set(value):
 		physically_visible = value
@@ -50,13 +43,13 @@ func fire_arrows():
 		var offset_direction := Vector2.UP
 		var spawn_rotation := 0.0
 		match direction:
-			Direction.SOUTH:
+			Constants.Direction.SOUTH:
 				offset_direction = Vector2.DOWN
 				spawn_rotation = PI
-			Direction.EAST:
+			Constants.Direction.EAST:
 				offset_direction = Vector2.LEFT
 				spawn_rotation = -PI/2
-			Direction.WEST:
+			Constants.Direction.WEST:
 				offset_direction = Vector2.RIGHT
 				spawn_rotation = PI/2
 		var spawn_position := global_position + (offset_direction * spawn_offset)

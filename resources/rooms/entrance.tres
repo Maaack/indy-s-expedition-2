@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RoomData" load_steps=2 format=3 uid="uid://d3pb6l0pu6r2k"]
+
+[ext_resource type="Script" uid="uid://dltkqcgdfqqpb" path="res://resources/tile_data.gd" id="1_1jh68"]
+
+[resource]
+script = ExtResource("1_1jh68")
+atlas_coord = Vector2i(1, 1)
+draft_tile_coord = Vector2i(0, 0)
+map_tile_coord = Vector2i(0, 0)
+door_up = true
+door_down = true
+door_left = true
+door_right = true
+rotation = 0.0
+metadata/_custom_type_script = "uid://dltkqcgdfqqpb"

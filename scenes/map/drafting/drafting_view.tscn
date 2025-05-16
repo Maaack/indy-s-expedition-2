@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch2up26y7airb"]
+
+[ext_resource type="Script" uid="uid://dlow4s6g6hlev" path="res://scenes/map/drafting/drafting_view.gd" id="1_2v4di"]
+[ext_resource type="PackedScene" uid="uid://do40kkxkphe3u" path="res://scenes/map/drafting/room_draft_option.tscn" id="2_3ye63"]
+[ext_resource type="Script" uid="uid://dq4kc5okd84ho" path="res://scenes/map/drafting/drafting_manager.gd" id="5_3hvee"]
+
+[node name="DraftingView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2v4di")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="RoomOptionsContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="RoomDraftOption1" parent="VBoxContainer/MarginContainer/PanelContainer/MarginContainer/RoomOptionsContainer" instance=ExtResource("2_3ye63")]
+layout_mode = 2
+
+[node name="RoomDraftOption2" parent="VBoxContainer/MarginContainer/PanelContainer/MarginContainer/RoomOptionsContainer" instance=ExtResource("2_3ye63")]
+layout_mode = 2
+
+[node name="RoomDraftOption3" parent="VBoxContainer/MarginContainer/PanelContainer/MarginContainer/RoomOptionsContainer" instance=ExtResource("2_3ye63")]
+layout_mode = 2
+
+[node name="DraftingManager" type="Node" parent="." node_paths=PackedStringArray("room_options_container")]
+script = ExtResource("5_3hvee")
+room_options_container = NodePath("../VBoxContainer/MarginContainer/PanelContainer/MarginContainer/RoomOptionsContainer")
+room_draft_option_scene = ExtResource("2_3ye63")
+
+[connection signal="room_drafted" from="DraftingManager" to="." method="_on_drafting_manager_room_drafted"]

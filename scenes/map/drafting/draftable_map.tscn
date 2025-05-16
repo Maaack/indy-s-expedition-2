@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=4 uid="uid://c71xy2rk5q3a8"]
+
+[ext_resource type="Script" uid="uid://ctsgv1fm2fq52" path="res://scenes/map/drafting/draftable_map.gd" id="1_qmg5l"]
+[ext_resource type="Texture2D" uid="uid://dl8f7yi785lvg" path="res://assets/images/room-tiles.png" id="1_udes3"]
+[ext_resource type="Texture2D" uid="uid://mh2ve7vt8sir" path="res://assets/images/room-contents.png" id="3_8t0ts"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs1pd"]
+texture = ExtResource("1_udes3")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+0:0/0/custom_data_1 = true
+0:0/0/custom_data_2 = true
+0:0/0/custom_data_3 = true
+1:0/0 = 0
+1:0/0/custom_data_1 = true
+1:0/0/custom_data_2 = true
+1:0/0/custom_data_3 = true
+2:0/0 = 0
+2:0/0/custom_data_0 = true
+2:0/0/custom_data_1 = true
+2:0/0/custom_data_2 = true
+3:0/0 = 0
+3:0/0/custom_data_0 = true
+3:0/0/custom_data_1 = true
+3:0/0/custom_data_3 = true
+0:1/0 = 0
+0:1/0/custom_data_0 = true
+0:1/0/custom_data_1 = true
+0:1/0/custom_data_2 = true
+0:1/0/custom_data_3 = true
+1:1/0 = 0
+1:1/0/custom_data_0 = true
+1:1/0/custom_data_1 = true
+1:1/0/custom_data_2 = true
+1:1/0/custom_data_3 = true
+2:1/0 = 0
+2:1/0/custom_data_1 = true
+2:1/0/custom_data_2 = true
+2:1/0/custom_data_3 = true
+3:1/0 = 0
+3:1/0/custom_data_0 = true
+3:1/0/custom_data_1 = true
+3:1/0/custom_data_2 = true
+0:2/0 = 0
+0:2/0/custom_data_0 = true
+0:2/0/custom_data_2 = true
+0:2/0/custom_data_3 = true
+1:2/0 = 0
+1:2/0/custom_data_0 = true
+1:2/0/custom_data_1 = true
+1:2/0/custom_data_3 = true
+2:2/0 = 0
+2:2/0/custom_data_0 = true
+2:2/0/custom_data_1 = true
+3:2/0 = 0
+3:2/0/custom_data_2 = true
+3:2/0/custom_data_3 = true
+0:3/0 = 0
+0:3/0/custom_data_1 = true
+0:3/0/custom_data_2 = true
+1:3/0 = 0
+1:3/0/custom_data_0 = true
+1:3/0/custom_data_2 = true
+2:3/0 = 0
+2:3/0/custom_data_0 = true
+2:3/0/custom_data_3 = true
+3:3/0 = 0
+3:3/0/custom_data_1 = true
+3:3/0/custom_data_3 = true
+0:4/0 = 0
+0:4/0/custom_data_2 = true
+1:4/0 = 0
+1:4/0/custom_data_0 = true
+2:4/0 = 0
+2:4/0/custom_data_3 = true
+3:4/0 = 0
+3:4/0/custom_data_1 = true
+
+[sub_resource type="TileSet" id="TileSet_r16p1"]
+tile_size = Vector2i(24, 24)
+custom_data_layer_0/name = "door_up"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "door_down"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "door_left"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "door_right"
+custom_data_layer_3/type = 1
+sources/0 = SubResource("TileSetAtlasSource_gs1pd")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21xwn"]
+texture = ExtResource("3_8t0ts")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_htu1c"]
+tile_size = Vector2i(24, 24)
+sources/0 = SubResource("TileSetAtlasSource_21xwn")
+
+[node name="DraftableMap" type="Node2D"]
+script = ExtResource("1_qmg5l")
+
+[node name="DraftableLayer" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAACAAAAAAABAAEAAAADAAIAAAACAAEAAAAEAAIAAAACAAEAAAAFAAIAAAACAAEAAAADAAAAAAABAAEAAAAGAAIAAAACAAEAAAAHAAIAAAACAAEAAAAAAAQAAAACAAIAAAABAAQAAAACAAIAAAACAAQAAAACAAIAAAADAAQAAAACAAIAAAAEAAQAAAACAAIAAAAFAAQAAAACAAIAAAAAAAYAAAAAAAMAAAABAAYAAAAAAAMAAAACAAYAAAAAAAMAAAADAAYAAAAAAAMAAAAEAAYAAAAAAAMAAAAFAAYAAAAAAAMAAAAAAAkAAAADAAQAAAABAAkAAAADAAQAAAACAAkAAAADAAQAAAADAAkAAAADAAQAAAAEAAkAAAADAAQAAAAFAAkAAAADAAQAAAAAAAcAAAAAAAMAAAABAAcAAAAAAAMAAAACAAcAAAAAAAMAAAADAAcAAAAAAAMAAAAEAAcAAAAAAAMAAAAFAAcAAAAAAAMAAAAAAAoAAAADAAQAAAABAAoAAAADAAQAAAACAAoAAAADAAQAAAADAAoAAAADAAQAAAAEAAoAAAADAAQAAAAFAAoAAAADAAQAAAA=")
+tile_set = SubResource("TileSet_r16p1")
+
+[node name="TreasureLayer" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAAAAoAAAABAAAAAAABAAoAAAABAAAAAAACAAoAAAABAAAAAAADAAoAAAABAAAAAAAEAAoAAAABAAAAAAAFAAoAAAABAAAAAAAAAAYAAAABAAAAAAABAAYAAAABAAAAAAACAAYAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_htu1c")
+
+[node name="HealthLayer" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAIAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAADAAIAAAAAAAIAAAAAAAQAAAAAAAIAAAABAAQAAAAAAAIAAAADAAYAAAAAAAIAAAAEAAYAAAAAAAIAAAAFAAYAAAAAAAIAAAACAAQAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_htu1c")

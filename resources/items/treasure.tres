@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b4qvgyrhtbtn5"]
+
+[ext_resource type="Script" path="res://resources/resource_unit_property.gd" id="1_fitjn"]
+[ext_resource type="Script" path="res://resources/item.gd" id="2_df5c7"]
+
+[resource]
+script = ExtResource("2_df5c7")
+stackable = true
+name = &"treasure"
+initial_properties = Array[ExtResource("1_fitjn")]([])
+metadata/_custom_type_script = "uid://wuybpjth3i2r"

@@ -1,0 +1,239 @@
+[gd_scene load_steps=8 format=3 uid="uid://byum77gbg7fji"]
+
+[ext_resource type="Script" uid="uid://bbtdo14hp2pwe" path="res://scenes/map/layout_view.gd" id="1_jq1s5"]
+[ext_resource type="PackedScene" uid="uid://ok0trkn2uktm" path="res://scenes/map/game_map.tscn" id="1_kmml7"]
+[ext_resource type="PackedScene" uid="uid://ch2up26y7airb" path="res://scenes/map/drafting/drafting_view.tscn" id="3_ghlu5"]
+
+[sub_resource type="Animation" id="Animation_mjb2g"]
+resource_name = "CLOSE_DRAFTING"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DraftingView:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 720)]
+}
+
+[sub_resource type="Animation" id="Animation_ghlu5"]
+resource_name = "OPEN_DRAFTING"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DraftingView:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2mlvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DraftingView:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 720)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rpmjd"]
+_data = {
+&"CLOSE_DRAFTING": SubResource("Animation_mjb2g"),
+&"OPEN_DRAFTING": SubResource("Animation_ghlu5"),
+&"RESET": SubResource("Animation_2mlvr")
+}
+
+[node name="LayoutView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jq1s5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentLocationContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentTileDescriptionLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/CurrentLocationContainer"]
+layout_mode = 2
+text = "Current tile: "
+
+[node name="CurrentTileLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/CurrentLocationContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepsTakenDescriptionLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/CurrentLocationContainer"]
+layout_mode = 2
+text = "Steps Taken: "
+
+[node name="StepsTakenLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/CurrentLocationContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TravelContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TravelLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer"]
+layout_mode = 2
+text = "Travel Options"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="FillerNode" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TravelUpButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Up"
+
+[node name="FillerNode2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TravelLeftButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Left"
+
+[node name="FillerNode3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TravelRightButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Right"
+
+[node name="FillerNode4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TravelDownButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Down"
+
+[node name="FillerNode5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/TravelContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PickupKeyButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pickup Key"
+
+[node name="PickupGemButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pickup Gem"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="KeyCountLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Keys: 0"
+horizontal_alignment = 1
+
+[node name="GemCountLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Gems: 0"
+horizontal_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(212, 360)
+render_target_update_mode = 4
+
+[node name="GameMap" parent="MarginContainer/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_kmml7")]
+unique_name_in_owner = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DraftingView" parent="." instance=ExtResource("3_ghlu5")]
+layout_mode = 1
+offset_top = 720.0
+offset_bottom = 720.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rpmjd")
+}
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/PickupKeyButton" to="." method="_on_pickup_key_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/PickupGemButton" to="." method="_on_pickup_gem_button_pressed"]
+[connection signal="room_option_drafted" from="DraftingView" to="." method="_on_drafting_view_room_option_drafted"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://do40kkxkphe3u"]
+
+[ext_resource type="Texture2D" uid="uid://dl8f7yi785lvg" path="res://assets/images/room-tiles.png" id="1_htokm"]
+[ext_resource type="Script" uid="uid://da44j84yv27xb" path="res://scenes/map/drafting/room_draft_option.gd" id="2_uai07"]
+[ext_resource type="Texture2D" uid="uid://mh2ve7vt8sir" path="res://assets/images/room-contents.png" id="3_8rbuy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htokm"]
+resource_local_to_scene = true
+atlas = ExtResource("1_htokm")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rbuy"]
+atlas = ExtResource("3_8rbuy")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsu0t"]
+atlas = ExtResource("3_8rbuy")
+region = Rect2(24, 0, 24, 24)
+
+[node name="RoomDraftOption" type="Button"]
+custom_minimum_size = Vector2(72, 72)
+script = ExtResource("2_uai07")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+unique_name_in_owner = true
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_htokm")
+
+[node name="HeartSprite2D" type="Sprite2D" parent="Control"]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_8rbuy")
+
+[node name="TreasureSprite2D" type="Sprite2D" parent="Control"]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gsu0t")

@@ -9,10 +9,15 @@ signal player_died
 signal player_teleported(player_node, new_position)
 signal monster_mode_activation_changed(activated : bool)
 
+@onready var room_container = $RoomContainer
 @onready var character_container = $CharacterContainer
 @onready var text_container = $TextContainer
+@onready var tutorial_manager = %TutorialManager
 @onready var stealing_tutorial_manager = $StealingTutorialManager
+@onready var game_map : GameMap = $GameMap
+@onready var draftable_map : DraftableMap = $DraftableMap
 
+@export var room_scene : PackedScene
 
 var pc_node : CharacterBody2D
 var pc_monster_node : CharacterBody2D
@@ -20,20 +25,7 @@ var enemy_host_node : CharacterBody2D
 var floating_text_scene = preload("res://scenes/floating_text/floating_text_2d.tscn")
 var stolen_artifacts : int = 0
 
-func add_player(player : PlayerCharacter2D):
-	pc_node = player
-	pc_node.dash.connect(_on_player_character_dash)
-	pc_node.interactable_access_changed.connect(_on_player_character_interactable_access_changed)
-	pc_node.new_weapon.connect(_on_player_character_new_weapon)
-	pc_node.health_changed.connect(_on_player_character_health_changed)
-	pc_node.died.connect(_on_player_character_died)
-
-	pc_node.position = $PlayerSpawnPoint.position
-	$CharacterContainer.add_child(pc_node)
-
-func remove_player():
-	$CharacterContainer.remove_child(pc_node)
-	pc_node = null
+var level_state : LevelState
 
 func spawn_floating_text(text_position : Vector2, text_value : String):
 	var floating_text_instance = floating_text_scene.instantiate()
@@ -42,30 +34,7 @@ func spawn_floating_text(text_position : Vector2, text_value : String):
 	text_container.call_deferred("add_child", floating_text_instance)
 	return floating_text_instance
 
-func _on_player_character_dash(cooldown):
-	emit_signal("player_dashed", cooldown)
-
-func _on_player_character_health_changed(health : float, max_health : float):
-	emit_signal("player_health_changed", health, max_health)
-
-func _on_player_character_died():
-	emit_signal("player_died")
-
-func _on_player_character_interactable_access_changed(has_access_flag : bool):
-	emit_signal("player_interactable_access_changed", has_access_flag)
-
-func _on_player_monster_jumped(cooldown):
-	emit_signal("player_dashed", cooldown)
-
-func _on_player_teleported(player_node : Node2D, new_position : Vector2):
-	emit_signal("player_teleported", player_node, new_position)
-
-func _on_body_teleported(node_2d : Node2D, new_position : Vector2):
-	if node_2d.is_in_group(Constants.PLAYER_GROUP):
-		_on_player_teleported(node_2d, new_position)
-
 func _on_enemy_pathing(move_target, enemy_node):
-	
 	for group in enemy_node.ignore_obstacle_groups:
 		$AStarGridServer.set_group_disabled(group, false)
 	
@@ -94,16 +63,31 @@ func _connect_all_enemy_signals():
 		_attach_enemy_signals(child)
 
 func _on_treasure_picked_up(add_score : int, treasure_position : Vector2) -> void:
-	if stolen_artifacts == 0:
+	if stolen_artifacts == 0 and not level_state.stealing_tutorial_read:
 		stealing_tutorial_manager.open_tutorials()
+		level_state.stealing_tutorial_read = true
+		GlobalState.save()
 	stolen_artifacts += 1
 	spawn_floating_text(treasure_position, "+%d" % add_score)
+
+func _on_player_drafting_room(current_tile : Vector2i, direction : Vector2i):
+	ProjectEvents.level_drafting_room.emit(current_tile, direction, game_map, draftable_map)
+
+func open_tutorials() -> void:
+	tutorial_manager.open_tutorials()
+	level_state.tutorial_read = true
+	GlobalState.save()
 
 func _ready():
 	_connect_all_enemy_signals()
 	ProjectEvents.treasure_picked_up.connect(_on_treasure_picked_up)
 	ProjectEvents.queue_spawn.connect(instantiate_scene_type)
-	
+	ProjectEvents.player_drafting_room.connect(_on_player_drafting_room)
+	ProjectEvents.room_drafted.connect(add_room)
+	level_state = GameState.get_level_state(scene_file_path)
+	if not level_state.tutorial_read:
+		open_tutorials()
+
 func _on_player_character_new_weapon(weapon_name):
 	emit_signal("player_new_weapon", weapon_name)
 
@@ -114,3 +98,10 @@ func instantiate_scene_type(packed_scene : PackedScene, scene_data : Dictionary 
 		if scene_instance.has_method("set_%s" % key):
 			scene_instance.call("set_%s" % key, value)
 	character_container.call_deferred("add_child", scene_instance)
+
+func add_room(room_data : RoomData) -> void:
+	var scene_instance = room_scene.instantiate()
+	if scene_instance is Room2D:
+		room_container.call_deferred("add_child", scene_instance)
+		scene_instance.position = Constants.ROOM_SIZE * room_data.map_tile_coord
+		scene_instance.room_data = room_data

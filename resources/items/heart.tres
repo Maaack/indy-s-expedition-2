@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c21uqnquvf4n0"]
+
+[ext_resource type="Script" path="res://resources/resource_unit_property.gd" id="1_ykwyx"]
+[ext_resource type="Script" path="res://resources/item.gd" id="2_nv3up"]
+
+[resource]
+script = ExtResource("2_nv3up")
+stackable = true
+name = &"heart"
+initial_properties = Array[ExtResource("1_ykwyx")]([])
+metadata/_custom_type_script = "uid://wuybpjth3i2r"
