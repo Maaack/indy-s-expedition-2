@@ -1,3 +1,4 @@
+@tool
 class_name Enemy
 extends CharacterBody2D
 
@@ -5,9 +6,15 @@ signal health_changed(new_value)
 signal max_health_changed(new_value)
 signal died
 
-@export var boss_name : String = ""
+@onready var sprite_2d : Sprite2D = $Sprite2D
+@export var flip_h : bool = false :
+	set(value):
+		flip_h = value
+		if sprite_2d:
+			sprite_2d.flip_h = flip_h
 
 func _ready():
+	flip_h = flip_h
 	for child in get_children():
 		if child is HealthComponent:
 			child.health_changed.connect(func(new_value) : health_changed.emit(new_value))

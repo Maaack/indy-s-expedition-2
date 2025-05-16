@@ -44,9 +44,10 @@ movement_speed = 100
 friction = 800.0
 enabled = false
 
-[node name="TurnToTargetComponent" parent="." node_paths=PackedStringArray("check_los_component", "target_nodes", "rotation_reference") instance=ExtResource("5_p7w77")]
+[node name="TurnToTargetComponent" parent="." node_paths=PackedStringArray("check_los_component", "target_nodes", "target_sprites", "rotation_reference") instance=ExtResource("5_p7w77")]
 check_los_component = NodePath("../CheckLOSComponent")
 target_nodes = [NodePath("../DetectorBox2D"), NodePath("../SlashAttackComponent2D")]
+target_sprites = [NodePath("../Sprite2D")]
 rotation_reference = NodePath("../Pivot")
 enabled = false
 

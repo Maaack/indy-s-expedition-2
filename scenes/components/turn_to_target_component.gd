@@ -14,6 +14,7 @@ extends ComponentBase
 		
 @export var target_nodes : Array[Node2D]
 @export var target_stacked_sprites : Array[StackedSprite2D]
+@export var target_sprites : Array[Sprite2D]
 @export var rotation_reference : Node2D
 @export_range(0, 180, 0.1) var rotation_speed : float = 0.0 :
 	set(value):
@@ -46,6 +47,8 @@ func _update_rotation_angle(delta : float):
 		return
 	for node in target_nodes:
 		node.rotation = _get_target_rotation(rotation_angle, node.rotation, delta)
+	for sprite in target_sprites:
+		sprite.flip_h = rotation_target.x < 0
 	for stacked_sprite in target_stacked_sprites:
 		var total_rotation = rotation_angle
 		if rotation_reference:
