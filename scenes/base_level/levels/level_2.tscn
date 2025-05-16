@@ -652,6 +652,12 @@ open_delay = 0.1
 [node name="GameMap" parent="." instance=ExtResource("11_oho5x")]
 visible = false
 
+[node name="RoomsLayer" parent="GameMap" index="0"]
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAEAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
+
+[node name="OuterWallsLayer" parent="GameMap" index="4"]
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAAAAAAAAAMAAAABAAAAAAAAAAIAAAACAAEAAAAAAAEAAAACAAEAAAABAAAAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAEAAAABAAMAAAABAAEAAAACAAMAAAACAAIAAAADAAMAAAABAAEAAAAEAAMAAAAAAAAAAAAEAAEAAAABAAIAAAAEAAIAAAABAAIAAAA=")
+
 [node name="DraftableMap" parent="." instance=ExtResource("12_jafsa")]
 visible = false
 treasure_rooms = Array[PackedScene]([ExtResource("13_2o7ev"), ExtResource("14_poe6o"), ExtResource("15_g8w5c")])

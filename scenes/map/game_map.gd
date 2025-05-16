@@ -14,12 +14,13 @@ extends Node2D
 var entrance_room : RoomData
 var current_room : RoomData
 
+var tile_offset : Vector2i
 var current_tile : Vector2i :
 	set(value):
 		current_tile = value
 		if is_inside_tree():
-			pc_layer.pc_tile = current_tile
-			current_room = drafted_layer.get_drafted_tile(current_tile)
+			pc_layer.pc_tile = get_current_map_tile()
+			current_room = drafted_layer.get_drafted_tile(get_current_map_tile())
 
 func reset() -> void:
 	room_tile_layer.tile_map_data = room_tile_map_data.duplicate()
@@ -29,11 +30,15 @@ func reset() -> void:
 	drafted_layer.reset()
 	setup()
 
+func get_current_map_tile() -> Vector2i:
+	return current_tile + tile_offset
+
 func setup() -> void:
-	current_tile = room_tile_layer.get_start_tile()
-	pc_layer.pc_tile = current_tile
+	current_tile = Vector2i.ZERO
+	tile_offset = room_tile_layer.get_start_tile()
+	pc_layer.pc_tile = get_current_map_tile()
 	entrance_room = _entrance_room_data.duplicate()
-	entrance_room.map_tile_coord = current_tile
+	entrance_room.map_tile_coord = get_current_map_tile()
 	draft_room(entrance_room)
 	var end_tile_coord := room_tile_layer.get_end_tile()
 
@@ -41,13 +46,13 @@ func get_current_tile() -> Vector2i:
 	return current_tile
 
 func get_neighboring_tiles() -> Array[Vector2i]:
-	return room_tile_layer.get_surrounding_cells(current_tile)
+	return room_tile_layer.get_surrounding_cells(get_current_map_tile())
 
 func _room_has_door(room_data : RoomData, direction : Vector2i) -> bool:
 	var doors := room_data.get_rotated_doors()
 	return direction in doors
 
-func have_match_doors(direction : Vector2i, starting_point : Vector2i = current_tile) -> bool:
+func have_match_doors(direction : Vector2i, starting_point : Vector2i = get_current_map_tile()) -> bool:
 	var destination_tile := starting_point + direction
 	var current_room_data := drafted_layer.get_drafted_tile(starting_point)
 	var destination_room_data := drafted_layer.get_drafted_tile(destination_tile)
@@ -56,8 +61,8 @@ func have_match_doors(direction : Vector2i, starting_point : Vector2i = current_
 	return _room_has_door(current_room_data, direction) and _destination_has_door
 
 func has_door_from_current_tile(tile : Vector2i) -> bool:
-	var direction := tile - current_tile
-	return have_match_doors(direction, current_tile)
+	var direction := tile - get_current_map_tile()
+	return have_match_doors(direction, get_current_map_tile())
 
 func is_navigable_tile(tile : Vector2i) -> bool:
 	if not has_door_from_current_tile(tile): return false

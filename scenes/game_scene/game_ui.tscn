@@ -116,6 +116,29 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 script = ExtResource("6_ascoc")
 
+[node name="GameMapSubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(256, 384)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -384.0
+offset_right = 256.0
+grow_vertical = 0
+mouse_filter = 2
+stretch = true
+
+[node name="GameMapSubViewport" type="SubViewport" parent="GameMapSubViewportContainer"]
+unique_name_in_owner = true
+transparent_bg = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(256, 384)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
 [node name="LevelListManager" type="Node" parent="." node_paths=PackedStringArray("level_list_loader", "level_loading_screen")]
 script = ExtResource("7_wr4n6")
 level_list_loader = NodePath("../LevelLoader")
@@ -168,4 +191,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_ukb12")
 }
 
+[connection signal="level_loaded" from="LevelLoader" to="." method="_on_level_loader_level_loaded"]
 [connection signal="room_option_drafted" from="DraftingView" to="." method="_on_drafting_view_room_option_drafted"]

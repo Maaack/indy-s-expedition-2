@@ -23,6 +23,8 @@ var is_on_ground : bool = true
 var is_running : bool = false
 
 var external_force : Vector2 = Vector2.ZERO
+var move_tick_distance_squared : float = 256
+var move_distance_squared : float
 
 func face_direction(new_direction : Vector2):
 	facing_direction = new_direction.normalized()
@@ -60,6 +62,9 @@ func animate_sliding():
 func animate_not_sliding():
 	$GPUParticles2D.emitting = false
 
+func move_tick():
+	ProjectEvents.player_moved.emit(global_position)
+
 func move_state(delta):
 	var input_vector := get_input_vector()
 	var target_speed = input_vector * max_ground_speed
@@ -83,6 +88,10 @@ func move_state(delta):
 		animate_idle()
 	move_and_slide()
 	velocity = get_real_velocity()
+	move_distance_squared += velocity.length_squared()
+	if move_distance_squared > move_tick_distance_squared:
+		move_distance_squared = 0
+		move_tick()
 
 func _physics_process(delta):
 	move_state(delta)

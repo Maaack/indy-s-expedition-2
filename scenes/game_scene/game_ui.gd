@@ -4,8 +4,13 @@ extends Control
 @onready var health_ui : HealthUI = %HealthUI
 @onready var drafting_view : DraftingView = $DraftingView
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var game_map_sub_viewport : Viewport = %GameMapSubViewport
+@onready var level_loader : LevelListLoader = $LevelLoader
+
 
 @export var exit_confirmation_screen : PackedScene 
+var current_level : BaseLevel
+var current_game_map : GameMap
 var current_tile : Vector2i
 
 var score : int = 0 :
@@ -46,8 +51,24 @@ func _on_drafting_view_room_option_drafted(room_data):
 	get_tree().paused = false
 	ProjectEvents.room_drafted.emit(room_data)
 
+func _on_player_moved(player_global_position : Vector2):
+	if not current_game_map: return
+	current_game_map.current_tile = round(player_global_position / Vector2(Constants.ROOM_SIZE))
+
 func _ready():
 	ProjectEvents.player_exiting.connect(_on_player_exiting)
 	ProjectEvents.treasure_picked_up.connect(_on_treasure_picked_up)
 	ProjectEvents.player_health_changed.connect(_on_player_health_changed)
 	ProjectEvents.level_drafting_room.connect(_on_level_drafting_room)
+	ProjectEvents.player_moved.connect(_on_player_moved)
+
+func _on_level_loader_level_loaded():
+	if current_game_map:
+		current_game_map.queue_free()
+		current_game_map = null
+	current_level = level_loader.current_level
+	await current_level.ready
+	current_game_map = current_level.game_map
+	current_game_map.reparent(game_map_sub_viewport)
+	current_game_map.show()
+	
