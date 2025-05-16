@@ -40,7 +40,7 @@ hframes = 8
 [node name="MoveToTargetComponent" parent="." node_paths=PackedStringArray("character_2D", "check_los_component") instance=ExtResource("4_jt03m")]
 character_2D = NodePath("..")
 check_los_component = NodePath("../CheckLOSComponent")
-movement_speed = 100
+movement_speed = 60
 friction = 800.0
 enabled = false
 

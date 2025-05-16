@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2yw3xuymtkxp"]
+
+[ext_resource type="PackedScene" uid="uid://g2p3metym1v8" path="res://scenes/pickups/treasure.tscn" id="1_1xpwq"]
+[ext_resource type="Texture2D" uid="uid://cx08ks6chxxxi" path="res://assets/sprite/emerald_ring_8.png" id="2_1xpwq"]
+
+[node name="EmeraldRing" instance=ExtResource("1_1xpwq")]
+score = 5
+
+[node name="StackedSprite2D" parent="." index="2"]
+texture = ExtResource("2_1xpwq")
+hframes = 8
+sprite_rotation_offset = -166.784

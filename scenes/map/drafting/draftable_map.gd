@@ -4,6 +4,10 @@ extends Node2D
 const TREASURE = preload("res://resources/items/treasure.tres")
 const HEART = preload("res://resources/items/heart.tres")
 
+@export var treasure_rooms : Array[PackedScene]
+@export var heart_rooms : Array[PackedScene]
+@export var hallways : Array[PackedScene]
+
 var drafted_rooms : Dictionary[Vector2i, RoomData]
 @onready var draftable_layer : TileMapLayer = %DraftableLayer
 @onready var treasure_layer : TileMapLayer = %TreasureLayer
@@ -25,8 +29,10 @@ func get_draftable_rooms() -> Array[RoomData]:
 		room_data.door_right = tile_data.get_custom_data("door_right")
 		if used_cell in treasure_layer.get_used_cells():
 			room_data.inventory.add(TREASURE.duplicate())
+			room_data.room_scene = treasure_rooms.pick_random()
 		if used_cell in heart_layer.get_used_cells():
 			room_data.inventory.add(HEART.duplicate())
+			room_data.room_scene = heart_rooms.pick_random()
 		draftable_rooms.append(room_data)
 	return draftable_rooms
 
@@ -35,6 +41,12 @@ func mark_drafted(room_data : RoomData) -> void:
 	draftable_layer.set_cell(room_data.draft_tile_coord)
 	treasure_layer.set_cell(room_data.draft_tile_coord)
 	heart_layer.set_cell(room_data.draft_tile_coord)
+	if room_data.room_scene in treasure_rooms:
+		treasure_rooms.erase(room_data.room_scene)
+	elif room_data.room_scene in heart_rooms:
+		heart_rooms.erase(room_data.room_scene)
+	elif room_data.room_scene in hallways:
+		hallways.erase(room_data.room_scene)
 
 func reset() -> void:
 	draftable_layer.tile_map_data = drafted_tile_map_data.duplicate()

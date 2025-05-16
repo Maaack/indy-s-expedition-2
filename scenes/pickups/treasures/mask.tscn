@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl3mhytha4ndp"]
+
+[ext_resource type="PackedScene" uid="uid://g2p3metym1v8" path="res://scenes/pickups/treasure.tscn" id="1_1d500"]
+[ext_resource type="Texture2D" uid="uid://bfck4wja84gv6" path="res://assets/sprite/mask_11.png" id="2_pi47x"]
+
+[node name="Mask" instance=ExtResource("1_1d500")]
+score = 15
+
+[node name="StackedSprite2D" parent="." index="2"]
+texture = ExtResource("2_pi47x")
+hframes = 11
+sprite_rotation_offset = 76.0214

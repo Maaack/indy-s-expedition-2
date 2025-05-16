@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="2_3pwgp"]
 [ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="3_3pwgp"]
 [ext_resource type="PackedScene" uid="uid://ce8y6a67nkf5f" path="res://scenes/traps/arrow_trap.tscn" id="3_cx10h"]
-[ext_resource type="PackedScene" uid="uid://cvaa3j28dgqug" path="res://scenes/pickups/treasures/man_statue_pickup.tscn" id="5_kgkaf"]
+[ext_resource type="PackedScene" uid="uid://cvaa3j28dgqug" path="res://scenes/pickups/treasures/man_statue.tscn" id="5_kgkaf"]
 [ext_resource type="PackedScene" uid="uid://c8slfvdysjgbm" path="res://scenes/base_level/tutorials/tutorial_1_1.tscn" id="6_7jge3"]
 [ext_resource type="PackedScene" uid="uid://dgo1riwg60u7p" path="res://scenes/base_level/tutorials/tutorial_1_2.tscn" id="7_kgkaf"]
 

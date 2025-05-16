@@ -9,4 +9,4 @@ score = 25
 [node name="StackedSprite2D" parent="." index="2"]
 texture = ExtResource("2_awkkp")
 hframes = 15
-sprite_rotation_offset = 142.256
+sprite_rotation_offset = 166.471

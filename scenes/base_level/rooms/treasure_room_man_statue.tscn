@@ -1,16 +1,16 @@
-[gd_scene load_steps=14 format=4 uid="uid://cdvqynemuetkp"]
+[gd_scene load_steps=14 format=4 uid="uid://cs1ghsvd8m1x7"]
 
-[ext_resource type="Script" uid="uid://wrj0xtpl7mqj" path="res://scenes/base_level/rooms/room.gd" id="1_r6cds"]
-[ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_rphor"]
-[ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="3_u0lw5"]
-[ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="4_xpoem"]
-[ext_resource type="Texture2D" uid="uid://ctf2gfid3367d" path="res://assets/images/0x72_dungeon_tileset/atlas_walls_low-16x16.png" id="5_iuf67"]
-[ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="6_lv5io"]
-[ext_resource type="PackedScene" uid="uid://cvaa3j28dgqug" path="res://scenes/pickups/treasures/man_statue.tscn" id="7_a4wl1"]
-[ext_resource type="PackedScene" uid="uid://ce8y6a67nkf5f" path="res://scenes/traps/arrow_trap.tscn" id="8_d1m5j"]
+[ext_resource type="Script" uid="uid://wrj0xtpl7mqj" path="res://scenes/base_level/rooms/room.gd" id="1_lstsd"]
+[ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_qssia"]
+[ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="3_npuv2"]
+[ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="4_t3hix"]
+[ext_resource type="Texture2D" uid="uid://ctf2gfid3367d" path="res://assets/images/0x72_dungeon_tileset/atlas_walls_low-16x16.png" id="5_lff7j"]
+[ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="6_xowna"]
+[ext_resource type="PackedScene" uid="uid://cvaa3j28dgqug" path="res://scenes/pickups/treasures/man_statue.tscn" id="7_vha0m"]
+[ext_resource type="PackedScene" uid="uid://ce8y6a67nkf5f" path="res://scenes/traps/arrow_trap.tscn" id="8_ug6f1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4alao"]
-texture = ExtResource("2_rphor")
+texture = ExtResource("2_qssia")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -310,7 +310,7 @@ texture = ExtResource("2_rphor")
 7:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_au6vp"]
-texture = ExtResource("3_u0lw5")
+texture = ExtResource("3_npuv2")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -362,7 +362,7 @@ sources/1 = SubResource("TileSetAtlasSource_au6vp")
 sources/0 = SubResource("TileSetAtlasSource_4alao")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkgy4"]
-texture = ExtResource("5_iuf67")
+texture = ExtResource("5_lff7j")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -467,7 +467,7 @@ physics_layer_1/collision_mask = 0
 sources/4 = SubResource("TileSetAtlasSource_gkgy4")
 
 [node name="TreasureRoom" type="Node2D"]
-script = ExtResource("1_r6cds")
+script = ExtResource("1_lstsd")
 
 [node name="Floor" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -481,218 +481,218 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AADz////AAAEABEAAADz/wAAAAAEABMAAAD0////AAAGABIAAAD0/wAAAAAGABMAAAD1////AAAGABIAAAD1/wAAAAAGABMAAAD2////AAAGABIAAAD2/wAAAAAGABMAAAD3////AAAGABIAAAD3/wAAAAAGABMAAAD4////AAAGABIAAAD4/wAAAAAGABMAAAD5////AAAGABIAAAD5/wAAAAAGABMAAAD6////AAAFABEAAAD6/wAAAAAFABMAAAD9//3/AAABABEAAAD9//7/AAABABIAAAD9////AAABABIAAAD9/wAAAAABABIAAAD9/wEAAAABABIAAAD9/wIAAAABABMAAAD+//3/AAADABIAAAD+//7/AAADABEAAAD+////AAADABEAAAD+/wAAAAADABEAAAD+/wEAAAADABEAAAD+/wIAAAADABMAAAD///P/AAAEABEAAAD///T/AAAEABIAAAD///X/AAAEABIAAAD///b/AAAEABIAAAD///f/AAAEABIAAAD///j/AAAEABIAAAD///n/AAAEABIAAAD///r/AAAEABMAAAD///3/AAADABIAAAD///7/AAADABEAAAD/////AAADABEAAAD//wAAAAADABEAAAD//wEAAAADABEAAAD//wIAAAADABMAAAD//wUAAAAEABEAAAD//wYAAAAEABIAAAD//wcAAAAEABIAAAD//wgAAAAEABIAAAD//wkAAAAEABIAAAD//woAAAAEABIAAAD//wsAAAAEABIAAAD//wwAAAAEABMAAAAAAPP/AAAFABEAAAAAAPT/AAAFABIAAAAAAPX/AAAFABIAAAAAAPb/AAAFABIAAAAAAPf/AAAFABIAAAAAAPj/AAAFABIAAAAAAPn/AAAFABIAAAAAAPr/AAAFABMAAAAAAP3/AAADABIAAAAAAP7/AAADABEAAAAAAP//AAADABEAAAAAAAAAAAADABEAAAAAAAEAAAADABEAAAAAAAIAAAADABMAAAAAAAUAAAAFABEAAAAAAAYAAAAFABIAAAAAAAcAAAAFABIAAAAAAAgAAAAFABIAAAAAAAkAAAAFABIAAAAAAAoAAAAFABIAAAAAAAsAAAAFABIAAAAAAAwAAAAFABMAAAABAP3/AAADABIAAAABAP7/AAADABEAAAABAP//AAADABEAAAABAAAAAAADABEAAAABAAEAAAADABEAAAABAAIAAAADABMAAAACAP3/AAACABEAAAACAP7/AAACABIAAAACAP//AAACABIAAAACAAAAAAACABIAAAACAAEAAAACABIAAAACAAIAAAACABMAAAAFAP//AAAEABEAAAAFAAAAAAAEABMAAAAGAP//AAAGABIAAAAGAAAAAAAGABMAAAAHAP//AAAGABIAAAAHAAAAAAAGABMAAAAIAP//AAAGABIAAAAIAAAAAAAGABMAAAAJAP//AAAGABIAAAAJAAAAAAAGABMAAAAKAP//AAAGABIAAAAKAAAAAAAGABMAAAALAP//AAAGABIAAAALAAAAAAAGABMAAAAMAP//AAAFABEAAAAMAAAAAAAFABMAAAA=")
 tile_set = SubResource("TileSet_o6kbq")
 
-[node name="SpikeTrap" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-40, 56.2866)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap2" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap2" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-24, 56.2866)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap3" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap3" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-24, 72.3686)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap4" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap4" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-40, 72.3686)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap9" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap9" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-8, 56.2866)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap10" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap10" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(8, 56.2866)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap11" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap11" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(8, 72.3686)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap12" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap12" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-8, 72.3686)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap13" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap13" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(24, 56.2866)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap14" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap14" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(40, 56.2866)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap15" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap15" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(40, 72.3686)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap16" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap16" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(24, 72.3686)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap17" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap17" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-40, -72.3684)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap18" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap18" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-24, -72.3684)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap19" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap19" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-24, -56.2864)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap20" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap20" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-40, -56.2864)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap21" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap21" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-8, -72.3684)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap22" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap22" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(8, -72.3684)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap23" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap23" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(8, -56.2864)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap24" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap24" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-8, -56.2864)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap25" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap25" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(24, -72.3684)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap26" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap26" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(40, -72.3684)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap27" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap27" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(40, -56.2864)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap28" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap28" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(24, -56.2864)
 scale = Vector2(1, 1.00512)
 
-[node name="SpikeTrap5" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap5" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(56, -24.1227)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap6" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap6" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(56, -40.2047)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap7" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap7" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(72, -40.2047)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap8" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap8" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(72, -24.1227)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap29" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap29" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(56, 8.04106)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap30" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap30" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(56, -8.04094)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap31" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap31" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(72, -8.04094)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap32" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap32" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(72, 8.04106)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap33" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap33" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(56, 40.2048)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap34" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap34" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(56, 24.1228)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap35" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap35" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(72, 24.1228)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap36" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap36" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(72, 40.2048)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap37" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap37" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-72, -24.1227)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap38" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap38" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-72, -40.2047)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap39" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap39" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-56, -40.2047)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap40" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap40" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-56, -24.1227)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap41" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap41" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-72, 8.04106)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap42" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap42" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-72, -8.04094)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap43" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap43" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-56, -8.04094)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap44" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap44" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-56, 8.04106)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap45" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap45" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-72, 40.2048)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap46" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap46" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-72, 24.1228)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap47" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap47" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-56, 24.1228)
 scale = Vector2(1, 1.00512)
 rhythm = 2
 
-[node name="SpikeTrap48" parent="FloorCover" instance=ExtResource("4_xpoem")]
+[node name="SpikeTrap48" parent="FloorCover" instance=ExtResource("4_t3hix")]
 position = Vector2(-56, 40.2048)
 scale = Vector2(1, 1.00512)
 rhythm = 2
@@ -745,98 +745,98 @@ tile_set = SubResource("TileSet_5jvtw")
 unique_name_in_owner = true
 y_sort_enabled = true
 
-[node name="Enemy" parent="CharacterContainer" instance=ExtResource("6_lv5io")]
+[node name="Enemy" parent="CharacterContainer" instance=ExtResource("6_xowna")]
 position = Vector2(-169, -184)
 
-[node name="Enemy2" parent="CharacterContainer" instance=ExtResource("6_lv5io")]
+[node name="Enemy2" parent="CharacterContainer" instance=ExtResource("6_xowna")]
 position = Vector2(168, -184)
 flip_h = true
 
-[node name="Enemy4" parent="CharacterContainer" instance=ExtResource("6_lv5io")]
+[node name="Enemy4" parent="CharacterContainer" instance=ExtResource("6_xowna")]
 position = Vector2(168, 169)
 flip_h = true
 
-[node name="Enemy3" parent="CharacterContainer" instance=ExtResource("6_lv5io")]
+[node name="Enemy3" parent="CharacterContainer" instance=ExtResource("6_xowna")]
 position = Vector2(-168, 169)
 
-[node name="ManStatue" parent="CharacterContainer" instance=ExtResource("7_a4wl1")]
+[node name="ManStatue" parent="CharacterContainer" instance=ExtResource("7_vha0m")]
 
-[node name="ArrowTrap" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(56, -56)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 1])
 
-[node name="ArrowTrap2" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap2" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(72, -56)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([3, 1])
 
-[node name="ArrowTrap3" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap3" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(72, -72)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([3, 0])
 
-[node name="ArrowTrap4" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap4" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(56, -72)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 0])
 
-[node name="ArrowTrap5" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap5" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(56, 72)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 1])
 
-[node name="ArrowTrap6" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap6" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(72, 72)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([3, 1])
 
-[node name="ArrowTrap7" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap7" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(72, 56)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([3, 0])
 
-[node name="ArrowTrap8" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap8" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(56, 56)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 0])
 
-[node name="ArrowTrap9" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap9" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(-72, 72)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 1])
 
-[node name="ArrowTrap10" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap10" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(-56, 72)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([3, 1])
 
-[node name="ArrowTrap11" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap11" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(-56, 56)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([3, 0])
 
-[node name="ArrowTrap12" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap12" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(-72, 56)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 0])
 
-[node name="ArrowTrap13" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap13" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(-72, -56)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 1])
 
-[node name="ArrowTrap14" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap14" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(-56, -56)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([3, 1])
 
-[node name="ArrowTrap15" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap15" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(-56, -72)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([3, 0])
 
-[node name="ArrowTrap16" parent="CharacterContainer" instance=ExtResource("8_d1m5j")]
+[node name="ArrowTrap16" parent="CharacterContainer" instance=ExtResource("8_ug6f1")]
 position = Vector2(-72, -72)
 scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 0])

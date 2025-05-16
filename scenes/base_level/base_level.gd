@@ -17,8 +17,6 @@ signal monster_mode_activation_changed(activated : bool)
 @onready var game_map : GameMap = $GameMap
 @onready var draftable_map : DraftableMap = $DraftableMap
 
-@export var room_scene : PackedScene
-
 var pc_node : CharacterBody2D
 var pc_monster_node : CharacterBody2D
 var enemy_host_node : CharacterBody2D
@@ -100,7 +98,7 @@ func instantiate_scene_type(packed_scene : PackedScene, scene_data : Dictionary 
 	character_container.call_deferred("add_child", scene_instance)
 
 func add_room(room_data : RoomData) -> void:
-	var scene_instance = room_scene.instantiate()
+	var scene_instance = room_data.room_scene.instantiate()
 	if scene_instance is Room2D:
 		room_container.call_deferred("add_child", scene_instance)
 		scene_instance.position = Constants.ROOM_SIZE * room_data.map_tile_coord

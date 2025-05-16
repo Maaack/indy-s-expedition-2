@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://833vx8dfxs4u"]
+
+[ext_resource type="PackedScene" uid="uid://g2p3metym1v8" path="res://scenes/pickups/treasure.tscn" id="1_afxu4"]
+[ext_resource type="Texture2D" uid="uid://drfvba4nlkfqd" path="res://assets/sprite/goblet_7.png" id="2_y6j21"]
+
+[node name="Goblet" instance=ExtResource("1_afxu4")]
+score = 10
+
+[node name="Sprite2D" parent="." index="1"]
+visible = false
+
+[node name="StackedSprite2D" parent="." index="2"]
+texture = ExtResource("2_y6j21")
+hframes = 7
+sprite_rotation_offset = 78.1505

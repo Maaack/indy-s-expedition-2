@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://7qr7lo3pbbms"]
+[gd_scene load_steps=21 format=4 uid="uid://7qr7lo3pbbms"]
 
 [ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_xoeed"]
 [ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="2_ejuk3"]
-[ext_resource type="PackedScene" uid="uid://cdvqynemuetkp" path="res://scenes/base_level/rooms/treasure_room.tscn" id="2_i3g80"]
 [ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="3_2o7ev"]
 [ext_resource type="PackedScene" uid="uid://tqdwasr8hxfq" path="res://scenes/base_level/tutorials/tutorial_2_1.tscn" id="3_a7kq6"]
 [ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="4_poe6o"]
@@ -12,8 +11,10 @@
 [ext_resource type="Script" uid="uid://3j3oc0tled2p" path="res://scenes/game_scene/tutorial_manager.gd" id="9_ic7uo"]
 [ext_resource type="PackedScene" uid="uid://ok0trkn2uktm" path="res://scenes/map/game_map.tscn" id="11_oho5x"]
 [ext_resource type="PackedScene" uid="uid://c71xy2rk5q3a8" path="res://scenes/map/drafting/draftable_map.tscn" id="12_jafsa"]
+[ext_resource type="PackedScene" uid="uid://bvhpdoddfuumf" path="res://scenes/base_level/rooms/treasure_room_rings.tscn" id="13_2o7ev"]
 [ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="13_d8y8b"]
-[ext_resource type="Script" uid="uid://bms4yb3jmf8gw" path="res://scenes/base_level/room_scene_list.gd" id="14_8b7do"]
+[ext_resource type="PackedScene" uid="uid://cpn5rnx1vao33" path="res://scenes/base_level/rooms/treasure_room_mask.tscn" id="14_poe6o"]
+[ext_resource type="PackedScene" uid="uid://cs1ghsvd8m1x7" path="res://scenes/base_level/rooms/treasure_room_man_statue.tscn" id="15_g8w5c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rn38"]
 texture = ExtResource("3_2o7ev")
@@ -474,7 +475,6 @@ sources/4 = SubResource("TileSetAtlasSource_c2ddb")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_xoeed")
-room_scene = ExtResource("2_i3g80")
 metadata/_edit_vertical_guides_ = [256.0, 384.0]
 metadata/_edit_horizontal_guides_ = [255.0, 384.0]
 
@@ -653,6 +653,7 @@ visible = false
 
 [node name="DraftableMap" parent="." instance=ExtResource("12_jafsa")]
 visible = false
+treasure_rooms = Array[PackedScene]([ExtResource("13_2o7ev"), ExtResource("14_poe6o"), ExtResource("15_g8w5c")])
 
 [node name="DraftableLayer" parent="DraftableMap" index="0"]
 tile_map_data = PackedByteArray("AAAAAAAAAAADAAQAAAABAAAAAAADAAQAAAACAAAAAAADAAQAAAA=")
@@ -673,9 +674,6 @@ direction = 3
 
 [node name="DraftPoint3" parent="." instance=ExtResource("13_d8y8b")]
 position = Vector2(0, -352)
-
-[node name="RoomSceneList" type="Node" parent="."]
-script = ExtResource("14_8b7do")
 
 [editable path="GameMap"]
 [editable path="DraftableMap"]

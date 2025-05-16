@@ -10,6 +10,7 @@ extends Resource
 @export var door_right : bool
 @export var rotation : float = 0.0
 @export var inventory : ResourceContainer = ResourceContainer.new()
+@export var room_scene : PackedScene
 
 func get_doors() -> Array[Vector2i]:
 	var doors : Array[Vector2i] = []
