@@ -9,12 +9,12 @@ var hurt_boxes : Array[Hurtbox2D]
 
 func hit() -> void:
 	for hurtbox in hurt_boxes:
-		if damage > 0:
-			hurtbox.damage(damage)
 		if stun_duration > 0:
 			hurtbox.stun(stun_duration)
 		if knockback_force > 0:
 			hurtbox.knockback(global_position, knockback_force)
+		if damage > 0:
+			hurtbox.damage(damage)
 
 func _on_area_entered(area):
 	if area is Hurtbox2D:
