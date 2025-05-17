@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ckth0bussxa63"]
+[gd_scene load_steps=24 format=4 uid="uid://ckth0bussxa63"]
 
 [ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_45xnx"]
 [ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_ggyah"]
@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cbuhf6ck8ejxb" path="res://scenes/base_level/exit_point.tscn" id="7_favgm"]
 [ext_resource type="Script" uid="uid://3j3oc0tled2p" path="res://scenes/game_scene/tutorial_manager.gd" id="8_mbyvs"]
 [ext_resource type="PackedScene" uid="uid://bkeo1ro7xhjfj" path="res://scenes/base_level/tutorials/tutorial_3_1.tscn" id="9_ggyah"]
-[ext_resource type="PackedScene" uid="uid://cgqgnt3ugjco8" path="res://scenes/base_level/tutorials/tutorial_2_2.tscn" id="10_ggyah"]
 [ext_resource type="PackedScene" uid="uid://ok0trkn2uktm" path="res://scenes/map/game_map.tscn" id="10_pgmn0"]
+[ext_resource type="PackedScene" uid="uid://pqbkj7nxq3uy" path="res://scenes/base_level/tutorials/tutorial_3_3.tscn" id="10_rx4bl"]
 [ext_resource type="PackedScene" uid="uid://c71xy2rk5q3a8" path="res://scenes/map/drafting/draftable_map.tscn" id="11_4aeav"]
+[ext_resource type="PackedScene" uid="uid://cet7bextgafg8" path="res://scenes/base_level/tutorials/tutorial_3_2.tscn" id="11_rx4bl"]
 [ext_resource type="PackedScene" uid="uid://bvhpdoddfuumf" path="res://scenes/base_level/rooms/treasure_room_rings.tscn" id="12_3jtl5"]
 [ext_resource type="PackedScene" uid="uid://cpn5rnx1vao33" path="res://scenes/base_level/rooms/treasure_room_mask.tscn" id="13_7gb65"]
 [ext_resource type="PackedScene" uid="uid://cs1ghsvd8m1x7" path="res://scenes/base_level/rooms/treasure_room_man_statue.tscn" id="14_j070r"]
@@ -648,11 +649,12 @@ autoplay = true
 
 [node name="StealingTutorialManager" type="Node" parent="."]
 script = ExtResource("8_mbyvs")
+tutorial_scenes = Array[PackedScene]([ExtResource("10_rx4bl")])
 open_delay = 0.1
 
 [node name="DraftingTutorialManager" type="Node" parent="."]
 script = ExtResource("8_mbyvs")
-tutorial_scenes = Array[PackedScene]([ExtResource("10_ggyah")])
+tutorial_scenes = Array[PackedScene]([ExtResource("11_rx4bl")])
 open_delay = 0.1
 
 [node name="GameMap" parent="." instance=ExtResource("10_pgmn0")]
