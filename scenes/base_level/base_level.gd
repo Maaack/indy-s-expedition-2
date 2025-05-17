@@ -1,11 +1,10 @@
 class_name BaseLevel
 extends Node2D
 
-signal level_completed
+signal level_lost
 signal player_dashed(cooldown : float)
 signal player_health_changed(health : float, max_health : float)
 signal player_interactable_access_changed(has_access : bool)
-signal player_died
 signal player_teleported(player_node, new_position)
 signal monster_mode_activation_changed(activated : bool)
 
@@ -82,12 +81,16 @@ func open_tutorials() -> void:
 	level_state.tutorial_read = true
 	GlobalState.save()
 
+func _on_player_died() -> void:
+	level_lost.emit()
+
 func _ready():
 	_connect_all_enemy_signals()
 	ProjectEvents.treasure_picked_up.connect(_on_treasure_picked_up)
 	ProjectEvents.queue_spawn.connect(instantiate_scene_type)
 	ProjectEvents.player_drafting_room.connect(_on_player_drafting_room)
 	ProjectEvents.room_drafted.connect(add_room)
+	ProjectEvents.player_died.connect(_on_player_died)
 	level_state = GameState.get_level_state(scene_file_path)
 	if not level_state.tutorial_read:
 		open_tutorials()

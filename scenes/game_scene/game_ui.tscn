@@ -93,7 +93,6 @@ files = Array[String](["res://scenes/base_level/levels/level_1.tscn", "res://sce
 directory = "res://scenes/base_level/levels"
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("4_7aihr")]
-bus = &"Master"
 
 [node name="LevelLoadingScreen" parent="." instance=ExtResource("5_3re04")]
 visible = false

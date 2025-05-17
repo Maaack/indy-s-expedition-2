@@ -1,8 +1,6 @@
 class_name PlayerCharacter2D
 extends CharacterBody2D
 
-signal died
-
 @export var update_component_directions : Array[ComponentBase2D]
 @export_group("Movement")
 @export var ground_acceleration : float = 800
@@ -105,9 +103,6 @@ func _input(event : InputEvent) -> void:
 		var mouse_position = event.position - Vector2(window_size / 2)
 		face_direction(mouse_position)
 
-func start_death():
-	died.emit()
-
 func _ready():
 	await get_tree().create_timer(0.05).timeout
 	initialize()
@@ -128,4 +123,4 @@ func _on_health_component_health_changed(new_value : float, delta : float):
 	ProjectEvents.player_health_changed.emit(new_value, delta)
 
 func _on_health_component_died():
-	died.emit()
+	ProjectEvents.player_died.emit()

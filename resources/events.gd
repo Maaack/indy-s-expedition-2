@@ -11,3 +11,4 @@ signal treasure_picked_up(score : int, position : Vector2)
 signal heart_picked_up(health : float, position : Vector2)
 signal queue_spawn(packed_scene : PackedScene, scene_data : Dictionary)
 signal room_drafted(room_data : RoomData)
+signal player_died

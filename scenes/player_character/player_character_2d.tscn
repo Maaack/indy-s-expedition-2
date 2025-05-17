@@ -519,8 +519,8 @@ _max_damage = 2.0
 shape = SubResource("CircleShape2D_mtwph")
 
 [node name="HealthComponent" parent="." instance=ExtResource("32_1qtai")]
-starting_health = 10.0
-max_health = 10.0
+starting_health = 6.0
+max_health = 6.0
 
 [node name="WhipComponent2D" parent="." node_paths=PackedStringArray("character_body") instance=ExtResource("12_b8xpk")]
 position = Vector2(0, -3)
