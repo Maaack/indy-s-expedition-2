@@ -497,7 +497,6 @@ y_sort_enabled = true
 
 [node name="PlayerCharacter" parent="CharacterContainer" instance=ExtResource("4_kicwd")]
 position = Vector2(0, 256)
-collision_layer = 10
 
 [node name="TextContainer" type="Node2D" parent="."]
 

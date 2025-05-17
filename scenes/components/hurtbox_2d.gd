@@ -6,7 +6,6 @@ const BODY_FLAG = 2
 @export_flags("Area", "Body") var _type : int = AREA_FLAG
 @export var enabled : bool = true
 @export var _components : Array[ComponentBase]
-@export var _hurt_audio_player_2d : AudioStreamPlayer2D
 @export var _max_damage : float = 0.0
 
 func _get_final_damage(incoming_damage : float):

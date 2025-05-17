@@ -33,11 +33,13 @@ var health : float :
 			_die()
 
 func heal(amount : float):
+	if not enabled: return
 	if amount < 0:
 		push_warning("cannot heal a negative amount")
 	health += amount
 
 func damage(amount : float):
+	if not enabled: return
 	if amount < 0:
 		push_warning("cannot damage a negative amount")
 	health -= amount
