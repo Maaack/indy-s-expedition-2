@@ -1,10 +1,14 @@
-[gd_scene load_steps=44 format=3 uid="uid://hji8le5si4gx"]
+[gd_scene load_steps=48 format=3 uid="uid://hji8le5si4gx"]
 
 [ext_resource type="Script" uid="uid://dt8im3k7qjimv" path="res://scenes/player_character/player_character_2d.gd" id="1_2rm0r"]
 [ext_resource type="Texture2D" uid="uid://bliump3lecuvh" path="res://assets/sprite/shadow_black.png" id="3_ay7hg"]
 [ext_resource type="Texture2D" uid="uid://shxuutqc8hci" path="res://assets/images/0x72_dungeon_tileset/0x72_DungeonTilesetII_v1.7.png" id="7_m06sm"]
 [ext_resource type="Script" uid="uid://bknhvu85kax1u" path="res://scenes/player_character/shakey_camera_2d.gd" id="8_6dwpe"]
+[ext_resource type="AudioStream" uid="uid://bmle26084wsl0" path="res://assets/sfx/trr_1.ogg" id="8_fhrmu"]
+[ext_resource type="AudioStream" uid="uid://cbblkfddaq200" path="res://assets/sfx/trr_2.ogg" id="9_h13k6"]
+[ext_resource type="AudioStream" uid="uid://crjwwpwf7nfdr" path="res://assets/sfx/trr_3.ogg" id="10_23uyf"]
 [ext_resource type="PackedScene" uid="uid://bkfn6xmy1qsm" path="res://scenes/player_character/PickupCollector/PickupCollector.tscn" id="10_c2xun"]
+[ext_resource type="AudioStream" uid="uid://c4p56srdi1jt5" path="res://assets/sfx/trr_4.ogg" id="11_8q4w1"]
 [ext_resource type="PackedScene" uid="uid://33tu2t66ifbo" path="res://scenes/StreamRepeater/StreamRepeater2D.tscn" id="11_y7scl"]
 [ext_resource type="Texture2D" uid="uid://bqsnw80ynouar" path="res://assets/sprite/dust_particle.png" id="12_ay7hg"]
 [ext_resource type="PackedScene" uid="uid://jh7wd7y46a4k" path="res://scenes/components/whip_component_2d.tscn" id="12_b8xpk"]
@@ -73,6 +77,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkingStreamRepeater2D:is_playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ay7hg"]
 resource_name = "JUMP"
@@ -125,6 +141,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 2]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WalkingStreamRepeater2D:is_playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_a33v2"]
 length = 0.001
@@ -176,6 +204,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WalkingStreamRepeater2D:is_playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_b8xpk"]
 resource_name = "RUN"
@@ -192,6 +232,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkingStreamRepeater2D:is_playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3aj6m"]
@@ -244,6 +296,11 @@ graph_offset = Vector2(-233, 61.0236)
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tuxxo"]
 random_pitch = 1.2
 random_volume_offset_db = 2.0
+streams_count = 4
+stream_0/stream = ExtResource("8_fhrmu")
+stream_1/stream = ExtResource("9_h13k6")
+stream_2/stream = ExtResource("10_23uyf")
+stream_3/stream = ExtResource("11_8q4w1")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mtwph"]
 radius = 8.0
@@ -366,10 +423,12 @@ tree_root = SubResource("AnimationNodeStateMachine_4cf5r")
 anim_player = NodePath("../CharacterAnimationPlayer")
 
 [node name="WalkingStreamRepeater2D" parent="." instance=ExtResource("11_y7scl")]
+position = Vector2(0, 10)
 stream = SubResource("AudioStreamRandomizer_tuxxo")
-volume_db = -4.0
+volume_db = -10.0
+pitch_scale = 1.2
+bus = &"SFX"
 repeat_delay = 0.3
-metadata/_edit_lock_ = true
 
 [node name="Hurtbox2D" parent="." node_paths=PackedStringArray("_components") instance=ExtResource("31_kq22h")]
 _components = [NodePath("../HealthComponent"), NodePath("../KnockbackComponent")]

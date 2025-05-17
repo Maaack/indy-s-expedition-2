@@ -47,13 +47,11 @@ func get_input_vector() -> Vector2:
 func animate_run():
 	if is_running: return
 	is_running = true
-	$WalkingStreamRepeater2D.play_loop()
 	animation_state.travel("RUN")
 
 func animate_idle():
 	if not is_running: return
 	is_running = false
-	$WalkingStreamRepeater2D.stop_loop()
 	animation_state.travel("IDLE")
 
 func animate_sliding():

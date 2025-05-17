@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://jh7wd7y46a4k"]
+[gd_scene load_steps=9 format=3 uid="uid://jh7wd7y46a4k"]
 
 [ext_resource type="Script" uid="uid://ccegeftotnrnp" path="res://scenes/components/whip_component_2d.gd" id="1_i6rdb"]
 [ext_resource type="Texture2D" uid="uid://bjy3xdic831n" path="res://assets/sprite/whip_dark_horizontal.png" id="2_8y04i"]
+[ext_resource type="AudioStream" uid="uid://djkkwwyictoly" path="res://assets/sfx/whip_1.ogg" id="3_teim1"]
+[ext_resource type="AudioStream" uid="uid://18jgrftgw53h" path="res://assets/sfx/whip_2.ogg" id="4_wvxee"]
+[ext_resource type="AudioStream" uid="uid://ghq812l27tpj" path="res://assets/sfx/whip_3.ogg" id="5_fcint"]
+[ext_resource type="AudioStream" uid="uid://cvyqmjlj0aald" path="res://assets/sfx/whip_4.ogg" id="6_sfvjt"]
+[ext_resource type="AudioStream" uid="uid://bjpss8e0e2777" path="res://assets/sfx/whip_5.ogg" id="7_q86sy"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1hl7b"]
+random_pitch = 1.1
+streams_count = 5
+stream_0/stream = ExtResource("3_teim1")
+stream_1/stream = ExtResource("4_wvxee")
+stream_2/stream = ExtResource("5_fcint")
+stream_3/stream = ExtResource("6_sfvjt")
+stream_4/stream = ExtResource("7_q86sy")
 
 [node name="WhipComponent2D" type="Node2D"]
 script = ExtResource("1_i6rdb")
@@ -20,3 +34,8 @@ points = PackedVector2Array(0, 0, 0, 0)
 width = 4.0
 texture = ExtResource("2_8y04i")
 texture_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_1hl7b")
+volume_db = -5.0
+bus = &"SFX"

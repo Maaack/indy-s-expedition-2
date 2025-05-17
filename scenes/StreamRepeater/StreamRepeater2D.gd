@@ -2,7 +2,12 @@ extends AudioStreamPlayer2D
 
 @export var repeat_delay : float = 1
 @export var repeat_delay_randomness : float = 0
-@export var is_playing : bool = false
+@export var is_playing : bool = false :
+	set(value):
+		var _changed = is_playing != value
+		is_playing = value
+		if is_playing and _changed:
+			_play_loop()
 @export var repeats : bool = true
 
 var _is_waiting : bool = false

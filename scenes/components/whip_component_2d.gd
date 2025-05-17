@@ -3,6 +3,7 @@ extends AttackComponent2D
 
 @onready var ray_cast : RayCast2D = $RayCast2D
 @onready var line : Line2D = $Line2D
+@onready var whip_audio_stream_player_2d : AudioStreamPlayer2D = $AudioStreamPlayer2D
 @export var character_body : PhysicsBody2D
 @export var attachable_groups : Array[StringName]
 @export var hurtable_groups : Array[StringName]
@@ -65,10 +66,15 @@ func animate_whip_attack(target_position : Vector2):
 
 func attack():
 	is_attacking = true
+	var whip_point : Vector2
 	if ray_cast.is_colliding():
-		whip_to_object(ray_cast.get_collision_point(), ray_cast.get_collider())
+		whip_point = ray_cast.get_collision_point()
+		whip_to_object(whip_point, ray_cast.get_collider())
 	else:
-		animate_whip_attack(ray_cast.target_position.rotated(ray_cast.global_rotation) + global_position)
+		whip_point = ray_cast.target_position.rotated(ray_cast.global_rotation) + global_position
+		animate_whip_attack(whip_point)
+	whip_audio_stream_player_2d.global_position = whip_point
+	whip_audio_stream_player_2d.play()
 
 func stop_attack():
 	is_attacking = false
