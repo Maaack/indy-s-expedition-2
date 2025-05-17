@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://crjwwpwf7nfdr" path="res://assets/sfx/trr_3.ogg" id="10_23uyf"]
 [ext_resource type="PackedScene" uid="uid://bkfn6xmy1qsm" path="res://scenes/player_character/PickupCollector/PickupCollector.tscn" id="10_c2xun"]
 [ext_resource type="AudioStream" uid="uid://c4p56srdi1jt5" path="res://assets/sfx/trr_4.ogg" id="11_8q4w1"]
-[ext_resource type="PackedScene" uid="uid://33tu2t66ifbo" path="res://scenes/StreamRepeater/StreamRepeater2D.tscn" id="11_y7scl"]
+[ext_resource type="PackedScene" uid="uid://33tu2t66ifbo" path="res://scenes/stream_repeater/stream_repeater_2d.tscn" id="11_y7scl"]
 [ext_resource type="Texture2D" uid="uid://bqsnw80ynouar" path="res://assets/sprite/dust_particle.png" id="12_ay7hg"]
 [ext_resource type="PackedScene" uid="uid://jh7wd7y46a4k" path="res://scenes/components/whip_component_2d.tscn" id="12_b8xpk"]
 [ext_resource type="Script" uid="uid://trp5ykn3kx17" path="res://scenes/player_character/jump_component.gd" id="13_ay7hg"]
