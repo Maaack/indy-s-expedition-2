@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://hji8le5si4gx"]
+[gd_scene load_steps=68 format=3 uid="uid://hji8le5si4gx"]
 
 [ext_resource type="Script" uid="uid://dt8im3k7qjimv" path="res://scenes/player_character/player_character_2d.gd" id="1_2rm0r"]
 [ext_resource type="Texture2D" uid="uid://bliump3lecuvh" path="res://assets/sprite/shadow_black.png" id="3_ay7hg"]
@@ -27,8 +27,12 @@
 [ext_resource type="AudioStream" uid="uid://bixraxlt33djg" path="res://assets/sfx/dwop_2.ogg" id="27_ww1hf"]
 [ext_resource type="AudioStream" uid="uid://5i6m44dlvgft" path="res://assets/sfx/dwop_3.ogg" id="28_yrxdn"]
 [ext_resource type="AudioStream" uid="uid://da5ruu6doeks4" path="res://assets/sfx/dwop_4.ogg" id="29_2rm0r"]
+[ext_resource type="AudioStream" uid="uid://kc4khjtaf6hp" path="res://assets/sfx/grunt_1.ogg" id="30_a07bb"]
+[ext_resource type="AudioStream" uid="uid://bxvlgj5jqg47p" path="res://assets/sfx/grunt_2.ogg" id="31_4ug7e"]
 [ext_resource type="PackedScene" uid="uid://d4nlssgtrlsfn" path="res://scenes/components/hurtbox_2d.tscn" id="31_kq22h"]
 [ext_resource type="PackedScene" uid="uid://plht4mnshaea" path="res://scenes/components/health_component.tscn" id="32_1qtai"]
+[ext_resource type="AudioStream" uid="uid://5mq2gqsg6uak" path="res://assets/sfx/grunt_3.ogg" id="32_l5ol2"]
+[ext_resource type="AudioStream" uid="uid://bkb0am6hmsjk6" path="res://assets/sfx/grunt_4.ogg" id="33_qxfdx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ox0bi"]
 radius = 8.0
@@ -358,6 +362,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GruntAudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_m06sm"]
 length = 0.001
@@ -385,6 +401,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GruntAudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhrmu"]
 _data = {
@@ -399,6 +427,14 @@ stream_0/stream = ExtResource("26_rc75x")
 stream_1/stream = ExtResource("27_ww1hf")
 stream_2/stream = ExtResource("28_yrxdn")
 stream_3/stream = ExtResource("29_2rm0r")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ya15q"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("30_a07bb")
+stream_1/stream = ExtResource("31_4ug7e")
+stream_2/stream = ExtResource("32_l5ol2")
+stream_3/stream = ExtResource("33_qxfdx")
 
 [node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("update_component_directions") groups=["player"]]
 texture_filter = 1
@@ -518,6 +554,12 @@ _health_component = NodePath("../HealthComponent")
 stream = SubResource("AudioStreamRandomizer_a07bb")
 volume_db = -8.0
 max_polyphony = 3
+bus = &"SFX"
+
+[node name="GruntAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ya15q")
+volume_db = -12.0
+pitch_scale = 0.95
 bus = &"SFX"
 
 [connection signal="pickup_collected" from="PickupCollector" to="." method="_on_pickup_collector_pickup_collected"]
