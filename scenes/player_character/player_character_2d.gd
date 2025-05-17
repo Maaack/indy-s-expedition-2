@@ -17,6 +17,7 @@ signal died
 @onready var animation_tree = $CharacterAnimationTree
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 @onready var slide_stream_repeater_2d = $SlideStreamRepeater2D
+@onready var pickup_audio_stream_player = $PickupAudioStreamPlayer
 
 var facing_direction : Vector2
 var can_take_damage : bool = true
@@ -112,6 +113,7 @@ func _ready():
 	initialize()
 
 func _on_pickup_collector_pickup_collected(pickup):
+	pickup_audio_stream_player.play()
 	if pickup is Heart:
 		health_component.heal(pickup.health)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://hji8le5si4gx"]
+[gd_scene load_steps=63 format=3 uid="uid://hji8le5si4gx"]
 
 [ext_resource type="Script" uid="uid://dt8im3k7qjimv" path="res://scenes/player_character/player_character_2d.gd" id="1_2rm0r"]
 [ext_resource type="Texture2D" uid="uid://bliump3lecuvh" path="res://assets/sprite/shadow_black.png" id="3_ay7hg"]
@@ -23,6 +23,10 @@
 [ext_resource type="AudioStream" uid="uid://b4se1r7a77u7w" path="res://assets/sfx/hoo_2.ogg" id="23_ts827"]
 [ext_resource type="AudioStream" uid="uid://bd5vybsehw407" path="res://assets/sfx/hoo_3.ogg" id="24_cpyfn"]
 [ext_resource type="AudioStream" uid="uid://cp5w5l0640fwb" path="res://assets/sfx/hoo_4.ogg" id="25_esyae"]
+[ext_resource type="AudioStream" uid="uid://dmw7cvfpyn4vf" path="res://assets/sfx/dwop_1.ogg" id="26_rc75x"]
+[ext_resource type="AudioStream" uid="uid://bixraxlt33djg" path="res://assets/sfx/dwop_2.ogg" id="27_ww1hf"]
+[ext_resource type="AudioStream" uid="uid://5i6m44dlvgft" path="res://assets/sfx/dwop_3.ogg" id="28_yrxdn"]
+[ext_resource type="AudioStream" uid="uid://da5ruu6doeks4" path="res://assets/sfx/dwop_4.ogg" id="29_2rm0r"]
 [ext_resource type="PackedScene" uid="uid://d4nlssgtrlsfn" path="res://scenes/components/hurtbox_2d.tscn" id="31_kq22h"]
 [ext_resource type="PackedScene" uid="uid://plht4mnshaea" path="res://scenes/components/health_component.tscn" id="32_1qtai"]
 
@@ -388,6 +392,14 @@ _data = {
 &"RESET": SubResource("Animation_m06sm")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a07bb"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("26_rc75x")
+stream_1/stream = ExtResource("27_ww1hf")
+stream_2/stream = ExtResource("28_yrxdn")
+stream_3/stream = ExtResource("29_2rm0r")
+
 [node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("update_component_directions") groups=["player"]]
 texture_filter = 1
 collision_layer = 10
@@ -501,6 +513,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_fhrmu")
 }
 _health_component = NodePath("../HealthComponent")
+
+[node name="PickupAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_a07bb")
+volume_db = -8.0
+max_polyphony = 3
+bus = &"SFX"
 
 [connection signal="pickup_collected" from="PickupCollector" to="." method="_on_pickup_collector_pickup_collected"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
