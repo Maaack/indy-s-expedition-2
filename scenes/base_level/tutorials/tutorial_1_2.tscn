@@ -26,8 +26,11 @@ visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
 text = "[center]Uh oh, spaghetti-oh!
+
 It's a lot of traps!
+
 Who could have possibly seen this coming?
+
 Better get out of there!
 [/center]"
 fit_content = true

@@ -1,26 +1,25 @@
-[gd_scene load_steps=24 format=4 uid="uid://7qr7lo3pbbms"]
+[gd_scene load_steps=23 format=4 uid="uid://ckth0bussxa63"]
 
-[ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_xoeed"]
-[ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="2_ejuk3"]
-[ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="3_2o7ev"]
-[ext_resource type="PackedScene" uid="uid://tqdwasr8hxfq" path="res://scenes/base_level/tutorials/tutorial_2_1.tscn" id="3_a7kq6"]
-[ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="4_poe6o"]
-[ext_resource type="Texture2D" uid="uid://ctf2gfid3367d" path="res://assets/images/0x72_dungeon_tileset/atlas_walls_low-16x16.png" id="5_g8w5c"]
-[ext_resource type="PackedScene" uid="uid://hji8le5si4gx" path="res://scenes/player_character/player_character_2d.tscn" id="7_fj2u3"]
-[ext_resource type="PackedScene" uid="uid://cbuhf6ck8ejxb" path="res://scenes/base_level/exit_point.tscn" id="8_y2aor"]
-[ext_resource type="Script" uid="uid://3j3oc0tled2p" path="res://scenes/game_scene/tutorial_manager.gd" id="9_ic7uo"]
-[ext_resource type="PackedScene" uid="uid://be5su3td71fqq" path="res://scenes/base_level/tutorials/tutorial_2_3.tscn" id="10_g8w5c"]
-[ext_resource type="PackedScene" uid="uid://cgqgnt3ugjco8" path="res://scenes/base_level/tutorials/tutorial_2_2.tscn" id="10_poe6o"]
-[ext_resource type="PackedScene" uid="uid://ok0trkn2uktm" path="res://scenes/map/game_map.tscn" id="11_oho5x"]
-[ext_resource type="PackedScene" uid="uid://c71xy2rk5q3a8" path="res://scenes/map/drafting/draftable_map.tscn" id="12_jafsa"]
-[ext_resource type="PackedScene" uid="uid://bvhpdoddfuumf" path="res://scenes/base_level/rooms/treasure_room_rings.tscn" id="13_2o7ev"]
-[ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="13_d8y8b"]
-[ext_resource type="PackedScene" uid="uid://cpn5rnx1vao33" path="res://scenes/base_level/rooms/treasure_room_mask.tscn" id="14_poe6o"]
-[ext_resource type="PackedScene" uid="uid://cqb0bkbyxec1w" path="res://scenes/base_level/rooms/heart_room.tscn" id="15_2o7ev"]
-[ext_resource type="PackedScene" uid="uid://cs1ghsvd8m1x7" path="res://scenes/base_level/rooms/treasure_room_man_statue.tscn" id="15_g8w5c"]
+[ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_45xnx"]
+[ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_ggyah"]
+[ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="3_rx4bl"]
+[ext_resource type="Texture2D" uid="uid://ctf2gfid3367d" path="res://assets/images/0x72_dungeon_tileset/atlas_walls_low-16x16.png" id="4_muiq8"]
+[ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="5_mrdt5"]
+[ext_resource type="PackedScene" uid="uid://hji8le5si4gx" path="res://scenes/player_character/player_character_2d.tscn" id="6_yyu2h"]
+[ext_resource type="PackedScene" uid="uid://cbuhf6ck8ejxb" path="res://scenes/base_level/exit_point.tscn" id="7_favgm"]
+[ext_resource type="Script" uid="uid://3j3oc0tled2p" path="res://scenes/game_scene/tutorial_manager.gd" id="8_mbyvs"]
+[ext_resource type="PackedScene" uid="uid://bkeo1ro7xhjfj" path="res://scenes/base_level/tutorials/tutorial_3_1.tscn" id="9_ggyah"]
+[ext_resource type="PackedScene" uid="uid://cgqgnt3ugjco8" path="res://scenes/base_level/tutorials/tutorial_2_2.tscn" id="10_ggyah"]
+[ext_resource type="PackedScene" uid="uid://ok0trkn2uktm" path="res://scenes/map/game_map.tscn" id="10_pgmn0"]
+[ext_resource type="PackedScene" uid="uid://c71xy2rk5q3a8" path="res://scenes/map/drafting/draftable_map.tscn" id="11_4aeav"]
+[ext_resource type="PackedScene" uid="uid://bvhpdoddfuumf" path="res://scenes/base_level/rooms/treasure_room_rings.tscn" id="12_3jtl5"]
+[ext_resource type="PackedScene" uid="uid://cpn5rnx1vao33" path="res://scenes/base_level/rooms/treasure_room_mask.tscn" id="13_7gb65"]
+[ext_resource type="PackedScene" uid="uid://cs1ghsvd8m1x7" path="res://scenes/base_level/rooms/treasure_room_man_statue.tscn" id="14_j070r"]
+[ext_resource type="PackedScene" uid="uid://cqb0bkbyxec1w" path="res://scenes/base_level/rooms/heart_room.tscn" id="15_l6mwe"]
+[ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="16_0gkbg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rn38"]
-texture = ExtResource("3_2o7ev")
+texture = ExtResource("2_ggyah")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -320,7 +319,7 @@ texture = ExtResource("3_2o7ev")
 7:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6nho2"]
-texture = ExtResource("4_poe6o")
+texture = ExtResource("3_rx4bl")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -372,7 +371,7 @@ sources/1 = SubResource("TileSetAtlasSource_6nho2")
 sources/0 = SubResource("TileSetAtlasSource_0rn38")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2ddb"]
-texture = ExtResource("5_g8w5c")
+texture = ExtResource("4_muiq8")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -476,8 +475,8 @@ physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 0
 sources/4 = SubResource("TileSetAtlasSource_c2ddb")
 
-[node name="Level2" type="Node2D"]
-script = ExtResource("1_xoeed")
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_45xnx")
 metadata/_edit_vertical_guides_ = [256.0, 384.0]
 metadata/_edit_horizontal_guides_ = [255.0, 384.0]
 
@@ -504,115 +503,115 @@ tile_map_data = PackedByteArray("AAASAP3/BAAAAAMAAADo//3/BAAAAAMAAADo/wIABAAAAAM
 tile_set = SubResource("TileSet_bjwgp")
 metadata/_edit_lock_ = true
 
-[node name="SpikeTrap2" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap2" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-24, 56)
 
-[node name="SpikeTrap3" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap3" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-24, 72.0001)
 
-[node name="SpikeTrap9" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap9" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-8, 56)
 
-[node name="SpikeTrap10" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap10" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(8, 56)
 
-[node name="SpikeTrap11" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap11" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(8, 72.0001)
 
-[node name="SpikeTrap12" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap12" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-8, 72.0001)
 
-[node name="SpikeTrap13" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap13" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(24, 56)
 
-[node name="SpikeTrap16" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap16" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(24, 72.0001)
 
-[node name="SpikeTrap18" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap18" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-24, -72)
 
-[node name="SpikeTrap19" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap19" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-24, -55.9999)
 
-[node name="SpikeTrap21" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap21" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-8, -72)
 
-[node name="SpikeTrap22" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap22" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(8, -72)
 
-[node name="SpikeTrap23" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap23" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(8, -55.9999)
 
-[node name="SpikeTrap24" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap24" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-8, -55.9999)
 
-[node name="SpikeTrap25" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap25" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(24, -72)
 
-[node name="SpikeTrap28" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap28" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(24, -55.9999)
 
-[node name="SpikeTrap5" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap5" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(56, -23.9999)
 rhythm = 2
 
-[node name="SpikeTrap8" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap8" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(72, -23.9999)
 rhythm = 2
 
-[node name="SpikeTrap29" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap29" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(56, 8.00012)
 rhythm = 2
 
-[node name="SpikeTrap30" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap30" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(56, -8)
 rhythm = 2
 
-[node name="SpikeTrap31" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap31" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(72, -8)
 rhythm = 2
 
-[node name="SpikeTrap32" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap32" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(72, 8.00012)
 rhythm = 2
 
-[node name="SpikeTrap34" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap34" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(56, 24)
 rhythm = 2
 
-[node name="SpikeTrap35" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap35" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(72, 24)
 rhythm = 2
 
-[node name="SpikeTrap37" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap37" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-72, -23.9999)
 rhythm = 2
 
-[node name="SpikeTrap40" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap40" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-56, -23.9999)
 rhythm = 2
 
-[node name="SpikeTrap41" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap41" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-72, 8.00012)
 rhythm = 2
 
-[node name="SpikeTrap42" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap42" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-72, -8)
 rhythm = 2
 
-[node name="SpikeTrap43" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap43" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-56, -8)
 rhythm = 2
 
-[node name="SpikeTrap44" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap44" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-56, 8.00012)
 rhythm = 2
 
-[node name="SpikeTrap46" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap46" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-72, 24)
 rhythm = 2
 
-[node name="SpikeTrap47" parent="Walls" instance=ExtResource("2_ejuk3")]
+[node name="SpikeTrap47" parent="Walls" instance=ExtResource("5_mrdt5")]
 position = Vector2(-56, 24)
 rhythm = 2
 
@@ -621,7 +620,7 @@ rhythm = 2
 [node name="CharacterContainer" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="PlayerCharacter" parent="CharacterContainer" instance=ExtResource("7_fj2u3")]
+[node name="PlayerCharacter" parent="CharacterContainer" instance=ExtResource("6_yyu2h")]
 position = Vector2(0, 256)
 
 [node name="TextContainer" type="Node2D" parent="."]
@@ -634,61 +633,54 @@ autoplay = true
 autoplay = true
 bus = &"SFX"
 
-[node name="ExitPoint" parent="." instance=ExtResource("8_y2aor")]
+[node name="ExitPoint" parent="." instance=ExtResource("7_favgm")]
 position = Vector2(0, 352)
 
 [node name="TutorialManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("9_ic7uo")
-tutorial_scenes = Array[PackedScene]([ExtResource("3_a7kq6")])
-open_delay = 1.0
+script = ExtResource("8_mbyvs")
+tutorial_scenes = Array[PackedScene]([ExtResource("9_ggyah")])
+open_delay = 0.1
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -9.0
 autoplay = true
 
 [node name="StealingTutorialManager" type="Node" parent="."]
-script = ExtResource("9_ic7uo")
-tutorial_scenes = Array[PackedScene]([ExtResource("10_g8w5c")])
-open_delay = 0.5
+script = ExtResource("8_mbyvs")
+open_delay = 0.1
 
 [node name="DraftingTutorialManager" type="Node" parent="."]
-script = ExtResource("9_ic7uo")
-tutorial_scenes = Array[PackedScene]([ExtResource("10_poe6o")])
-open_delay = 0.5
+script = ExtResource("8_mbyvs")
+tutorial_scenes = Array[PackedScene]([ExtResource("10_ggyah")])
+open_delay = 0.1
 
-[node name="GameMap" parent="." instance=ExtResource("11_oho5x")]
+[node name="GameMap" parent="." instance=ExtResource("10_pgmn0")]
 visible = false
 
-[node name="RoomsLayer" parent="GameMap" index="0"]
-tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAEAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
-
-[node name="OuterWallsLayer" parent="GameMap" index="4"]
-tile_map_data = PackedByteArray("AAAAAAAAAAACAAAAAAAAAAMAAAABAAAAAAAAAAIAAAACAAEAAAAAAAEAAAACAAEAAAABAAAAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAEAAAABAAMAAAABAAEAAAACAAMAAAACAAIAAAADAAMAAAABAAEAAAAEAAMAAAAAAAAAAAAEAAEAAAABAAIAAAAEAAIAAAABAAIAAAA=")
-
-[node name="DraftableMap" parent="." instance=ExtResource("12_jafsa")]
+[node name="DraftableMap" parent="." instance=ExtResource("11_4aeav")]
 visible = false
-treasure_rooms = Array[PackedScene]([ExtResource("13_2o7ev"), ExtResource("14_poe6o"), ExtResource("15_g8w5c")])
-heart_rooms = Array[PackedScene]([ExtResource("15_2o7ev")])
+treasure_rooms = Array[PackedScene]([ExtResource("12_3jtl5"), ExtResource("13_7gb65"), ExtResource("14_j070r")])
+heart_rooms = Array[PackedScene]([ExtResource("15_l6mwe")])
 
 [node name="DraftableLayer" parent="DraftableMap" index="0"]
-tile_map_data = PackedByteArray("AAAAAAAAAAADAAQAAAABAAAAAAADAAQAAAACAAAAAAADAAQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAQAAAABAAAAAAADAAQAAAACAAAAAAADAAQAAAADAAAAAAADAAQAAAAAAAQAAAADAAMAAAABAAQAAAADAAMAAAACAAQAAAADAAMAAAADAAQAAAADAAMAAAAEAAQAAAADAAMAAAAAAAYAAAACAAIAAAABAAYAAAACAAIAAAACAAYAAAACAAIAAAADAAYAAAACAAIAAAAEAAYAAAACAAIAAAAAAAoAAAABAAEAAAABAAoAAAABAAEAAAACAAoAAAABAAEAAAAEAAAAAAADAAQAAAAAAAgAAAACAAEAAAABAAgAAAACAAEAAAACAAgAAAACAAEAAAADAAgAAAACAAEAAAAFAAAAAAADAAQAAAAEAAgAAAACAAEAAAAFAAgAAAACAAEAAAAGAAgAAAACAAEAAAAHAAgAAAACAAEAAAA=")
 
 [node name="TreasureLayer" parent="DraftableMap" index="1"]
-tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAYAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAA=")
 
 [node name="HealthLayer" parent="DraftableMap" index="2"]
-tile_map_data = PackedByteArray("AAACAAAAAAAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAACAAQAAAAAAAIAAAAFAAAAAAAAAAIAAAABAAYAAAAAAAIAAAACAAYAAAAAAAIAAAA=")
 
-[node name="DraftPoint" parent="." instance=ExtResource("13_d8y8b")]
+[node name="DraftPoint" parent="." instance=ExtResource("16_0gkbg")]
 position = Vector2(-352, 0)
 direction = 2
 
-[node name="DraftPoint2" parent="." instance=ExtResource("13_d8y8b")]
+[node name="DraftPoint2" parent="." instance=ExtResource("16_0gkbg")]
 position = Vector2(352, 0)
 direction = 3
 
-[node name="DraftPoint3" parent="." instance=ExtResource("13_d8y8b")]
+[node name="DraftPoint3" parent="." instance=ExtResource("16_0gkbg")]
 position = Vector2(0, -352)
 
 [editable path="GameMap"]

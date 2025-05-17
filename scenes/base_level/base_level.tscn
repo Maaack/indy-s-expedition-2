@@ -518,7 +518,11 @@ open_delay = 0.1
 
 [node name="StealingTutorialManager" type="Node" parent="."]
 script = ExtResource("8_5yg0m")
-open_delay = 0.1
+open_delay = 0.5
+
+[node name="DraftingTutorialManager" type="Node" parent="."]
+script = ExtResource("8_5yg0m")
+open_delay = 0.5
 
 [node name="GameMap" parent="." instance=ExtResource("8_jnmbr")]
 visible = false

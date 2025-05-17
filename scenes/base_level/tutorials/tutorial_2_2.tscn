@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://tqdwasr8hxfq"]
+[gd_scene load_steps=2 format=3 uid="uid://cgqgnt3ugjco8"]
 
-[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_adq3r"]
+[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_6ux2v"]
 
-[node name="Tutorial1" instance=ExtResource("1_adq3r")]
+[node name="Tutorial2" instance=ExtResource("1_6ux2v")]
 process_mode = 3
 pauses_game = true
 
@@ -25,13 +25,10 @@ text = ""
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Huh? There's nothing here?
+text = "[center]There's those priceless artifacts we came for!
 
-No!... That can't be.
+What are they doing here? In a dead-end of a tomb?
 
-Check some of the neighboring rooms...
-
-There's got to be something for our very important museum collection.
-
+They belong in a museum!
 [/center]"
 fit_content = true

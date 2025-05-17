@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://tqdwasr8hxfq"]
+[gd_scene load_steps=2 format=3 uid="uid://bkeo1ro7xhjfj"]
 
-[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_adq3r"]
+[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_g8ks7"]
 
-[node name="Tutorial1" instance=ExtResource("1_adq3r")]
+[node name="Tutorial1" instance=ExtResource("1_g8ks7")]
 process_mode = 3
 pauses_game = true
 
@@ -25,13 +25,12 @@ text = ""
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Huh? There's nothing here?
+text = "[center]This tomb goes deeper.
 
-No!... That can't be.
+And the layout keeps changing.
 
-Check some of the neighboring rooms...
+Check your map to get oriented.
 
-There's got to be something for our very important museum collection.
-
+Try to get all the rooms with cultural artifacts!
 [/center]"
 fit_content = true

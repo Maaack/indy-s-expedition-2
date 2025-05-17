@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://tqdwasr8hxfq"]
+[gd_scene load_steps=2 format=3 uid="uid://be5su3td71fqq"]
 
-[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_adq3r"]
+[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_4mvkw"]
 
-[node name="Tutorial1" instance=ExtResource("1_adq3r")]
+[node name="Tutorial3" instance=ExtResource("1_4mvkw")]
 process_mode = 3
 pauses_game = true
 
@@ -25,13 +25,16 @@ text = ""
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Huh? There's nothing here?
+text = "[center]Hmm... again with the traps -
 
-No!... That can't be.
+And angry mobs.
 
-Check some of the neighboring rooms...
+It's like they don't like spreading their culture.
 
-There's got to be something for our very important museum collection.
+Just selfishly keeping it for themselves! 
 
+I'll be sure to note that by the artifact's display...
+
+\"* Tomb dwellers are not the sharing type.\"
 [/center]"
 fit_content = true

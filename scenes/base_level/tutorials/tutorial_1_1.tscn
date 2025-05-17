@@ -26,8 +26,13 @@ visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
 text = "[center]Wow! You made it!
-Right passed the main menu. Against... all odds.
-Well, don't stop now! 
-Grab that cultural relic for our museum collection.
+
+Right passed the main menu. Against all odds!
+
+Well, don't stop now - Look what's ahead!
+
+That artifact belongs in a museum! 
+
+Our museum.
 [/center]"
 fit_content = true

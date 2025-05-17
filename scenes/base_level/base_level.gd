@@ -14,6 +14,7 @@ signal monster_mode_activation_changed(activated : bool)
 @onready var text_container = $TextContainer
 @onready var tutorial_manager = %TutorialManager
 @onready var stealing_tutorial_manager = $StealingTutorialManager
+@onready var drafting_tutorial_manager = $DraftingTutorialManager
 @onready var game_map : GameMap = $GameMap
 @onready var draftable_map : DraftableMap = $DraftableMap
 
@@ -22,6 +23,7 @@ var pc_monster_node : CharacterBody2D
 var enemy_host_node : CharacterBody2D
 var floating_text_scene = preload("res://scenes/floating_text/floating_text_2d.tscn")
 var stolen_artifacts : int = 0
+var rooms_drafted : int = 0
 
 var level_state : LevelState
 
@@ -69,6 +71,10 @@ func _on_treasure_picked_up(add_score : int, treasure_position : Vector2) -> voi
 	spawn_floating_text(treasure_position, "+%d" % add_score)
 
 func _on_player_drafting_room(current_tile : Vector2i, direction : Vector2i):
+	if rooms_drafted == 0 and not level_state.drafting_tutorial_read:
+		drafting_tutorial_manager.open_tutorials()
+		level_state.drafting_tutorial_read = true
+		GlobalState.save()
 	ProjectEvents.level_drafting_room.emit(current_tile, direction, draftable_map)
 
 func open_tutorials() -> void:
