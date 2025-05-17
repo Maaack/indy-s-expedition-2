@@ -495,11 +495,8 @@ tile_set = SubResource("TileSet_bjwgp")
 [node name="CharacterContainer" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="PlayerCharacter" parent="CharacterContainer" node_paths=PackedStringArray("update_component_directions") instance=ExtResource("4_kicwd")]
+[node name="PlayerCharacter" parent="CharacterContainer" instance=ExtResource("4_kicwd")]
 position = Vector2(0, 256)
-update_component_directions = []
-air_acceleration = 300.0
-air_friction = 50.0
 
 [node name="TextContainer" type="Node2D" parent="."]
 
