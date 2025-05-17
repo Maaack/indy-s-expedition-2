@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://hji8le5si4gx"]
+[gd_scene load_steps=58 format=3 uid="uid://hji8le5si4gx"]
 
 [ext_resource type="Script" uid="uid://dt8im3k7qjimv" path="res://scenes/player_character/player_character_2d.gd" id="1_2rm0r"]
 [ext_resource type="Texture2D" uid="uid://bliump3lecuvh" path="res://assets/sprite/shadow_black.png" id="3_ay7hg"]
@@ -19,6 +19,10 @@
 [ext_resource type="AudioStream" uid="uid://b05tt7jmibu0t" path="res://assets/sfx/slide_3.ogg" id="14_8yrho"]
 [ext_resource type="PackedScene" uid="uid://bfm0qjo8jt58g" path="res://scenes/components/hurt_animation_component.tscn" id="14_hpsva"]
 [ext_resource type="AudioStream" uid="uid://cqo5w4fok0jwb" path="res://assets/sfx/slide_4.ogg" id="15_uibrj"]
+[ext_resource type="AudioStream" uid="uid://dp2b41cpr0o3w" path="res://assets/sfx/hoo_1.ogg" id="22_c1asr"]
+[ext_resource type="AudioStream" uid="uid://b4se1r7a77u7w" path="res://assets/sfx/hoo_2.ogg" id="23_ts827"]
+[ext_resource type="AudioStream" uid="uid://bd5vybsehw407" path="res://assets/sfx/hoo_3.ogg" id="24_cpyfn"]
+[ext_resource type="AudioStream" uid="uid://cp5w5l0640fwb" path="res://assets/sfx/hoo_4.ogg" id="25_esyae"]
 [ext_resource type="PackedScene" uid="uid://d4nlssgtrlsfn" path="res://scenes/components/hurtbox_2d.tscn" id="31_kq22h"]
 [ext_resource type="PackedScene" uid="uid://plht4mnshaea" path="res://scenes/components/health_component.tscn" id="32_1qtai"]
 
@@ -317,6 +321,13 @@ stream_3/stream = ExtResource("15_uibrj")
 [sub_resource type="CircleShape2D" id="CircleShape2D_mtwph"]
 radius = 8.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rc75x"]
+streams_count = 4
+stream_0/stream = ExtResource("22_c1asr")
+stream_1/stream = ExtResource("23_ts827")
+stream_2/stream = ExtResource("24_cpyfn")
+stream_3/stream = ExtResource("25_esyae")
+
 [sub_resource type="Animation" id="Animation_vw8up"]
 resource_name = "HURT"
 tracks/0/type = "value"
@@ -472,12 +483,18 @@ action_name = &"whip"
 script = ExtResource("13_vw8up")
 character_2D = NodePath("..")
 
-[node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("player_character", "animation_tree")]
+[node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("player_character", "animation_tree", "audio_stream_player")]
 script = ExtResource("13_ay7hg")
 player_character = NodePath("..")
 action_name = &"jump"
 animation_tree = NodePath("../CharacterAnimationTree")
+audio_stream_player = NodePath("../JumpAudioStreamPlayer")
 metadata/_custom_type_script = "uid://c1d7hck53ucp5"
+
+[node name="JumpAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_rc75x")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="HurtAnimationComponent" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("14_hpsva")]
 libraries = {
