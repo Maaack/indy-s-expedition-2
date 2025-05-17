@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cpn5rnx1vao33"]
+[gd_scene load_steps=15 format=4 uid="uid://cpn5rnx1vao33"]
 
 [ext_resource type="Script" uid="uid://wrj0xtpl7mqj" path="res://scenes/base_level/rooms/room.gd" id="1_sulk0"]
 [ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_alqwm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="6_88nid"]
 [ext_resource type="PackedScene" uid="uid://ce8y6a67nkf5f" path="res://scenes/traps/arrow_trap.tscn" id="7_c5sag"]
 [ext_resource type="PackedScene" uid="uid://cl3mhytha4ndp" path="res://scenes/pickups/treasures/mask.tscn" id="8_ow64r"]
+[ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="9_gwujs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4alao"]
 texture = ExtResource("2_alqwm")
@@ -840,3 +841,18 @@ scale = Vector2(1, 0.994909)
 directions = Array[int]([2, 0])
 
 [node name="Mask" parent="CharacterContainer" instance=ExtResource("8_ow64r")]
+
+[node name="DraftNorth" parent="." instance=ExtResource("9_gwujs")]
+position = Vector2(0, -352)
+
+[node name="DraftSouth" parent="." instance=ExtResource("9_gwujs")]
+position = Vector2(0, 352)
+direction = 1
+
+[node name="DraftEast" parent="." instance=ExtResource("9_gwujs")]
+position = Vector2(-352, 0)
+direction = 2
+
+[node name="DraftWest" parent="." instance=ExtResource("9_gwujs")]
+position = Vector2(352, 0)
+direction = 3

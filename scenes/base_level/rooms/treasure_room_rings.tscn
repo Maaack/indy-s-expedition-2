@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bvhpdoddfuumf"]
+[gd_scene load_steps=17 format=4 uid="uid://bvhpdoddfuumf"]
 
 [ext_resource type="Script" uid="uid://wrj0xtpl7mqj" path="res://scenes/base_level/rooms/room.gd" id="1_j4f5c"]
 [ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_ovmpi"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ce8y6a67nkf5f" path="res://scenes/traps/arrow_trap.tscn" id="8_u3wx4"]
 [ext_resource type="PackedScene" uid="uid://d2yw3xuymtkxp" path="res://scenes/pickups/treasures/emerald_ring.tscn" id="9_yvm6d"]
 [ext_resource type="PackedScene" uid="uid://dvysl81wokx3g" path="res://scenes/pickups/treasures/ruby_ring.tscn" id="10_ymar5"]
+[ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="11_yvm6d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4alao"]
 texture = ExtResource("2_ovmpi")
@@ -854,3 +855,18 @@ position = Vector2(-25, 24)
 
 [node name="RubyRing2" parent="CharacterContainer" instance=ExtResource("10_ymar5")]
 position = Vector2(24, -23)
+
+[node name="DraftNorth" parent="." instance=ExtResource("11_yvm6d")]
+position = Vector2(0, -352)
+
+[node name="DraftSouth" parent="." instance=ExtResource("11_yvm6d")]
+position = Vector2(0, 352)
+direction = 1
+
+[node name="DraftEast" parent="." instance=ExtResource("11_yvm6d")]
+position = Vector2(-352, 0)
+direction = 2
+
+[node name="DraftWest" parent="." instance=ExtResource("11_yvm6d")]
+position = Vector2(352, 0)
+direction = 3

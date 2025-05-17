@@ -30,9 +30,11 @@ func get_draftable_rooms() -> Array[RoomData]:
 		if used_cell in treasure_layer.get_used_cells():
 			room_data.inventory.add(TREASURE.duplicate())
 			room_data.room_scene = treasure_rooms.pick_random()
-		if used_cell in heart_layer.get_used_cells():
+		elif used_cell in heart_layer.get_used_cells():
 			room_data.inventory.add(HEART.duplicate())
 			room_data.room_scene = heart_rooms.pick_random()
+		else:
+			room_data.room_scene = hallways.pick_random()
 		draftable_rooms.append(room_data)
 	return draftable_rooms
 

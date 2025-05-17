@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cqb0bkbyxec1w"]
+[gd_scene load_steps=13 format=4 uid="uid://cqb0bkbyxec1w"]
 
 [ext_resource type="Script" uid="uid://wrj0xtpl7mqj" path="res://scenes/base_level/rooms/room.gd" id="1_db3qe"]
 [ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_tuyl1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctf2gfid3367d" path="res://assets/images/0x72_dungeon_tileset/atlas_walls_low-16x16.png" id="5_lewd7"]
 [ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="6_eel2b"]
 [ext_resource type="PackedScene" uid="uid://c3s4h8dggiwgj" path="res://scenes/pickups/heart.tscn" id="6_ehs78"]
+[ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="7_ob30n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4alao"]
 texture = ExtResource("2_tuyl1")
@@ -562,3 +563,18 @@ position = Vector2(216, 72)
 flip_h = true
 
 [node name="Heart" parent="CharacterContainer" instance=ExtResource("6_ehs78")]
+
+[node name="DraftNorth" parent="." instance=ExtResource("7_ob30n")]
+position = Vector2(0, -352)
+
+[node name="DraftSouth" parent="." instance=ExtResource("7_ob30n")]
+position = Vector2(0, 352)
+direction = 1
+
+[node name="DraftEast" parent="." instance=ExtResource("7_ob30n")]
+position = Vector2(-352, 0)
+direction = 2
+
+[node name="DraftWest" parent="." instance=ExtResource("7_ob30n")]
+position = Vector2(352, 0)
+direction = 3
