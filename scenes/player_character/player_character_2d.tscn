@@ -449,6 +449,8 @@ stream = SubResource("AudioStreamRandomizer_23uyf")
 volume_db = -22.0
 max_polyphony = 2
 bus = &"SFX"
+repeat_delay = 0.2
+repeat_delay_randomness = 0.1
 
 [node name="Hurtbox2D" parent="." node_paths=PackedStringArray("_components") instance=ExtResource("31_kq22h")]
 _components = [NodePath("../HealthComponent"), NodePath("../KnockbackComponent")]
