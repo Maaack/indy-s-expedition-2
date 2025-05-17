@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cvaa3j28dgqug" path="res://scenes/pickups/treasures/man_statue.tscn" id="5_kgkaf"]
 [ext_resource type="PackedScene" uid="uid://c8slfvdysjgbm" path="res://scenes/base_level/tutorials/tutorial_1_1.tscn" id="6_7jge3"]
 [ext_resource type="PackedScene" uid="uid://dgo1riwg60u7p" path="res://scenes/base_level/tutorials/tutorial_1_2.tscn" id="7_kgkaf"]
-[ext_resource type="Texture2D" uid="uid://erquypxqh0tp" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_space.png" id="8_loddm"]
-[ext_resource type="Texture2D" uid="uid://drotid8bituwy" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_left.png" id="9_rxn0w"]
+[ext_resource type="Texture2D" uid="uid://cwkg280npdpdj" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_space.svg" id="8_4njfs"]
+[ext_resource type="Texture2D" uid="uid://bjgqvljwttob" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_left.svg" id="9_4njfs"]
 [ext_resource type="Texture2D" uid="uid://c5m6u2irn5lis" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_d.svg" id="10_4njfs"]
 [ext_resource type="Texture2D" uid="uid://cyxdg1jxs8857" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_a.svg" id="11_r5xcx"]
 [ext_resource type="Texture2D" uid="uid://byoh7yqf6vcf7" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_s.svg" id="12_cdpom"]
@@ -492,7 +492,7 @@ offset_left = -216.0
 offset_top = 284.0
 offset_right = -152.0
 offset_bottom = 348.0
-texture = ExtResource("8_loddm")
+texture = ExtResource("8_4njfs")
 
 [node name="Label2" type="Label" parent="Control" index="2"]
 offset_left = 87.0
@@ -515,7 +515,7 @@ offset_left = 80.0
 offset_top = 284.0
 offset_right = 144.0
 offset_bottom = 348.0
-texture = ExtResource("9_rxn0w")
+texture = ExtResource("9_4njfs")
 
 [node name="KeyboardD" type="TextureRect" parent="Control" index="5"]
 offset_left = -24.0
