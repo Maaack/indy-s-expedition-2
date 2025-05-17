@@ -16,6 +16,7 @@ signal died
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var animation_tree = $CharacterAnimationTree
 @onready var animation_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+@onready var slide_stream_repeater_2d = $SlideStreamRepeater2D
 
 var facing_direction : Vector2
 var can_take_damage : bool = true
@@ -56,9 +57,11 @@ func animate_idle():
 
 func animate_sliding():
 	$GPUParticles2D.emitting = true
+	slide_stream_repeater_2d.play_loop()
 
 func animate_not_sliding():
 	$GPUParticles2D.emitting = false
+	slide_stream_repeater_2d.stop_loop()
 
 func move_tick():
 	ProjectEvents.player_moved.emit(global_position)
