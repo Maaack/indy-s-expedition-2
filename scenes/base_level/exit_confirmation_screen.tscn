@@ -14,14 +14,22 @@ offset_top = -95.0
 offset_right = 179.5
 offset_bottom = 95.0
 
+[node name="BoxContainer" parent="MenuPanelContainer/MarginContainer" index="0"]
+theme_override_constants/separation = 32
+
 [node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
-text = "Really Exit?"
+text = "Leave Tomb?"
 
 [node name="DescriptionMargin" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="1"]
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Are you sure you want to leave?[/center]"
+text = "[center]Are you sure you want to leave this tomb?
+
+More importantly...
+
+Did you get everything that belongs in a museum?
+[/center]"
 fit_content = true
 
 [node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
