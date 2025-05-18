@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvo6gw8krgqrv"]
+
+[ext_resource type="Texture2D" uid="uid://shxuutqc8hci" path="res://assets/images/0x72_dungeon_tileset/0x72_DungeonTilesetII_v1.7.png" id="1_oyaf6"]
+[ext_resource type="Script" uid="uid://bw33ojcmpg713" path="res://scenes/game_scene/health_texture_rect.gd" id="2_uycpa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uycpa"]
+resource_local_to_scene = true
+atlas = ExtResource("1_oyaf6")
+region = Rect2(320, 368, 16, 16)
+
+[node name="HealthTextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(32, 32)
+texture = SubResource("AtlasTexture_uycpa")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_uycpa")

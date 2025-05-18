@@ -1,13 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhtsd642kb644"]
+[gd_scene load_steps=3 format=3 uid="uid://dhtsd642kb644"]
 
 [ext_resource type="Script" uid="uid://ciogt4c6uc5e0" path="res://scenes/game_scene/health_ui.gd" id="1_jjtse"]
+[ext_resource type="PackedScene" uid="uid://bvo6gw8krgqrv" path="res://scenes/game_scene/health_texture_rect.tscn" id="2_xpy8v"]
 
 [node name="HealthUI" type="HBoxContainer"]
+texture_filter = 1
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_jjtse")
+heart_texture_scene = ExtResource("2_xpy8v")
+health = 6.0
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "0.0"
