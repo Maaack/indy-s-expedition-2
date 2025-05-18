@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_tuyl1"]
 [ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="3_wl8q7"]
 [ext_resource type="Texture2D" uid="uid://ctf2gfid3367d" path="res://assets/images/0x72_dungeon_tileset/atlas_walls_low-16x16.png" id="5_lewd7"]
-[ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="6_eel2b"]
+[ext_resource type="PackedScene" uid="uid://03d12ibilyx5" path="res://scenes/enemies/enemy_2.tscn" id="6_eel2b"]
 [ext_resource type="PackedScene" uid="uid://c3s4h8dggiwgj" path="res://scenes/pickups/heart.tscn" id="6_ehs78"]
 [ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="7_ob30n"]
 
