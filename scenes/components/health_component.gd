@@ -28,6 +28,8 @@ var health : float :
 		health = value
 		if health < 0:
 			health = 0
+		if health > max_health:
+			health = max_health
 		health_changed.emit(health, delta)
 		if not dead and health == 0:
 			_die()
