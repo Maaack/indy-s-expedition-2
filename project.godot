@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Indy's Expedition 2?"
-config/version="0.1.0"
+config/version="0.2.0"
 run/main_scene="res://scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -101,4 +101,4 @@ copy_path="res://"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.0591259, 0.059126, 0.0591259, 1)
+environment/defaults/default_clear_color=Color(0.133364, 0.133364, 0.133364, 1)
