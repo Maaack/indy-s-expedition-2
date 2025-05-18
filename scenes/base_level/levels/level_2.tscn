@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://7qr7lo3pbbms"]
+[gd_scene load_steps=26 format=4 uid="uid://7qr7lo3pbbms"]
 
 [ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_xoeed"]
 [ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="2_ejuk3"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cpn5rnx1vao33" path="res://scenes/base_level/rooms/treasure_room_mask.tscn" id="14_poe6o"]
 [ext_resource type="PackedScene" uid="uid://cqb0bkbyxec1w" path="res://scenes/base_level/rooms/heart_room.tscn" id="15_2o7ev"]
 [ext_resource type="PackedScene" uid="uid://cs1ghsvd8m1x7" path="res://scenes/base_level/rooms/treasure_room_man_statue.tscn" id="15_g8w5c"]
+[ext_resource type="Texture2D" uid="uid://cwkg280npdpdj" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_space.svg" id="19_d8y8b"]
+[ext_resource type="Texture2D" uid="uid://bjgqvljwttob" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/mouse_left.svg" id="20_8b7do"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rn38"]
 texture = ExtResource("3_2o7ev")
@@ -690,6 +692,47 @@ direction = 3
 
 [node name="DraftPoint3" parent="." instance=ExtResource("13_d8y8b")]
 position = Vector2(0, -352)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -241.0
+offset_top = 108.0
+offset_right = -80.0
+offset_bottom = 131.0
+text = "+                   to Swing"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -296.0
+offset_top = 150.0
+offset_right = -249.0
+offset_bottom = 173.0
+text = "(Hold)"
+horizontal_alignment = 2
+
+[node name="KeyboardSpace" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -216.0
+offset_top = 89.0
+offset_right = -152.0
+offset_bottom = 153.0
+texture = ExtResource("19_d8y8b")
+
+[node name="KeyboardSpace2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -305.0
+offset_top = 92.0
+offset_right = -241.0
+offset_bottom = 156.0
+texture = ExtResource("20_8b7do")
 
 [editable path="GameMap"]
 [editable path="DraftableMap"]
