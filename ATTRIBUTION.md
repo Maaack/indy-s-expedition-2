@@ -1,23 +1,29 @@
 # Attribution
-## Collaborators
-
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+## Game By
+[Maaack](https://maaack.itch.io/)  
 
 
-## Sourced / Unaffiliated
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
+
+
+## Sourced
+### 2D Environment and Character Art
+#### Dungeon Tileset II
+Author: [0x72](https://0x72.itch.io/)  
+Source: [itch.io : dungeontileset-ii](https://0x72.itch.io/dungeontileset-ii)  
+License: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+
+#### Dungeon Tileset II - Extended
+Author: [Niji](https://nijikokun.itch.io/)  
+Source: [itch.io : dungeontileset-ii-extended](https://nijikokun.itch.io/dungeontileset-ii-extended)  
+License: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### Godot Wild Jam Logos
 Author: [Dawk](https://coreyaroberts.com/)  
 Source: [godotwildjam.com](https://godotwildjam.com/branding/)  
 License: Copyrighted
+
+
+
 
 ## Tools
 #### Godot

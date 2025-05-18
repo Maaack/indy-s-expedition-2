@@ -1,32 +1,38 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5of83gxbnhft"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/scenes/credits/credits.tscn" id="1_8n0nl"]
-[ext_resource type="Script" path="res://scenes/credits/credits.gd" id="2_c8xcy"]
+[ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_game_template/base/scenes/credits/credits.tscn" id="1_8n0nl"]
+[ext_resource type="Script" uid="uid://rjvu7diqd8f7" path="res://scenes/credits/credits.gd" id="2_c8xcy"]
 
 [node name="Credits" instance=ExtResource("1_8n0nl")]
 script = ExtResource("2_c8xcy")
 attribution_file_path = "res://ATTRIBUTION.md"
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
-text = "[center][font_size=48]Collaborators[/font_size]
-
-[font_size=32]Role[/font_size]
-Person 1  
-Person 2  
-[url=]Person w/ Link[/url]  
+text = "[center][font_size=48]Game By[/font_size]
+[url=https://maaack.itch.io/]Maaack[/url]  
 
 
-[font_size=48]Sourced / Unaffiliated[/font_size]
-[font_size=32]Asset Type[/font_size]
-[font_size=24]Use Case[/font_size]
-Author: [url=]Name[/url]  
-Source: [url=]Domain : webpage.html[/url]  
-License: [url=]License[/url]
+
+
+[font_size=48]Sourced[/font_size]
+[font_size=32]2D Environment and Character Art[/font_size]
+[font_size=24]Dungeon Tileset II[/font_size]
+Author: [url=https://0x72.itch.io/]0x72[/url]  
+Source: [url=https://0x72.itch.io/dungeontileset-ii]itch.io : dungeontileset-ii[/url]  
+License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal[/url]
+
+[font_size=24]Dungeon Tileset II - Extended[/font_size]
+Author: [url=https://nijikokun.itch.io/]Niji[/url]  
+Source: [url=https://nijikokun.itch.io/dungeontileset-ii-extended]itch.io : dungeontileset-ii-extended[/url]  
+License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal[/url]
 
 [font_size=32]Godot Wild Jam Logos[/font_size]
 Author: [url=https://coreyaroberts.com/]Dawk[/url]  
 Source: [url=https://godotwildjam.com/branding/]godotwildjam.com[/url]  
 License: Copyrighted
+
+
+
 
 [font_size=48]Tools[/font_size]
 [font_size=24]Godot[/font_size]
