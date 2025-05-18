@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp868khacr84t"]
+
+[ext_resource type="PackedScene" uid="uid://bo3gyn2hhkcl2" path="res://scenes/enemies/enemy.tscn" id="1_iqwa4"]
+[ext_resource type="Texture2D" uid="uid://shxuutqc8hci" path="res://assets/images/0x72_dungeon_tileset/0x72_DungeonTilesetII_v1.7.png" id="2_ofsh2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28rdh"]
+atlas = ExtResource("2_ofsh2")
+region = Rect2(369, 157, 128, 20)
+
+[node name="Enemy3" instance=ExtResource("1_iqwa4")]
+
+[node name="Sprite2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_28rdh")
+
+[editable path="Hurtbox2D"]
