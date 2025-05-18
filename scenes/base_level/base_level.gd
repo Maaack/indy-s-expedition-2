@@ -115,3 +115,5 @@ func add_room(room_data : RoomData) -> void:
 		scene_instance.room_data = room_data
 		for object in scene_instance.character_container.get_children():
 			object.reparent(character_container)
+	if stolen_artifacts > 0:
+		ProjectEvents.player_aggro.emit()

@@ -37,6 +37,7 @@ func _on_treasure_picked_up(_score : float, _treasure_position : Vector2):
 func _ready():
 	enabled = enabled
 	ProjectEvents.treasure_picked_up.connect(_on_treasure_picked_up)
+	ProjectEvents.player_aggro.connect(func(): enabled = true)
 
 func fire_arrows():
 	for direction in directions:
