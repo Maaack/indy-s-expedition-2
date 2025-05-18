@@ -97,7 +97,7 @@ func draft_room(room_data : RoomData) -> void:
 	if room_data.inventory.has(Constants.HEART):
 		heart_layer.set_cell(draft_room_map_tile, 0, Vector2i(0, 2))
 	if room_data.inventory.has(Constants.TREASURE):
-		treasure_layer.set_cell(draft_room_map_tile, 0, Vector2i(1, 0))
+		treasure_layer.set_cell(draft_room_map_tile, 0, Vector2i(1, 1))
 
 func has_item(item_name : StringName) -> bool:
 	if current_room == null: return false
