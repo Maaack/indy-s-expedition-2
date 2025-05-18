@@ -1,14 +1,14 @@
-[gd_scene load_steps=14 format=4 uid="uid://c2veodw4widu4"]
+[gd_scene load_steps=14 format=4 uid="uid://c868xrc14ct17"]
 
-[ext_resource type="Script" uid="uid://wrj0xtpl7mqj" path="res://scenes/base_level/rooms/room.gd" id="1_tmrwi"]
-[ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="1_vpxit"]
-[ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="2_tmrwi"]
-[ext_resource type="Texture2D" uid="uid://ctf2gfid3367d" path="res://assets/images/0x72_dungeon_tileset/atlas_walls_low-16x16.png" id="3_0u28j"]
-[ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="4_jkn47"]
-[ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="6_0u28j"]
+[ext_resource type="Script" uid="uid://wrj0xtpl7mqj" path="res://scenes/base_level/rooms/room.gd" id="1_a2hi5"]
+[ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_0wkjw"]
+[ext_resource type="Texture2D" uid="uid://bsn8v07ptegmb" path="res://assets/images/0x72_dungeon_tileset/atlas_floor-16x16.png" id="3_s8rpf"]
+[ext_resource type="Texture2D" uid="uid://ctf2gfid3367d" path="res://assets/images/0x72_dungeon_tileset/atlas_walls_low-16x16.png" id="4_4uhlr"]
+[ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="5_cwe5i"]
+[ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="6_hgidb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kfn67"]
-texture = ExtResource("1_vpxit")
+texture = ExtResource("2_0wkjw")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -308,7 +308,7 @@ texture = ExtResource("1_vpxit")
 7:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vp7vp"]
-texture = ExtResource("2_tmrwi")
+texture = ExtResource("3_s8rpf")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -360,7 +360,7 @@ sources/1 = SubResource("TileSetAtlasSource_vp7vp")
 sources/0 = SubResource("TileSetAtlasSource_kfn67")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fe4e"]
-texture = ExtResource("3_0u28j")
+texture = ExtResource("4_4uhlr")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -465,7 +465,7 @@ physics_layer_1/collision_mask = 0
 sources/4 = SubResource("TileSetAtlasSource_6fe4e")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0u28j"]
-texture = ExtResource("3_0u28j")
+texture = ExtResource("4_4uhlr")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -569,8 +569,8 @@ physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 0
 sources/4 = SubResource("TileSetAtlasSource_0u28j")
 
-[node name="FourPassageRoom" type="Node2D"]
-script = ExtResource("1_tmrwi")
+[node name="SpikePassageRoom" type="Node2D"]
+script = ExtResource("1_a2hi5")
 
 [node name="Floor" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -595,229 +595,232 @@ tile_map_data = PackedByteArray("AAASAP3/BAAAAAMAAADo//3/BAAAAAMAAADo/wIABAAAAAM
 tile_set = SubResource("TileSet_uhm0l")
 metadata/_edit_lock_ = true
 
-[node name="SpikeTrap2" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap2" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-24, 168)
 
-[node name="SpikeTrap3" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap3" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-24, 72.0001)
 
-[node name="SpikeTrap9" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap9" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-8, 168)
 
-[node name="SpikeTrap10" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap10" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(8, 168)
 
-[node name="SpikeTrap11" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap11" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(8, 72.0001)
 
-[node name="SpikeTrap12" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap12" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-8, 72.0001)
 
-[node name="SpikeTrap13" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap13" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(24, 168)
 
-[node name="SpikeTrap16" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap16" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(24, 72.0001)
 
-[node name="SpikeTrap18" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap18" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-24, -72)
 
-[node name="SpikeTrap19" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap19" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-24, -168)
 
-[node name="SpikeTrap21" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap21" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-8, -72)
 
-[node name="SpikeTrap22" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap22" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(8, -72)
 
-[node name="SpikeTrap23" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap23" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(8, -168)
 
-[node name="SpikeTrap24" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap24" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-8, -168)
 
-[node name="SpikeTrap25" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap25" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(24, -72)
 
-[node name="SpikeTrap28" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap28" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(24, -168)
 
-[node name="SpikeTrap20" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap20" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-24, -120)
 rhythm = 2
 
-[node name="SpikeTrap26" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap26" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-24, -216)
 rhythm = 2
 
-[node name="SpikeTrap27" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap27" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-8, -120)
 rhythm = 2
 
-[node name="SpikeTrap33" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap33" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(8, -120)
 rhythm = 2
 
-[node name="SpikeTrap36" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap36" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(8, -216)
 rhythm = 2
 
-[node name="SpikeTrap38" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap38" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-8, -216)
 rhythm = 2
 
-[node name="SpikeTrap39" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap39" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(24, -120)
 rhythm = 2
 
-[node name="SpikeTrap45" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap45" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(24, -216)
 rhythm = 2
 
-[node name="SpikeTrap48" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap48" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-24, 216)
 rhythm = 2
 
-[node name="SpikeTrap49" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap49" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-24, 120)
 rhythm = 2
 
-[node name="SpikeTrap50" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap50" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-8, 216)
 rhythm = 2
 
-[node name="SpikeTrap51" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap51" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(8, 216)
 rhythm = 2
 
-[node name="SpikeTrap52" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap52" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(8, 120)
 rhythm = 2
 
-[node name="SpikeTrap53" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap53" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-8, 120)
 rhythm = 2
 
-[node name="SpikeTrap54" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap54" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(24, 216)
 rhythm = 2
 
-[node name="SpikeTrap55" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap55" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(24, 120)
 rhythm = 2
 
-[node name="SpikeTrap5" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap5" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(168, -24)
 rhythm = 2
 
-[node name="SpikeTrap8" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap8" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(72, -23.9999)
 rhythm = 2
 
-[node name="SpikeTrap29" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap29" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(168, 8.00002)
 rhythm = 2
 
-[node name="SpikeTrap30" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap30" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(168, -8.0001)
 rhythm = 2
 
-[node name="SpikeTrap31" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap31" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(72, -8)
 rhythm = 2
 
-[node name="SpikeTrap32" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap32" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(72, 8.00012)
 rhythm = 2
 
-[node name="SpikeTrap34" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap34" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(168, 23.9999)
 rhythm = 2
 
-[node name="SpikeTrap35" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap35" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(72, 24)
 rhythm = 2
 
-[node name="SpikeTrap6" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap6" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(216, -24)
 
-[node name="SpikeTrap14" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap14" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(120, -24)
 
-[node name="SpikeTrap56" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap56" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(216, 8.00002)
 
-[node name="SpikeTrap57" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap57" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(216, -8.0001)
 
-[node name="SpikeTrap58" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap58" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(120, -8.0001)
 
-[node name="SpikeTrap59" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap59" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(120, 8.00002)
 
-[node name="SpikeTrap60" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap60" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(216, 23.9999)
 
-[node name="SpikeTrap61" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap61" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(120, 23.9999)
 
-[node name="SpikeTrap7" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap7" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-120, -24)
 
-[node name="SpikeTrap15" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap15" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-216, -24)
 
-[node name="SpikeTrap62" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap62" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-120, 8.00002)
 
-[node name="SpikeTrap63" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap63" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-120, -8.0001)
 
-[node name="SpikeTrap64" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap64" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-216, -8.0001)
 
-[node name="SpikeTrap65" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap65" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-216, 8.00002)
 
-[node name="SpikeTrap66" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap66" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-120, 23.9999)
 
-[node name="SpikeTrap67" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap67" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-216, 23.9999)
 
-[node name="SpikeTrap37" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap37" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-72, -23.9999)
 rhythm = 2
 
-[node name="SpikeTrap40" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap40" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-168, -24)
 rhythm = 2
 
-[node name="SpikeTrap41" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap41" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-72, 8.00012)
 rhythm = 2
 
-[node name="SpikeTrap42" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap42" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-72, -8)
 rhythm = 2
 
-[node name="SpikeTrap43" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap43" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-168, -8.0001)
 rhythm = 2
 
-[node name="SpikeTrap44" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap44" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-168, 8.00002)
 rhythm = 2
 
-[node name="SpikeTrap46" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap46" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-72, 24)
 rhythm = 2
 
-[node name="SpikeTrap47" parent="Walls" instance=ExtResource("4_jkn47")]
+[node name="SpikeTrap47" parent="Walls" instance=ExtResource("5_cwe5i")]
 position = Vector2(-168, 23.9999)
 rhythm = 2
+
+[node name="CharacterContainer" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="WallsNorth" type="TileMapLayer" parent="." groups=["walls"]]
 visible = false
@@ -855,20 +858,17 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AADo//3/BAAJAAIAAADo//7/BAAJAAIAAADo////BAAJAAIAAADo/wAABAAJAAIAAADo/wEABAAJAAIAAADo/wIABAAJAAIAAADp//3/BAAJAAIAAADp//7/BAAJAAIAAADp////BAAJAAIAAADp/wAABAAJAAIAAADp/wEABAAJAAIAAADp/wIABAAJAAIAAADq//3/BAAJAAIAAADq//7/BAAJAAIAAADq////BAAJAAIAAADq/wAABAAJAAIAAADq/wEABAAJAAIAAADq/wIABAAJAAIAAADr//3/BAAJAAIAAADr//7/BAAJAAIAAADr////BAAJAAIAAADr/wAABAAJAAIAAADr/wEABAAJAAIAAADr/wIABAAJAAIAAADs//3/BAAJAAIAAADs//7/BAAJAAIAAADs////BAAJAAIAAADs/wAABAAJAAIAAADs/wEABAAJAAIAAADs/wIABAAJAAIAAADt//3/BAAJAAIAAADt//7/BAAJAAIAAADt////BAAJAAIAAADt/wAABAAJAAIAAADt/wEABAAJAAIAAADt/wIABAAJAAIAAAD7//3/BAAJAAIAAAD7//7/BAAJAAIAAAD7////BAAJAAIAAAD7/wAABAAJAAIAAAD7/wEABAAJAAIAAAD7/wIABAAJAAIAAAD8//3/BAAAAAEAAAD8//7/BAAAAAEAAAD8////BAAAAAEAAAD8/wAABAAAAAEAAAD8/wEABAAAAAEAAAD8/wIABAAAAAEAAADx/wAABAAJAAIAAADx////BAAJAAIAAADx//7/BAAJAAIAAADx//3/BAAJAAIAAADw//3/BAAJAAIAAADv//3/BAAJAAIAAADu//3/BAAJAAIAAADu//7/BAAJAAIAAADu////BAAJAAIAAADu/wAABAAJAAIAAADu/wEABAAJAAIAAADu/wIABAAJAAIAAADv/wIABAAJAAIAAADv/wEABAAJAAIAAADv/wAABAAJAAIAAADv////BAAJAAIAAADv//7/BAAJAAIAAADw//7/BAAJAAIAAADw////BAAJAAIAAADw/wAABAAJAAIAAADw/wEABAAJAAIAAADw/wIABAAJAAIAAADx/wIABAAJAAIAAADx/wEABAAJAAIAAADy/wEABAAJAAIAAADy/wAABAAJAAIAAADy////BAAJAAIAAADy//7/BAAJAAIAAADy//3/BAAJAAIAAADz//3/BAAJAAIAAADz//7/BAAJAAIAAADz////BAAJAAIAAADz/wAABAAJAAIAAADz/wEABAAJAAIAAADz/wIABAAJAAIAAADy/wIABAAJAAIAAAD0/wIABAAJAAIAAAD0/wEABAAJAAIAAAD0/wAABAAJAAIAAAD0////BAAJAAIAAAD0//7/BAAJAAIAAAD0//3/BAAJAAIAAAD1//3/BAAJAAIAAAD1//7/BAAJAAIAAAD1////BAAJAAIAAAD1/wAABAAJAAIAAAD1/wEABAAJAAIAAAD1/wIABAAJAAIAAAD2/wIABAAJAAIAAAD2/wEABAAJAAIAAAD2/wAABAAJAAIAAAD2////BAAJAAIAAAD2//7/BAAJAAIAAAD2//3/BAAJAAIAAAD3//3/BAAJAAIAAAD3//7/BAAJAAIAAAD3////BAAJAAIAAAD3/wAABAAJAAIAAAD3/wEABAAJAAIAAAD3/wIABAAJAAIAAAD4/wIABAAJAAIAAAD4/wEABAAJAAIAAAD4/wAABAAJAAIAAAD4////BAAJAAIAAAD4//7/BAAJAAIAAAD4//3/BAAJAAIAAAD5//3/BAAJAAIAAAD5//7/BAAJAAIAAAD5////BAAJAAIAAAD5/wAABAAJAAIAAAD5/wEABAAJAAIAAAD5/wIABAAJAAIAAAD6/wIABAAJAAIAAAD6/wEABAAJAAIAAAD6/wAABAAJAAIAAAD6////BAAJAAIAAAD6//7/BAAJAAIAAAD6//3/BAAJAAIAAAA=")
 tile_set = SubResource("TileSet_jkn47")
 
-[node name="CharacterContainer" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="DraftNorth" parent="." instance=ExtResource("6_0u28j")]
+[node name="DraftNorth" parent="." instance=ExtResource("6_hgidb")]
 position = Vector2(0, -352)
 
-[node name="DraftSouth" parent="." instance=ExtResource("6_0u28j")]
+[node name="DraftSouth" parent="." instance=ExtResource("6_hgidb")]
 position = Vector2(0, 352)
 direction = 1
 
-[node name="DraftEast" parent="." instance=ExtResource("6_0u28j")]
+[node name="DraftEast" parent="." instance=ExtResource("6_hgidb")]
 position = Vector2(-352, 0)
 direction = 2
 
-[node name="DraftWest" parent="." instance=ExtResource("6_0u28j")]
+[node name="DraftWest" parent="." instance=ExtResource("6_hgidb")]
 position = Vector2(352, 0)
 direction = 3

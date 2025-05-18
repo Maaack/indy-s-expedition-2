@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://ckth0bussxa63"]
+[gd_scene load_steps=30 format=4 uid="uid://ckth0bussxa63"]
 
 [ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_45xnx"]
 [ext_resource type="Texture2D" uid="uid://chno2equ11a3i" path="res://assets/images/0x72_dungeon_tileset/derivatives/dungeontileset-extended_floors.png" id="2_ggyah"]
@@ -18,8 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://cs1ghsvd8m1x7" path="res://scenes/base_level/rooms/treasure_room_man_statue.tscn" id="14_j070r"]
 [ext_resource type="PackedScene" uid="uid://cqb0bkbyxec1w" path="res://scenes/base_level/rooms/heart_room.tscn" id="15_l6mwe"]
 [ext_resource type="PackedScene" uid="uid://dlfyfcvh054og" path="res://scenes/base_level/draft_point.tscn" id="16_0gkbg"]
-[ext_resource type="PackedScene" uid="uid://c2veodw4widu4" path="res://scenes/base_level/rooms/four_passage_room.tscn" id="18_muiq8"]
+[ext_resource type="PackedScene" uid="uid://bfs25lonjcs7s" path="res://scenes/base_level/rooms/divided_passage_room.tscn" id="18_favgm"]
+[ext_resource type="PackedScene" uid="uid://c868xrc14ct17" path="res://scenes/base_level/rooms/spike_passage_room.tscn" id="19_mbyvs"]
 [ext_resource type="Texture2D" uid="uid://dcci08scqs4f" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_tab.svg" id="20_mrdt5"]
+[ext_resource type="PackedScene" uid="uid://chtydnhgbxc5f" path="res://scenes/base_level/rooms/arrow_passage_room.tscn" id="20_yuchr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rn38"]
 texture = ExtResource("2_ggyah")
@@ -673,7 +675,7 @@ visible = false
 visible = false
 treasure_rooms = Array[PackedScene]([ExtResource("12_3jtl5"), ExtResource("13_7gb65"), ExtResource("14_j070r"), ExtResource("13_7gb65"), ExtResource("14_j070r"), ExtResource("12_3jtl5"), ExtResource("12_3jtl5"), ExtResource("12_3jtl5")])
 heart_rooms = Array[PackedScene]([ExtResource("15_l6mwe"), ExtResource("15_l6mwe"), ExtResource("15_l6mwe"), ExtResource("15_l6mwe"), ExtResource("15_l6mwe"), ExtResource("15_l6mwe"), ExtResource("15_l6mwe"), ExtResource("15_l6mwe"), ExtResource("15_l6mwe")])
-hallways = Array[PackedScene]([ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8"), ExtResource("18_muiq8")])
+hallways = Array[PackedScene]([ExtResource("18_favgm"), ExtResource("18_favgm"), ExtResource("18_favgm"), ExtResource("18_favgm"), ExtResource("18_favgm"), ExtResource("18_favgm"), ExtResource("18_favgm"), ExtResource("18_favgm"), ExtResource("19_mbyvs"), ExtResource("19_mbyvs"), ExtResource("19_mbyvs"), ExtResource("19_mbyvs"), ExtResource("19_mbyvs"), ExtResource("19_mbyvs"), ExtResource("20_yuchr"), ExtResource("20_yuchr"), ExtResource("20_yuchr"), ExtResource("20_yuchr"), ExtResource("20_yuchr"), ExtResource("20_yuchr")])
 
 [node name="DraftableLayer" parent="DraftableMap" index="0"]
 tile_map_data = PackedByteArray("AAAAAAAAAAADAAQAAAABAAAAAAADAAQAAAACAAAAAAADAAQAAAADAAAAAAADAAQAAAAAAAQAAAADAAMAAAABAAQAAAADAAMAAAACAAQAAAADAAMAAAADAAQAAAADAAMAAAAAAAYAAAACAAIAAAABAAYAAAACAAIAAAACAAYAAAACAAIAAAADAAYAAAACAAIAAAAAAAoAAAABAAEAAAABAAoAAAABAAEAAAACAAoAAAABAAEAAAADAAoAAAABAAEAAAAEAAAAAAADAAQAAAAAAAgAAAACAAEAAAABAAgAAAACAAEAAAACAAgAAAACAAEAAAADAAgAAAACAAEAAAAFAAAAAAADAAQAAAAEAAgAAAACAAEAAAAFAAgAAAACAAEAAAAGAAgAAAACAAEAAAAHAAgAAAACAAEAAAA=")
