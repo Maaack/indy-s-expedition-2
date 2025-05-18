@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://g2p3metym1v8"]
+[gd_scene load_steps=10 format=3 uid="uid://g2p3metym1v8"]
 
 [ext_resource type="PackedScene" uid="uid://bgiujpubd1qar" path="res://scenes/pickups/pickup.tscn" id="1_bu46b"]
 [ext_resource type="Script" uid="uid://brspynvl420pf" path="res://scenes/pickups/treasure.gd" id="2_7fv6o"]
 [ext_resource type="PackedScene" uid="uid://blat6y3xgu67s" path="res://scenes/stacked_sprites/stacked_sprite_2d.tscn" id="3_nt20o"]
+[ext_resource type="PackedScene" uid="uid://d4nlssgtrlsfn" path="res://scenes/components/hurtbox_2d.tscn" id="4_7fv6o"]
+[ext_resource type="Script" uid="uid://cjxiqd1jrd2d8" path="res://scenes/components/knockback_component.gd" id="5_nt20o"]
 
 [sub_resource type="Animation" id="Animation_bdimq"]
 length = 0.001
@@ -42,13 +44,17 @@ _data = {
 &"SPIN": SubResource("Animation_dbucq")
 }
 
-[node name="Treasure" instance=ExtResource("1_bu46b")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nt20o"]
+
+[node name="Treasure" groups=["treasure"] instance=ExtResource("1_bu46b")]
 script = ExtResource("2_7fv6o")
 score = 0
+friction = 600.0
 
 [node name="StackedSprite2D" parent="." index="2" instance=ExtResource("3_nt20o")]
 unique_name_in_owner = true
 show_sprites = true
+sprite_rotation_offset = -167.629
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 root_node = NodePath("../StackedSprite2D")
@@ -56,3 +62,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_a2x51")
 }
 autoplay = "SPIN"
+
+[node name="Hurtbox2D" parent="." index="4" node_paths=PackedStringArray("_components") groups=["treasure"] instance=ExtResource("4_7fv6o")]
+collision_layer = 16
+collision_mask = 16
+_components = [NodePath("../KnockbackComponent")]
+
+[node name="CollisionShape2D" parent="Hurtbox2D" index="0"]
+shape = SubResource("CircleShape2D_nt20o")
+
+[node name="KnockbackComponent" type="Node" parent="." index="5" node_paths=PackedStringArray("character_2D")]
+script = ExtResource("5_nt20o")
+character_2D = NodePath("..")
+modifier = -0.5
+
+[editable path="Hurtbox2D"]
