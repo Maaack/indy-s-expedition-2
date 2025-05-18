@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmrg8bxi2qgul"]
-
-[ext_resource type="Script" uid="uid://bysmkeaxq1wlq" path="res://scenes/components/boss_stages_component.gd" id="1_tjv5m"]
-
-[node name="BossStagesComponent" type="Node"]
-script = ExtResource("1_tjv5m")

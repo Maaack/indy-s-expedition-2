@@ -1,8 +1,6 @@
 class_name ShootAttackComponent2D
 extends AttackComponent2D
 
-signal new_scene_queued(packed_scene : PackedScene, scene_type : BaseLevel.ChildSceneType, scene_data : Dictionary)
-
 @export var projectile_scene : PackedScene
 @export var projectile_speed : float = 200.0
 @export var attack_target : Vector2 = Vector2.ZERO : 
@@ -26,7 +24,7 @@ func _shoot_projectile_from_position(projectile_vector : Vector2, projectile_pos
 		"position" = projectile_position,
 		"team" = team
 	}
-	new_scene_queued.emit(projectile_scene, BaseLevel.ChildSceneType.PROJECTILE, scene_data)
+	# new_scene_queued.emit(projectile_scene, BaseLevel.ChildSceneType.PROJECTILE, scene_data)
 
 func shoot_projectile(projectile_vector : Vector2):
 	for child in get_children():
