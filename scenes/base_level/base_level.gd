@@ -17,12 +17,12 @@ signal monster_mode_activation_changed(activated : bool)
 @onready var game_map : GameMap = $GameMap
 @onready var draftable_map : DraftableMap = $DraftableMap
 
+@export var rooms_available : int = 0
+
 var pc_node : CharacterBody2D
 var pc_monster_node : CharacterBody2D
 var enemy_host_node : CharacterBody2D
 var floating_text_scene = preload("res://scenes/floating_text/floating_text_2d.tscn")
-var stolen_artifacts : int = 0
-var rooms_drafted : int = 0
 
 var level_state : LevelState
 
@@ -62,15 +62,21 @@ func _connect_all_enemy_signals():
 		_attach_enemy_signals(child)
 
 func _on_treasure_picked_up(add_score : int, treasure_position : Vector2) -> void:
-	if stolen_artifacts == 0 and not level_state.stealing_tutorial_read:
+	if level_state.artifacts_stolen == 0 and not level_state.stealing_tutorial_read:
 		stealing_tutorial_manager.open_tutorials()
 		level_state.stealing_tutorial_read = true
-		GlobalState.save()
-	stolen_artifacts += 1
+	level_state.artifacts_stolen += 1
+	level_state.culture_scored += add_score
+	GlobalState.save()
 	spawn_floating_text(treasure_position, "+%d" % add_score)
 
+func _on_treasure_added(add_score : int) -> void:
+	level_state.artifacts_available += 1
+	level_state.culture_available += add_score
+	GlobalState.save()
+
 func _on_player_drafting_room(current_tile : Vector2i, direction : Vector2i):
-	if rooms_drafted == 0 and not level_state.drafting_tutorial_read:
+	if level_state.rooms_drafted == 0 and not level_state.drafting_tutorial_read:
 		drafting_tutorial_manager.open_tutorials()
 		level_state.drafting_tutorial_read = true
 		GlobalState.save()
@@ -91,7 +97,10 @@ func _ready():
 	ProjectEvents.player_drafting_room.connect(_on_player_drafting_room)
 	ProjectEvents.room_drafted.connect(add_room)
 	ProjectEvents.player_died.connect(_on_player_died)
+	ProjectEvents.treasure_added.connect(_on_treasure_added)
 	level_state = GameState.get_level_state(scene_file_path)
+	level_state.rooms_available = rooms_available
+	level_state.reset_level_score()
 	if not level_state.tutorial_read:
 		open_tutorials()
 
@@ -115,5 +124,7 @@ func add_room(room_data : RoomData) -> void:
 		scene_instance.room_data = room_data
 		for object in scene_instance.character_container.get_children():
 			object.reparent(character_container)
-	if stolen_artifacts > 0:
+	if level_state.artifacts_stolen > 0:
 		ProjectEvents.player_aggro.emit()
+	level_state.rooms_drafted += 1
+	GlobalState.save()

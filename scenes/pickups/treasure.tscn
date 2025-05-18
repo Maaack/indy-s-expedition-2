@@ -54,7 +54,7 @@ friction = 600.0
 [node name="StackedSprite2D" parent="." index="2" instance=ExtResource("3_nt20o")]
 unique_name_in_owner = true
 show_sprites = true
-sprite_rotation_offset = -167.629
+sprite_rotation_offset = -30.5497
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 root_node = NodePath("../StackedSprite2D")

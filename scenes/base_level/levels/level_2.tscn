@@ -481,6 +481,7 @@ sources/4 = SubResource("TileSetAtlasSource_c2ddb")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_xoeed")
+rooms_available = 3
 metadata/_edit_vertical_guides_ = [256.0, 384.0]
 metadata/_edit_horizontal_guides_ = [255.0, 384.0]
 
