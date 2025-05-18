@@ -511,8 +511,8 @@ offset_left = 87.0
 offset_top = 343.0
 offset_right = 207.0
 offset_bottom = 366.0
-text = "Hold to Swing
-Combine with Jump"
+text = "Hold and combine
+with Jump to Swing"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Control" index="4"]
