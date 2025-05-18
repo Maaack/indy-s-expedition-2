@@ -20,7 +20,6 @@ var heart_instances : Array[HealthTextureRect]
 
 func _refresh_hearts():
 	var remaining_health := health
-	print(remaining_health)
 	for heart_instance in heart_instances:
 		if remaining_health >= health_per_heart:
 			heart_instance.state = HealthTextureRect.State.FULL
@@ -29,7 +28,6 @@ func _refresh_hearts():
 		else:
 			heart_instance.state = HealthTextureRect.State.EMPTY
 		remaining_health -= health_per_heart
-		print(" : ", remaining_health)
 
 func _ready():
 	var heart_count := max_health / health_per_heart
