@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://be5su3td71fqq"]
+[gd_scene load_steps=2 format=3 uid="uid://dyv34flci70k4"]
 
-[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_4mvkw"]
+[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_ddy8i"]
 
-[node name="Tutorial3" instance=ExtResource("1_4mvkw")]
+[node name="Tutorial3" instance=ExtResource("1_ddy8i")]
 process_mode = 3
 pauses_game = true
 
@@ -25,16 +25,10 @@ text = ""
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Hmm... again with the traps -
-
-And angry mobs.
-
-It's like they don't like spreading their culture.
-
-Just selfishly keeping it for themselves! 
+text = "[center]Just selfishly keeping it for themselves! 
 
 I'll be sure to note that by the artifact's display...
 
-\"* Tomb dwellers are not the sharing type.\"
+\"* Tomb dweller culture is not the sharing type.\"
 [/center]"
 fit_content = true

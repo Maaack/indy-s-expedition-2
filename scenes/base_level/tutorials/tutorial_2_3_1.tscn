@@ -1,11 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cet7bextgafg8"]
+[gd_scene load_steps=2 format=3 uid="uid://be5su3td71fqq"]
 
-[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_5x8e5"]
+[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_3xr1v"]
 
-[node name="Tutorial2" instance=ExtResource("1_5x8e5")]
+[node name="Tutorial3" instance=ExtResource("1_3xr1v")]
 process_mode = 3
-offset_top = -1.0
-offset_bottom = -1.0
 pauses_game = true
 
 [node name="MenuPanelContainer" parent="." index="1"]
@@ -27,12 +25,10 @@ text = ""
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Try to get all 8 rooms with cultural artifacts.
+text = "[center]Hmm... again with the traps -
 
-Remember...
+And angry mobs.
 
-You can finish exploring before taking an artifact.
-
-Lastly, check your map if you get lost.
+It's like they don't like spreading their culture.
 [/center]"
 fit_content = true

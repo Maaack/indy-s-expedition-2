@@ -25,7 +25,7 @@ text = ""
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Wow! You made it!
+text = "[center]Wow Indy! You made it!
 
 Right passed the main menu. Against all odds!
 

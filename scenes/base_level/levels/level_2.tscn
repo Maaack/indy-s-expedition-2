@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://7qr7lo3pbbms"]
+[gd_scene load_steps=27 format=4 uid="uid://7qr7lo3pbbms"]
 
 [ext_resource type="Script" uid="uid://cmyssem4b6jsj" path="res://scenes/base_level/base_level.gd" id="1_xoeed"]
 [ext_resource type="PackedScene" uid="uid://dk434t73ojd35" path="res://scenes/traps/spike_trap.tscn" id="2_ejuk3"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://hji8le5si4gx" path="res://scenes/player_character/player_character_2d.tscn" id="7_fj2u3"]
 [ext_resource type="PackedScene" uid="uid://cbuhf6ck8ejxb" path="res://scenes/base_level/exit_point.tscn" id="8_y2aor"]
 [ext_resource type="Script" uid="uid://3j3oc0tled2p" path="res://scenes/game_scene/tutorial_manager.gd" id="9_ic7uo"]
-[ext_resource type="PackedScene" uid="uid://be5su3td71fqq" path="res://scenes/base_level/tutorials/tutorial_2_3.tscn" id="10_g8w5c"]
+[ext_resource type="PackedScene" uid="uid://be5su3td71fqq" path="res://scenes/base_level/tutorials/tutorial_2_3_1.tscn" id="10_g8w5c"]
 [ext_resource type="PackedScene" uid="uid://cgqgnt3ugjco8" path="res://scenes/base_level/tutorials/tutorial_2_2.tscn" id="10_poe6o"]
+[ext_resource type="PackedScene" uid="uid://dyv34flci70k4" path="res://scenes/base_level/tutorials/tutorial_2_3_2.tscn" id="11_ic7uo"]
 [ext_resource type="PackedScene" uid="uid://ok0trkn2uktm" path="res://scenes/map/game_map.tscn" id="11_oho5x"]
 [ext_resource type="PackedScene" uid="uid://c71xy2rk5q3a8" path="res://scenes/map/drafting/draftable_map.tscn" id="12_jafsa"]
 [ext_resource type="PackedScene" uid="uid://bvhpdoddfuumf" path="res://scenes/base_level/rooms/treasure_room_rings.tscn" id="13_2o7ev"]
@@ -651,7 +652,7 @@ autoplay = true
 
 [node name="StealingTutorialManager" type="Node" parent="."]
 script = ExtResource("9_ic7uo")
-tutorial_scenes = Array[PackedScene]([ExtResource("10_g8w5c")])
+tutorial_scenes = Array[PackedScene]([ExtResource("10_g8w5c"), ExtResource("11_ic7uo")])
 open_delay = 0.5
 
 [node name="DraftingTutorialManager" type="Node" parent="."]
