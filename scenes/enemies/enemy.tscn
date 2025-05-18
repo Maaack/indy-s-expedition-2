@@ -53,7 +53,8 @@ enabled = false
 
 [node name="CheckLOSComponent" parent="." instance=ExtResource("5_n7575")]
 target_group_name = &"player"
-collision_mask = 2
+collision_mask = 9
+update_time = 0.2
 
 [node name="DetectorBox2D" parent="." instance=ExtResource("6_y5th1")]
 collision_layer = 0
