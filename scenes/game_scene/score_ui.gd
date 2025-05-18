@@ -6,6 +6,6 @@ extends HBoxContainer
 	set(value):
 		score = value
 		if is_inside_tree():
-			label.text = "%08d" % score
+			label.text = "%04d" % score
 
 @onready var label : Label = %Label
